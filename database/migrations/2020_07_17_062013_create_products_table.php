@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->string('colors')->nullable();
             $table->text('description')->nullable();
             $table->text('detail');
+            $table->tinyInteger('highlight');
             $table->tinyInteger('status')->default('1');
             $table->timestamps();
         });
