@@ -19,4 +19,5 @@ Route::get('/', function () {
 
 Route::group(['prefix'=>'admin','as'=>'backend.'], function(){
     Route::get('/', ['as' => 'index', 'uses' => 'Backend\SiteController@index']);
+    Route::resource('products','Backend\ProductController');
 });
