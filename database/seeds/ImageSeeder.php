@@ -42,8 +42,8 @@ class ImageSeeder extends Seeder
                 'product_id' => 3,
                 'url_1' => 'https://ferosh.vn/storage/images/9d2596a5514f8021eaf84fc7e42f792b/420x630/pR6DDDFSpl2QCILHzVzwDiq6N0ktvPIQ06I6Oern.jpeg',
                 'url_2' =>'https://ferosh.vn/storage/images/9d2596a5514f8021eaf84fc7e42f792b/420x630/7uzIwAHGeTG48lQCctUbAMZAvvJXvoguRfRfIxsG.jpeg',
+                'url_4' => '',
                 'url_3' =>'https://ferosh.vn/storage/images/9d2596a5514f8021eaf84fc7e42f792b/420x630/HxhyG4Fh5PV6RMoV0Q7ik8GXqTcOAKSsYkkjAWQi.jpeg',
-                'url_4' =>[NULL],
                 'status' => 1,
                 'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
@@ -54,7 +54,7 @@ class ImageSeeder extends Seeder
                 'url_1' => 'https://ferosh.vn/storage/images/66a7bb0bfc7f4f952d518528c1c7e024/420x630/zwdag2m5k13NirHPQRS3ihKRY07VvsOPZ3yKhPYz.jpeg',
                 'url_2' =>'https://ferosh.vn/storage/images/66a7bb0bfc7f4f952d518528c1c7e024/420x630/dLJewKzDehyauN0mrYqKU9vIczUmK7FpbKNm06s0.jpeg',
                 'url_3' =>'https://ferosh.vn/storage/images/66a7bb0bfc7f4f952d518528c1c7e024/420x630/JejyYAhyc9uOkTExBlRHXkLI23f4ZTP2KNyoJJ5J.jpeg',
-                'url_4' =>[NULL],
+                'url_4' => '',
                 'status' => 1,
                 'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
@@ -86,8 +86,8 @@ class ImageSeeder extends Seeder
                 'product_id' => 7,
                 'url_1' => 'https://ferosh.vn/uploads/13-09-2019/420x630/DRE1062-5.jpg',
                 'url_2' =>'https://ferosh.vn/uploads/13-09-2019/420x630/DRE1062-7.jpg',
-                'url_3' =>[NULL],
-                'url_4' =>[NULL],
+                'url_3' => '',
+                'url_4' => '',
                 'status' => 1,
                 'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
@@ -208,7 +208,7 @@ class ImageSeeder extends Seeder
                 'url_1' => 'https://ferosh.vn/uploads/09-11-2019/420x630/3M3A8351.jpg',
                 'url_2' =>'https://ferosh.vn/uploads/09-11-2019/420x630/3M3A8382.jpg',
                 'url_3' =>'https://ferosh.vn/uploads/09-11-2019/420x630/3M3A8402.jpg',
-                'url_4' =>[NULL],
+                'url_4' => '',
                 'status' => 1,
                 'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')

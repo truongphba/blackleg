@@ -17,76 +17,45 @@ class SizeSeeder extends Seeder
         DB::table('sizes')->insert([
             [
                 'id' => 1,
-                'name' => 'Free Size',
-                'description' => [NULL],
-                'product_id' => 1,
+                'name' => 'S',
+                'description' => '',
                 'status' => 1,
                 'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
             ],
             [
                 'id' => 2,
-                'name' => 'S','M','L',
-                'description' => [NULL],
-                'product_id' => 2,
+                'name' => 'M',
+                'description' => '',
                 'status' => 1,
                 'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
             ],
             [
                 'id' => 3,
-                'name' => 'S','M','L','XL',
-                'description' => [NULL],
-                'product_id' => 3,
+                'name' => 'L',
+                'description' => '',
                 'status' => 1,
                 'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
             ],
             [
                 'id' => 4,
-                'name' => 'M','L',
-                'description' => [NULL],
-                'product_id' => 4,
+                'name' => 'XL',
+                'description' => '',
                 'status' => 1,
                 'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
             ],
             [
                 'id' => 5,
-                'name' => 'M','L','XL',
-                'description' => [NULL],
-                'product_id' => 5,
+                'name' => 'Free Size',
+                'description' => '',
                 'status' => 1,
                 'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
             ],
-            [
-                'id' => 6,
-                'name' => 'S',
-                'description' => [NULL],
-                'product_id' => 6,
-                'status' => 1,
-                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
-                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
-            ],
-            [
-                'id' => 7,
-                'name' => 'S','M',
-                'description' => [NULL],
-                'product_id' => 7,
-                'status' => 1,
-                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
-                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
-            ],
-            [
-                'id' => 8,
-                'name' => 'M',
-                'description' => [NULL],
-                'product_id' => 8,
-                'status' => 1,
-                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
-                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
-            ],
+
         ]);
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }

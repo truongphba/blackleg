@@ -17,10 +17,10 @@ class CreateImagesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
-            $table->string('url_1');
-            $table->string('url_2');
-            $table->string('url_3')->nullable();
-            $table->string('url_4')->nullable();
+            $table->string('url')->nullable();
+//            $table->string('url_2')->nullable();
+//            $table->string('url_3')->nullable();
+//            $table->string('url_4')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
