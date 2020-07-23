@@ -17,7 +17,7 @@ class CreateImagesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
-            $table->string('url');
+            $table->string('url')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
