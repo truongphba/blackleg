@@ -8,6 +8,6 @@ class Size extends Model
 {
     public function size()
     {
-        return $this->belongsToMany('App/Size');
+        return $this->belongsToMany('App\Size');
     }
 }
