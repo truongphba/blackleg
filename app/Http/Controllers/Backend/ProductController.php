@@ -13,9 +13,16 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $list = Product::orderBy('created_at','desc')->paginate(10);
+        $keyword = $request->get('keyword');
+        $list = Product::with('category')
+            ->orderBy('created_at','desc')
+            ->where('name','like','%' . $keyword . '%')
+//            ->orWhere('category.name','like','%' . $keyword . '%')
+            ->paginate(10)
+            ->appends($request->only('keyword'));
+        dd($list);
         return view('backend.product.index')->with('list',$list);
     }
 
