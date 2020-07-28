@@ -21,7 +21,7 @@
                         </form>
                     </div>
                     <div class="col-md-2 text-right">
-                        <button class="btn btn-success text-uppercase">Add</button>
+                       <a href="{{route('backend.products.create')}}"> <button class="btn btn-success text-uppercase">Add</button></a>
                     </div>
                 </div>
             </div>
