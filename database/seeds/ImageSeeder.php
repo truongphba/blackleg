@@ -50,7 +50,7 @@ class ImageSeeder extends Seeder
             [
                 'id' => 5,
                 'product_id' => 2,
-                'url' => 'https://ferosh.vn/storage/images/e26af35311d1e3eb0873d862e83aa1d4/420x630/UxUyLVYQ6tz8Fm1kjirIzjuwSb94mVs8sWPa2hAr.jpeg',
+                'url' => 'https://ferosh.vn/storage/images/0c28423a88b5dbffd0d1ee2aec41efd0/420x630/RrPhuNQc1LiOz64MVF9cZVOlFGMHBaUXMJThvI1l.jpeg',
                 'status' => 1,
                 'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
@@ -58,7 +58,7 @@ class ImageSeeder extends Seeder
             [
                 'id' => 6,
                 'product_id' => 2,
-                'url' =>'https://ferosh.vn/storage/images/e26af35311d1e3eb0873d862e83aa1d4/420x630/N4tU5uorFWZryMphb0yR8X0Jz9nTNhbedZFPmGES.jpeg',
+                'url' =>'https://ferosh.vn/storage/images/0c28423a88b5dbffd0d1ee2aec41efd0/420x630/Z8D4Nd3D9OaNX9BiA5arjHk5k7Sgq78PHlHdMYyj.jpeg',
                 'status' => 1,
                 'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
@@ -66,15 +66,7 @@ class ImageSeeder extends Seeder
             [
                 'id' => 7,
                 'product_id' => 2,
-                'url' =>'https://ferosh.vn/storage/images/e26af35311d1e3eb0873d862e83aa1d4/420x630/SG84H2TsQ18fHccGMFRSYVogtrpsIpwgJeP062Lr.jpeg',
-                'status' => 1,
-                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
-                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
-            ],
-            [
-                'id' => 8,
-                'product_id' => 2,
-                'url' =>'https://ferosh.vn/storage/images/e26af35311d1e3eb0873d862e83aa1d4/420x630/keJV3M2pZudxe8Ggzmkhichn7JTAkf72yUpaNfSm.jpeg',
+                'url' =>'https://ferosh.vn/storage/images/0c28423a88b5dbffd0d1ee2aec41efd0/420x630/mr9KGqAAAls7mAH7AzA80roLxASnuGKrWpDtyUAl.jpeg',
                 'status' => 1,
                 'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
