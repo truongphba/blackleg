@@ -35,14 +35,13 @@ class ProductSeeder extends Seeder
             [
                 'id' => 2,
                 'category_id' => 3,
-                'name' => 'ĐẦM KẺ CỔ ĐỨC KẺ TRẮNG',
-                'price' => '1215000',
-                'thumbnail' => 'https://ferosh.vn/storage/images/e26af35311d1e3eb0873d862e83aa1d4/420x630/UxUyLVYQ6tz8Fm1kjirIzjuwSb94mVs8sWPa2hAr.jpeg',
-                'colorss' => 'Trắng',
+                'name' => 'ĐẦM KẺ XUÔNG BÈO GẤU KẺ NÂU',
+                'price' => '885000',
+                'thumbnail' => 'https://ferosh.vn/storage/images/0c28423a88b5dbffd0d1ee2aec41efd0/420x630/RrPhuNQc1LiOz64MVF9cZVOlFGMHBaUXMJThvI1l.jpeg',
+                'colorss' => 'Kẻ nâu',
                 'description' => '',
                 'detail' => '- Sản phẩm: Có lót.</br>
-                             - Chất liệu: Cotton Linen.</br>
-                             - Lót: Không</br>
+                             - Chất liệu: Thô Linen Hàn Quốc.</br>
                              - Co giãn: Không',
                 'highlight' => 1,
                 'status' => 1,
@@ -322,9 +321,9 @@ class ProductSeeder extends Seeder
                 'category_id' => 3,
                 'name' => 'ĐẦM XÒE LỤA NỀN XANH HAI DÂY',
                 'price' => '1499000',
-                'thumbnail' => '',
+                'thumbnail' => 'https://ferosh.vn/storage/images/d94500cbf74c4ea234acc780c04913a2/525x787/P7clnBppXmthRsLt8OeB4OUAWtGOFzFFRWxgTAlM.jpeg',
                 'colors' => 'Xanh',
-                'description' => 'https://ferosh.vn/storage/images/d94500cbf74c4ea234acc780c04913a2/525x787/P7clnBppXmthRsLt8OeB4OUAWtGOFzFFRWxgTAlM.jpeg',
+                'description' => '',
                 'detail' => '- Chất liệu: Lụa</br>
                              - Lót: Không</br>
                              - Co giãn: Không',
@@ -338,9 +337,9 @@ class ProductSeeder extends Seeder
                 'category_id' => 3,
                 'name' => 'ĐẦM LỤA XÒE TRẮNG',
                 'price' => '1099000',
-                'thumbnail' => '',
+                'thumbnail' => 'https://ferosh.vn/storage/images/2188a2fe8f909b85070d055dfe363142/525x787/BZZxgrbycyr6gxWepaMS9aKzeoFiZJ06Qz7CLWKm.jpeg',
                 'colors' => 'Trắng',
-                'description' => 'https://ferosh.vn/storage/images/2188a2fe8f909b85070d055dfe363142/525x787/BZZxgrbycyr6gxWepaMS9aKzeoFiZJ06Qz7CLWKm.jpeg',
+                'description' => '',
                 'detail' => '- Chất liệu: Lụa</br>
                              - Lót: Không</br>
                              - Co giãn: Không',
@@ -354,9 +353,9 @@ class ProductSeeder extends Seeder
                 'category_id' => 3,
                 'name' => 'ĐẦM XÒE THÔ CÓ DÂY ĐAI',
                 'price' => '1399000',
-                'thumbnail' => '',
+                'thumbnail' => 'https://ferosh.vn/storage/images/8646de4bf4a5dc60490bf6479ada9250/525x787/C8GzJ6BJh22jnzfTxYvSJ400fJIHWAkT1oLUX6zw.jpeg',
                 'colors' => 'Đen',
-                'description' => 'https://ferosh.vn/storage/images/8646de4bf4a5dc60490bf6479ada9250/525x787/C8GzJ6BJh22jnzfTxYvSJ400fJIHWAkT1oLUX6zw.jpeg',
+                'description' => '',
                 'detail' => '- Chất liệu: Thô</br>
                              - Lót: Không</br>
                              - Co giãn: Không',
@@ -370,9 +369,9 @@ class ProductSeeder extends Seeder
                 'category_id' => 3,
                 'name' => 'ĐẦM THÔ KHOÉT NGỰC',
                 'price' => '1399000',
-                'thumbnail' => '',
+                'thumbnail' => 'https://ferosh.vn/storage/images/2ef1bbdc45ad8e0abaa18d187033bca2/525x787/CjneRHpR0Rf7HDp95fDV05xB57BbT7krw2dHs5Ub.jpeg',
                 'colors' => 'Kem họa tiết',
-                'description' => 'https://ferosh.vn/storage/images/2ef1bbdc45ad8e0abaa18d187033bca2/525x787/CjneRHpR0Rf7HDp95fDV05xB57BbT7krw2dHs5Ub.jpeg',
+                'description' => '',
                 'detail' => '- Chất liệu: Thô</br>
                              - Lót: Không</br>
                              - Co giãn: Không',
@@ -386,9 +385,9 @@ class ProductSeeder extends Seeder
                 'category_id' => 3,
                 'name' => 'ĐẦM THÔ DÁNG A SÁT NÁCH TUA RUA GẤU',
                 'price' => '1499000',
-                'thumbnail' => '',
+                'thumbnail' => 'https://ferosh.vn/storage/images/f133b30511fd4fcb683d685de5514bc7/525x787/70uGXzF1ITd9PRnNrywjzCSxknqd9e0ALYf2CHVC.jpeg',
                 'colors' => 'Đen',
-                'description' => 'https://ferosh.vn/storage/images/f133b30511fd4fcb683d685de5514bc7/525x787/70uGXzF1ITd9PRnNrywjzCSxknqd9e0ALYf2CHVC.jpeg',
+                'description' => '',
                 'detail' => '- Chất liệu: Thô</br>
                              - Lót: Không</br>
                              - Co giãn: Không',
