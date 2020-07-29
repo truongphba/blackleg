@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Product;
+use App\Size;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -34,7 +36,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('backend.product.create');
+        $categories = Category::where('status',1)->get();
+        $sizes = Size::all();
+        return view('backend.product.create')->with(['categories'=> $categories, 'sizes' => $sizes]);
     }
 
     /**

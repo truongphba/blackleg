@@ -33,8 +33,10 @@
                             <th>Id</th>
                             <th>Category</th>
                             <th>Name</th>
+                            <th>Colors</th>
                             <th>Price</th>
                             <th>Status</th>
+                            <th>Created At</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -43,12 +45,14 @@
                                 <td>{{$item->id}}</td>
                                 <td>{{$item->category->name}}</td>
                                 <td>{{$item->name}}</td>
+                                <td>{{$item->colors}}</td>
                                 <td>{{number_format($item->price)}}</td>
                                 @if($item->status)
                                     <td style="color: green" class="text-uppercase">Active</td>
                                 @else
                                     <td style="color: red" class="text-uppercase">Deactive</td>
                                 @endif
+                                <td>{{date_format($item->created_at, 'Y-m-d')}}</td>
                             </tr>
                         @endforeach
                         </tbody>

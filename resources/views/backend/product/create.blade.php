@@ -15,26 +15,120 @@
                 </div>
             </div>
             <div class="card-body">
-                <button id="upload_widget" class="cloudinary-button">Upload files</button>
+                <form id="product_form">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Name:</label>
+                                <input class="form-control" name="name" {{old('name')}}>
+                                @error('name')
+                                <p style="color: red">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Category:</label>
+                                <select class="form-control" name="category">
+                                    @foreach($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                    @endforeach
+                                </select>
+                                @error('title')
+                                <p style="color: red">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Price:</label>
+                                <input class="form-control" name="price" {{old('price')}}>
+                                @error('price')
+                                <p style="color: red">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Colors:</label>
+                                <input class="form-control" name="colors" {{old('colors')}}>
+                                @error('colors')
+                                <p style="color: red">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                  <div class="row">
+                      <div class="col-md-2">
+                          <div class="form-group">
+                              <label>Thumbnail:</label>
+                              <button type="button" id="upload_widget" class="btn btn-success">Upload files</button>
+                              <div class="thumbnail"></div>
+                          </div>
+                      </div>
+                      <div class="col-md-5">
+                          <div class="form-group">
+                              <label>Quantity:</label>
+                                      <div class="form-row">
+                                          @foreach($sizes as $size)
+                                            <div class="form-group col-md-2">
+                                                <input class="form-control mb-2" name="quantity_{{$size->name}}" placeholder="{{$size->name}}">
+                                            </div>
+                                          @endforeach
+                                      </div>
+                          </div>
+                      </div>
+                  </div>
+                    <div class="form-group">
+                        <label>Description:</label>
+                        <textarea id="description" class="form-control" name="description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Detail:</label>
+                        <textarea id="detail" class="form-control" name="detail" {{old('detail')}}></textarea>
+                        @error('detail')
+                        <p style="color: red">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script>
+        $(document).ready(function(){
+            CKEDITOR.replace('description');
+            CKEDITOR.replace('detail');
 
-    <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
-
-    <script type="text/javascript">
-        var myWidget = cloudinary.createUploadWidget({
-                cloudName: 'my_cloud_name',
-                uploadPreset: 'my_preset'}, (error, result) => {
-                if (!error && result && result.event === "success") {
-                    console.log('Done! Here is the image info: ', result.info);
+            var myWidget = cloudinary.createUploadWidget(
+                {
+                    cloudName: 'truongph',
+                    uploadPreset: 'au4uj3sm',
+                    form: '#product_form',
+                    multiple: false,
+                    fieldName: 'thumbnail',
+                    thumbnails: '.thumbnail',
+                    thumbnailTransformation : [{width: 200, height: 200, crop: 'fill'}]
+                }, function (error, result) {
+                    if (!error && result && result.event === "success") {
+                        console.log('Done! Here is the image info: ', result.info.url);
+                    }
                 }
-            }
-        )
+            );
 
-        document.getElementById("upload_widget").addEventListener("click", function(){
-            myWidget.open();
-        }, false);
+            document.getElementById("upload_widget").addEventListener("click", function () {
+                myWidget.open();
+            }, false);
+
+            $('body').on('click', '.cloudinary-delete', function () {
+                var splittedImg = $(this).parent().find('img').attr('src').split('/');
+                var imgName = splittedImg[splittedImg.length - 1];
+                imgName = imgName.replace('.jpg', '');
+                $('input[data-cloudinary-public-id="' + imgName + '"]').remove();
+            });
+        });
     </script>
 @endsection
-

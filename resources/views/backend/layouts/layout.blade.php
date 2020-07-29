@@ -96,6 +96,9 @@
 <!-- Page level custom scripts -->
 <script src="{{asset('backend/js/demo/chart-area-demo.js')}}"></script>
 <script src="{{asset('backend/js/demo/chart-pie-demo.js')}}"></script>
+<script src={{ url('ckeditor/ckeditor.js') }}></script>
+<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+@yield('script')
 </body>
 
 </html>
