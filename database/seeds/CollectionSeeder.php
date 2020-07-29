@@ -31,6 +31,30 @@ class CollectionSeeder extends Seeder
                 'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
             ],
+            [
+                'id' => 3,
+                'name' => 'SEVEN.AM',
+                'thumbnail' => 'https://i.ytimg.com/vi/6pharRlD2uI/maxresdefault.jpg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 4,
+                'name' => 'ME\'S DIARY',
+                'thumbnail' => 'https://scontent.fhan5-7.fna.fbcdn.net/v/t1.0-9/88158758_1034291020260114_1152949254390546432_o.jpg?_nc_cat=100&_nc_sid=730e14&_nc_ohc=2aOS_r8qwNEAX_esoRE&_nc_ht=scontent.fhan5-7.fna&oh=e9b08644a25cf59f4e85d2edea635d7d&oe=5F473BCF',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 5,
+                'name' => 'EMMA',
+                'thumbnail' => 'https://scontent.fhan5-6.fna.fbcdn.net/v/t1.0-9/116073538_3228720017173597_769423600697365999_o.jpg?_nc_cat=107&_nc_sid=e3f864&_nc_ohc=xjeYahF2RtYAX_wPb25&_nc_ht=scontent.fhan5-6.fna&oh=46049c04db4ee8d568bca0636e889df0&oe=5F45825F',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
 
         ]);
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');

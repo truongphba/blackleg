@@ -17,7 +17,7 @@ class CategorySeeder extends Seeder
         DB::table('categories')->insert([
             [
                 'id' => 1,
-                'name' => 'Áo',
+                'name' => 'Áo Sơ Mi',
                 'thumbnail' => 'https://ferosh.vn/uploads/14-08-2019/420x630/V61B19H049-RSS51--M64T19Q010-P4115--2-.jpg',
                 'status' => 1,
                 'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
