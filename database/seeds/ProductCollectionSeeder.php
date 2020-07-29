@@ -86,6 +86,94 @@ class ProductCollectionSeeder extends Seeder
                 'product_id' => 18,
                 'collection_id' => 2,
             ],
+            [
+                'product_id' => 19,
+                'collection_id' => 3,
+            ],
+            [
+                'product_id' => 20,
+                'collection_id' => 3,
+            ],
+            [
+                'product_id' => 21,
+                'collection_id' => 3,
+            ],
+            [
+                'product_id' => 22,
+                'collection_id' => 3,
+            ],
+            [
+                'product_id' => 23,
+                'collection_id' => 3,
+            ],
+            [
+                'product_id' => 24,
+                'collection_id' => 3,
+            ],
+            [
+                'product_id' => 25,
+                'collection_id' => 3,
+            ],
+            [
+                'product_id' => 26,
+                'collection_id' => 4,
+            ],
+            [
+                'product_id' => 27,
+                'collection_id' => 4,
+            ],
+            [
+                'product_id' => 28,
+                'collection_id' => 4,
+            ],
+            [
+                'product_id' => 29,
+                'collection_id' => 4,
+            ],
+            [
+                'product_id' => 30,
+                'collection_id' => 4,
+            ],
+            [
+                'product_id' => 31,
+                'collection_id' => 4,
+            ],
+            [
+                'product_id' => 32,
+                'collection_id' => 4,
+            ],
+            [
+                'product_id' => 33,
+                'collection_id' => 5,
+            ],
+            [
+                'product_id' => 34,
+                'collection_id' => 5,
+            ],
+            [
+                'product_id' => 35,
+                'collection_id' => 5,
+            ],
+            [
+                'product_id' => 36,
+                'collection_id' => 5,
+            ],
+            [
+                'product_id' => 37,
+                'collection_id' => 5,
+            ],
+            [
+                'product_id' => 38,
+                'collection_id' => 5,
+            ],
+            [
+                'product_id' => 39,
+                'collection_id' => 5,
+            ],
+            [
+                'product_id' => 40,
+                'collection_id' => 5,
+            ],
             ]);
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }

@@ -534,6 +534,486 @@ class ImageSeeder extends Seeder
                 'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
             ],
+            [
+                'id' => 66,
+                'product_id' => 19,
+                'url' =>'https://ferosh.vn/storage/images/d94500cbf74c4ea234acc780c04913a2/420x630/P7clnBppXmthRsLt8OeB4OUAWtGOFzFFRWxgTAlM.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 67,
+                'product_id' => 19,
+                'url' =>'https://ferosh.vn/storage/images/d94500cbf74c4ea234acc780c04913a2/420x630/tGY8gTTS2Dh5EEbp2768IBenWhPVc1KgyneVxODN.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 68,
+                'product_id' => 20,
+                'url' =>'https://ferosh.vn/storage/images/2188a2fe8f909b85070d055dfe363142/420x630/BZZxgrbycyr6gxWepaMS9aKzeoFiZJ06Qz7CLWKm.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 69,
+                'product_id' => 20,
+                'url' =>'https://ferosh.vn/storage/images/2188a2fe8f909b85070d055dfe363142/420x630/apNLh1OkqaNaTHqtOnTdJw5mRPvDSYqB1NWEt8gF.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 70,
+                'product_id' => 21,
+                'url' =>'https://ferosh.vn/storage/images/8646de4bf4a5dc60490bf6479ada9250/420x630/dnraNV5iLBwtEnaK4DBxzcMGfOwfbjTMydQYLhew.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 71,
+                'product_id' => 21,
+                'url' =>'https://ferosh.vn/storage/images/8646de4bf4a5dc60490bf6479ada9250/420x630/C8GzJ6BJh22jnzfTxYvSJ400fJIHWAkT1oLUX6zw.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 72,
+                'product_id' => 22,
+                'url' =>'https://ferosh.vn/storage/images/2ef1bbdc45ad8e0abaa18d187033bca2/420x630/2IIUhYDGEqUDYY0wtOWD4HqonuD4jX4iIbvQRyUS.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 73,
+                'product_id' => 22,
+                'url' =>'https://ferosh.vn/storage/images/2ef1bbdc45ad8e0abaa18d187033bca2/420x630/CjneRHpR0Rf7HDp95fDV05xB57BbT7krw2dHs5Ub.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 74,
+                'product_id' => 23,
+                'url' =>'https://ferosh.vn/storage/images/f133b30511fd4fcb683d685de5514bc7/420x630/Zhk6culE0SsdkuHsRg8GDpug1gm92Nccbyj57Dyo.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 75,
+                'product_id' => 23,
+                'url' =>'https://ferosh.vn/storage/images/f133b30511fd4fcb683d685de5514bc7/420x630/70uGXzF1ITd9PRnNrywjzCSxknqd9e0ALYf2CHVC.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 76,
+                'product_id' => 24,
+                'url' =>'https://ferosh.vn/storage/images/8fc2ff25a36a84a76e695d7a30819c21/420x630/ciiJUcLfzCHaoDKmI7cRbKTvS6sBAK0IpWvhmosZ.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 77,
+                'product_id' => 24,
+                'url' =>'https://ferosh.vn/storage/images/8fc2ff25a36a84a76e695d7a30819c21/420x630/igsPT7sR7pwGKlXIqHXWX9ypFa7qYOztHpEmCIRT.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 78,
+                'product_id' => 25,
+                'url' =>'https://ferosh.vn/storage/images/96f10132748c7049e3bbf5ca0b275f18/420x630/YmKsB5dNUwUt77E1ydq2NEIkJLOxKYP9A0QvGC2g.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 79,
+                'product_id' => 25,
+                'url' =>'https://ferosh.vn/storage/images/96f10132748c7049e3bbf5ca0b275f18/420x630/OY1q039BNdts1wLuphhWu1MCTnvakBhsHrLYlJpo.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 80,
+                'product_id' => 26,
+                'url' =>'https://ferosh.vn/storage/images/5033fd9ca925f86dbd50b35dcdd85206/420x630/2KvNjB2gAEaVCaNkJSJI3cj2KqxxgsL9CO2c1Lad.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 81,
+                'product_id' => 26,
+                'url' =>'https://ferosh.vn/storage/images/5033fd9ca925f86dbd50b35dcdd85206/420x630/VwbT7Zx1fI8QjhXAjNqxGsl0lxJ1kDCRRqw7svAa.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 82,
+                'product_id' => 26,
+                'url' =>'https://ferosh.vn/storage/images/5033fd9ca925f86dbd50b35dcdd85206/420x630/fv4PKC24PfOKIxTOJbB8PyrOwKNfQZxsnAc5Q61O.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 83,
+                'product_id' => 26,
+                'url' =>'https://ferosh.vn/storage/images/5033fd9ca925f86dbd50b35dcdd85206/420x630/mqdc2daIbvaDj0LPvU551r1WI2txnCCjNxdq4RHE.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 84,
+                'product_id' => 26,
+                'url' =>'https://ferosh.vn/storage/images/5033fd9ca925f86dbd50b35dcdd85206/420x630/q9ggzoBMMzAg2mWohnO8fhNP23SedCVw9D2E6RUT.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 85,
+                'product_id' => 27,
+                'url' =>'https://ferosh.vn/storage/images/80b34c84a6e5ed25df112c11de676adc/420x630/p28B4fMZr1iRa55m913DVkW58bGzCCbdbBb6KEK1.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 86,
+                'product_id' => 27,
+                'url' =>'https://ferosh.vn/storage/images/80b34c84a6e5ed25df112c11de676adc/420x630/DsZ6QXsaWdMBJnMs3zsO7cypoJwwTNMMLFLmYsag.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 87,
+                'product_id' => 27,
+                'url' =>'https://ferosh.vn/storage/images/80b34c84a6e5ed25df112c11de676adc/420x630/tGOZe1zgZu5yYJqTYGtc5MRBm8t0pWiD9RxlCm44.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 88,
+                'product_id' => 27,
+                'url' =>'https://ferosh.vn/storage/images/80b34c84a6e5ed25df112c11de676adc/420x630/PZk2Q771c5C2uK2gOg4cSQ4Yn6dG8rYquxREZyzh.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 89,
+                'product_id' => 28,
+                'url' =>'https://ferosh.vn/storage/images/5e26badb3867ac7f26d3624ca39a9df4/420x630/RTAK5G9QFUHcfbDaoYsVvbiTFc0CSuPVs5zU9ECd.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 90,
+                'product_id' => 28,
+                'url' =>'https://ferosh.vn/storage/images/5e26badb3867ac7f26d3624ca39a9df4/420x630/lmo4xtESpntsc7M1hDTdm29yPMA4CoxjAAbmyMWT.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 91,
+                'product_id' => 28,
+                'url' =>'https://ferosh.vn/storage/images/5e26badb3867ac7f26d3624ca39a9df4/420x630/qMXL3G9lqVsFxIlGYdJlnAk9w8gTnc79vsAoneTr.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 92,
+                'product_id' => 29,
+                'url' =>'https://ferosh.vn/storage/images/a463cac2327534f6f02563ffbdf92918/420x630/vPFV6bPPT9DRGYkIc4x4IKotZpub2hgZyhYwf18U.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 93,
+                'product_id' => 29,
+                'url' =>'https://ferosh.vn/storage/images/a463cac2327534f6f02563ffbdf92918/420x630/y2Bp89xyltbmSIB6yTnsdB9khjiY3y7jF9QTs4Fk.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 94,
+                'product_id' => 29,
+                'url' =>'https://ferosh.vn/storage/images/a463cac2327534f6f02563ffbdf92918/420x630/xiffMrNor4xgx3CV2qrQq28V9WmZJKqBOP5gCTVq.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 95,
+                'product_id' => 30,
+                'url' =>'https://ferosh.vn/storage/images/7532e11ff40e244cedde99f723f5e882/420x630/1D0PwVKrzQlQmnsddXxwOkOttZQrD1Rr0JlSKQAq.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 96,
+                'product_id' => 30,
+                'url' =>'https://ferosh.vn/storage/images/7532e11ff40e244cedde99f723f5e882/420x630/duV5oye5kGOP51g6ixnrgoHCDfMPQKDb5gaPPikY.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 97,
+                'product_id' => 30,
+                'url' =>'https://ferosh.vn/storage/images/7532e11ff40e244cedde99f723f5e882/420x630/HwpDa7pWlkC4Y2CY2vKMqRBug7Ofp9DXroF9kd9p.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 98,
+                'product_id' => 30,
+                'url' =>'https://ferosh.vn/storage/images/7532e11ff40e244cedde99f723f5e882/420x630/ScpZ5kMoWJff0uP6SQK25ynppRfGxWN6m4w6YN2L.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 99,
+                'product_id' => 31,
+                'url' =>'https://ferosh.vn/storage/images/f7b80214c9564ac1bd11fd91a037d17b/420x630/dkPnBxuksQncpDrmuwug8s1zHw8XB9Dbv4KNUUGE.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 100,
+                'product_id' => 31,
+                'url' =>'https://ferosh.vn/storage/images/f7b80214c9564ac1bd11fd91a037d17b/420x630/cVtiXiqhGE5qV3jzOeKANhPzyVHrO0ppx9Kl13yn.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 101,
+                'product_id' => 31,
+                'url' =>'https://ferosh.vn/storage/images/f7b80214c9564ac1bd11fd91a037d17b/420x630/U8aaFStUXxts7njGrft05xJiWb0vAbGvDNg86c2W.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 102,
+                'product_id' => 31,
+                'url' =>'https://ferosh.vn/storage/images/f7b80214c9564ac1bd11fd91a037d17b/420x630/1W977kfwtjkAXwgwKQzRrE2g7tQd3JbWkPtgAuti.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 103,
+                'product_id' => 32,
+                'url' =>'https://ferosh.vn/storage/images/7f65d29fa86be6c6036fd73bae7e3cd3/420x630/ne42CgceEMHkypxYDPYx9b5thIFZ5iK463CMMsME.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 104,
+                'product_id' => 32,
+                'url' =>'https://ferosh.vn/storage/images/7f65d29fa86be6c6036fd73bae7e3cd3/420x630/FL2c4TjOMKlorlwdn1F40TiSzzNrR4mJ9BDj4NKY.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 105,
+                'product_id' => 32,
+                'url' =>'https://ferosh.vn/storage/images/7f65d29fa86be6c6036fd73bae7e3cd3/420x630/bz5WP1UjC733ERrT7cPtidKuj5dnI5LJ7ju3LnLx.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 106,
+                'product_id' => 32,
+                'url' =>'https://ferosh.vn/storage/images/7f65d29fa86be6c6036fd73bae7e3cd3/420x630/aoxF5rDjzEdS2cegK4q7Nn3jBAg3blK4NwdK93aH.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 107,
+                'product_id' => 32,
+                'url' =>'https://ferosh.vn/storage/images/7f65d29fa86be6c6036fd73bae7e3cd3/420x630/YaffSZ5gIDj5EXqVMNuQ6ZDMxVQQdBiUF1pGuoOU.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 108,
+                'product_id' => 33,
+                'url' =>'https://ferosh.vn/storage/images/e575af3f6d64da1287b8b6552b65a1df/420x630/EihzfYUVG2mVYyaLt0SgLn23N3El0vjwjsc441sa.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 109,
+                'product_id' => 33,
+                'url' =>'https://ferosh.vn/storage/images/e575af3f6d64da1287b8b6552b65a1df/420x630/4GFMKs1wBuuLdz6ywHpYWAHV0ypko9eLBqcAmGHX.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 110,
+                'product_id' => 33,
+                'url' =>'https://ferosh.vn/storage/images/e575af3f6d64da1287b8b6552b65a1df/420x630/8Q8mUFxe5H2Cc97jSbP7HQA6EjlzIqlK7lDjiSNn.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 111,
+                'product_id' => 34,
+                'url' =>'https://ferosh.vn/storage/images/9dc0a5e5bfcf4d73878002040de152ae/420x630/lqqIp9kceUhAAL4XvM8AFWp0dODFEtnJSsvv3uw4.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 112,
+                'product_id' => 34,
+                'url' =>'https://ferosh.vn/storage/images/9dc0a5e5bfcf4d73878002040de152ae/420x630/NJV1wbItpYLqROybPBiwAAH2Ait6PcrGaLjEZQHS.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 113,
+                'product_id' => 35,
+                'url' =>'https://ferosh.vn/storage/images/67efce7bbed5fa3ea002e27e0387fa1e/420x630/aNigUJwuYtmfBnLVpzRz3gHRMYDp6r2YvTgDGmYb.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 114,
+                'product_id' => 35,
+                'url' =>'https://ferosh.vn/storage/images/67efce7bbed5fa3ea002e27e0387fa1e/420x630/X52jbAWOiNcyZg5skR2EcISNU189t5FTCc0jzc9s.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 115,
+                'product_id' => 35,
+                'url' =>'',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 116,
+                'product_id' => 36,
+                'url' =>'https://ferosh.vn/storage/images/67efce7bbed5fa3ea002e27e0387fa1e/420x630/MrSEB28YhCgz6M8QeQDRx7CI08Q76liRpdSv0AFr.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 117,
+                'product_id' => 36,
+                'url' =>'https://ferosh.vn/storage/images/247ad943f6dde95b3429e21616e96ae9/420x630/dtTRZo12TT1Oew2lpVIg79OleYfMSFCSdI1XyeJF.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 118,
+                'product_id' => 37,
+                'url' =>'https://ferosh.vn/storage/images/8c3429b990429dca8fbe1cd6cf2e9636/420x630/hSmF3P6bl9QOFAGDWTRpN4SwVtwO5kh27YPRXkRE.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 119,
+                'product_id' => 37,
+                'url' =>'https://ferosh.vn/storage/images/8c3429b990429dca8fbe1cd6cf2e9636/420x630/lq3QJF3Xz6xBcsHSptaOClytQ3PsknNiBuyxMbuV.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 120,
+                'product_id' => 38,
+                'url' =>'https://ferosh.vn/storage/images/3398f11e14b079df6c5b2e2541ea641e/420x630/JgRm49f67In5tme2DOUgwTfGvNdOCEiZQT3nY9l5.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 121,
+                'product_id' => 38,
+                'url' =>'https://ferosh.vn/storage/images/3398f11e14b079df6c5b2e2541ea641e/420x630/xE4mHhLPX4gd0wppiGOqXreBn6xNErSNdNtz0yr6.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 122,
+                'product_id' => 39,
+                'url' =>'https://ferosh.vn/storage/images/07a498d2be79102ce2ca947bae2c53eb/420x630/fJyPqUAyHMDxw5oZzPCGwdUdPxiKeANrv9BTvyCi.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 123,
+                'product_id' => 39,
+                'url' =>'https://ferosh.vn/storage/images/07a498d2be79102ce2ca947bae2c53eb/420x630/8aFFNEzxdDIHKfcRzGUHVJ53k4JwEjnYd0nBv7Rd.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 124,
+                'product_id' => 40,
+                'url' =>'https://ferosh.vn/storage/images/58111ca2842fcb35ecbfd51fd89eb79a/420x630/F06Xc0F3Q2qdKkfqphdupHUCaoimwoUAdM1eGJgb.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
+            [
+                'id' => 125,
+                'product_id' => 40,
+                'url' =>'https://ferosh.vn/storage/images/58111ca2842fcb35ecbfd51fd89eb79a/420x630/ou1Z1YwdSgYFUXXMFLx7rWta4K8QnQjrtWO7stDZ.jpeg',
+                'status' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+            ],
         ]);
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
