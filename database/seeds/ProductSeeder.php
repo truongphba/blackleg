@@ -35,13 +35,14 @@ class ProductSeeder extends Seeder
             [
                 'id' => 2,
                 'category_id' => 3,
-                'name' => 'ĐẦM KẺ XUÔNG BÈO GẤU KẺ NÂU',
-                'price' => '885000',
-                'thumbnail' => 'https://ferosh.vn/storage/images/0c28423a88b5dbffd0d1ee2aec41efd0/420x630/RrPhuNQc1LiOz64MVF9cZVOlFGMHBaUXMJThvI1l.jpeg',
-                'colorss' => 'Kẻ nâu',
+                'name' => 'ĐẦM KẺ CỔ ĐỨC KẺ TRẮNG',
+                'price' => '1215000',
+                'thumbnail' => 'https://ferosh.vn/storage/images/e26af35311d1e3eb0873d862e83aa1d4/420x630/UxUyLVYQ6tz8Fm1kjirIzjuwSb94mVs8sWPa2hAr.jpeg',
+                'colorss' => 'Trắng',
                 'description' => '',
                 'detail' => '- Sản phẩm: Có lót.</br>
-                             - Chất liệu: Thô Linen Hàn Quốc.</br>
+                             - Chất liệu: Cotton Linen.</br>
+                             - Lót: Không</br>
                              - Co giãn: Không',
                 'highlight' => 1,
                 'status' => 1,
