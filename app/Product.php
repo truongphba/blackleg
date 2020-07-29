@@ -18,7 +18,8 @@ class Product extends Model
         return $this->belongsToMany('App\Size','product_size','product_id','size_id')->withPivot('quantity');
     }
 
-    public function image(){
-        return $this->belongsToMany('\App\Image');
+    public function images()
+    {
+        return $this->hasMany('App\Image');
     }
 }
