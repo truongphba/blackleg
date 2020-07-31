@@ -13,5 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
+
+Route::group(['prefix'=>'admin','as'=>'backend.'], function(){
+    Route::get('/', ['as' => 'index', 'uses' => 'Backend\SiteController@index']);
+    Route::resource('products','Backend\ProductController');
+});
+
 Route::get('/', 'Frontend\SiteController@index');
-//Route::resource("product",'AccountController');
+
+
