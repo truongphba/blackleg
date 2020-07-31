@@ -60,27 +60,43 @@
                             </div>
                         </div>
                     </div>
-                  <div class="row">
-                      <div class="col-md-2">
-                          <div class="form-group">
-                              <label>Thumbnail:</label>
-                              <button type="button" id="upload_widget" class="btn btn-success">Upload files</button>
-                              <div class="thumbnail"></div>
-                          </div>
-                      </div>
-                      <div class="col-md-5">
-                          <div class="form-group">
-                              <label>Quantity:</label>
-                                      <div class="form-row">
-                                          @foreach($sizes as $size)
-                                            <div class="form-group col-md-2">
-                                                <input class="form-control mb-2" name="quantity_{{$size->name}}" placeholder="{{$size->name}}">
-                                            </div>
-                                          @endforeach
-                                      </div>
-                          </div>
-                      </div>
-                  </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Thumbnail:</label>
+                                <button type="button" id="upload_widget" class="btn btn-success">Upload files</button>
+                                <div class="thumbnail"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <label>Collection:</label>
+                                @foreach($collections as $collection)
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="{{$collection->id}}"
+                                               id="collection_{{$collection->id}}">
+                                        <label class="form-check-label" for="collection_{{$collection->id}}">
+                                            {{$collection->name}}
+                                        </label>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Quantity:</label>
+                                <div class="form-row">
+                                    @foreach($sizes as $size)
+                                        <div class="form-group col-md-2">
+                                            <input class="form-control mb-2" name="quantity_{{$size->name}}"
+                                                   placeholder="{{$size->name}}">
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                     <div class="form-group">
                         <label>Description:</label>
                         <textarea id="description" class="form-control" name="description"></textarea>
@@ -99,7 +115,7 @@
 @endsection
 @section('script')
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             CKEDITOR.replace('description');
             CKEDITOR.replace('detail');
 
@@ -111,7 +127,7 @@
                     multiple: false,
                     fieldName: 'thumbnail',
                     thumbnails: '.thumbnail',
-                    thumbnailTransformation : [{width: 200, height: 200, crop: 'fill'}]
+                    thumbnailTransformation: [{width: 200, height: 200, crop: 'fill'}]
                 }, function (error, result) {
                     if (!error && result && result.event === "success") {
                         console.log('Done! Here is the image info: ', result.info.url);
