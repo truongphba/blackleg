@@ -191,11 +191,12 @@
                                 @if($obj->sub)
                                     <ul class="dropdown-menu">
                                     @foreach($obj->sub as $i=>$subMenu)
-                                            <li><a href="{{$subMenu->id}}">{{$subMenu->name}}</a></li>
+                                            <li><a href="{{strtolower($obj->name).'/'.$subMenu->id}}">{{$subMenu->name}}</a></li>
                                     @endforeach
                                     </ul>
                                 @endif
                             </li>
+{{--                            route('product', $category->id)--}}
                         @endforeach
                     </ul>
                 </div><!--/.nav-collapse -->

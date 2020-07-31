@@ -20,6 +20,5 @@ Route::group(['prefix'=>'admin','as'=>'backend.'], function(){
 });
 
 Route::get('/', 'Frontend\SiteController@index');
-
 Route::get('/product/{id}', 'Frontend\SiteController@productDetail')->name('productDetail');
 Route::get('/category/{id}', 'Frontend\SiteController@category')->name('product');
