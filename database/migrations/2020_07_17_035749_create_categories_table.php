@@ -20,6 +20,7 @@ class CreateCategoriesTable extends Migration
             $table->text('thumbnail')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
+
         });
     }
 
