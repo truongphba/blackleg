@@ -250,10 +250,10 @@
                             <div class="aa-promo-left">
                                 <div class="aa-promo-banner">
                                     <div class="img-11 bgpti"
-                                         style="background-image: url({{$categories[5]->thumbnail}})"></div>
+                                         style="background-image: url({{$categories[0]->product[random_int(0,count($categories[0]->product)-1)]->thumbnail}})"></div>
                                     <div class="aa-prom-content">
                                         <div class="dib bgcf7 pa5" style="color: #ff6666">75% Off</div>
-                                        <h4><a href="#">{{$categories[5]->name}}</a></h4>
+                                        <h4><a href="#">{{$categories[0]->name}}</a></h4>
                                     </div>
                                 </div>
                             </div>
@@ -266,7 +266,7 @@
                                         <div class="aa-single-promo-right">
                                             <div class="aa-promo-banner">
                                                 <div class="img-11 bgpti"
-                                                     style="background-image: url('{{$category->thumbnail}}')"></div>
+                                                     style="background-image: url('{{$category->product[random_int(0,count($category->product)-1)]->thumbnail}}')"></div>
                                                 <div class="aa-prom-content">
                                                     {{--                                                <div class="dib bgcf7 pa5" style="color: #ff6666">{{$obj->sale}}</div>--}}
                                                     <h4><a href="#">{{$category->name}}</a></h4>

@@ -18,65 +18,75 @@ class QASeeder extends Seeder
         DB::table('q_a_s')->insert([
             [
                 'id' => 1,
-                'quest' => 'LIỆU THÔNG TIN CỦA TÔI CÓ ĐƯỢC BẢO MẬT? ',
-                'answer' => 'Mọi thông tin của quý khách sẽ được Shop bảo mật tuyệt đối. Để biết thêm thông tin, vui lòng tham khảo Chính sách bảo mật.',
+                'quest' => 'Will all of my informations be secured?',
+                'answer' => 'All of our client informations will always be secured. For more information, please check out our client privacy policy.',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
             ],
             [
                 'id' => 2,
-                'quest' => 'ĐỊA CHỈ GIAO HÀNG VÀ ĐỊA CHỈ THANH TOÁN CÓ THỂ KHÁC NHAU ĐƯỢC KHÔNG? ',
-                'answer' => 'Có. Quý khách có thể thanh toán và gửi hàng đến địa chỉ khác',
+                'quest' => 'Can the shipping address and the card payment address be different?',
+                'answer' => 'Yes, you pay and order in 2 different addresses.',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
             ],
             [
                 'id' => 3,
-                'quest' => 'LÀM THẾ NÀO ĐỂ THAY ĐỔI ĐỊA CHỈ GIAO HÀNG? ',
-                'answer' => 'Trong quá trình thanh toán, muốn thay đổi địa chỉ giao hàng quý khách vui lòng liên lạc cho bộ phận chăm sóc khách hàng để được hỗ trợ đổi thông tin cho đơn hàng đã đặt.',
+                'quest' => 'How do I change my delivery address?',
+                'answer' => 'In oder to change your delivery address in the payment process and delivery, please</br>
+                             contact to our customer service to change your delivery address.',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
             ],
             [
                 'id' => 4,
-                'quest' => 'LÀM THẾ NÀO ĐỂ HUỶ ĐƠN HÀNG ĐÃ ĐẶT? ',
-                'answer' => 'Quí khách vui lòng gọi trực tiếp hoặc email trong giờ hành chính trong vòng 24h sau khi đặt hàng cho bộ phận chăm sóc khách hàng của Shop, đọc mã đơn hàng để chúng tôi tiến hàng huỷ đơn.
-                Lưu ý: Nếu quý khách quyết định huỷ đơn hàng quá muộn, nghĩa là tình trạng đơn hàng đã chuyển thành ĐANG VẬN CHUYỂN, quý khách sẽ không thể huỷ đơn hàng được nữa.',
+                'quest' => 'How to cancel my orders? ',
+                'answer' => 'In order to cancel your orders, please call directory or email to our customer service </br>
+                             in 24 hours after ordering. </br>
+                             All you have to do is give us your order informations so that we cancel your order. </br>
+                             *After 24h ordering, your orders will might be in the delivery process, so we might </br>
+                              not able to cancel your order.',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
             ],
             [
                 'id' => 5,
-                'quest' => 'TÔI CÓ THỂ HUỶ MỘT PHẦN CỦA ĐƠN HÀNG ĐƯỢC KHÔNG?',
-                'answer' => 'Quý khách có thể huỷ một phần của đơn hàng khi sản phẩm quý khách muốn huỷ chưa được giao cho đơn vị vận chuyển.',
+                'quest' => 'Can I cancel a part of my order?',
+                'answer' => 'Yes, but in some case and some particular product in your oders might not be able</br>
+                             to cancel partially',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
             ],
             [
                 'id' => 6,
-                'quest' => 'TÔI CÓ PHẢI TRẢ THÊM CHI PHÍ NÀO NẾU HUỶ ĐƠN HÀNG? ',
-                'answer' => 'Nếu đơn hàng huỷ trước khi chúng tôi giao cho bên giao nhận, quý khách sẽ không mất phí huỷ hàng. Nếu đơn hàng huỷ sau khi chúng tôi giao nhận, quý khách sẽ chịu một khoản phí để bên giao nhận giao hàng lại cho chúng tôi.',
+                'quest' => 'Do I have to pay fee if I cancel my order?',
+                'answer' => 'Yes, if you cancel your order in 24 hours after ordering, you will only have to pay </br>
+                             a small fee depends on the product you have ordered',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
             ],
             [
                 'id' => 7,
-                'quest' => 'TÔI CÓ THỂ THAY ĐỔI SẢN PHẨM SAU KHI ĐẶT HÀNG KHÔNG? ',
-                'answer' => 'Để thay đổi sản phẩm sau khi đặt hàng, quý khách vui lòng huỷ toàn bộ đơn đã đặt trước đó và tiến hành đặt lại một đơn hàng mới với sản phẩm mà quý khách muốn chọn.',
+                'quest' => 'Can I change my orders?',
+                'answer' => 'Để thay đổi sản phẩm sau khi đặt hàng, quý khách vui lòng huỷ toàn bộ đơn đã đặt trước</br>
+                             đó và tiến hành đặt lại một đơn hàng mới với sản phẩm mà quý khách muốn chọn.',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
             ],
             [
                 'id' => 8,
-                'quest' => 'SẢN PHẨM BỊ HƯ HẠI, TÔI PHẢI LÀM GÌ? ',
-                'answer' => 'Trong trường hợp sản phẩm bị hư hại, trước tiên Shop chân thành xin lỗi quý khác vì trục trặc ngoài ý muốn này. Chúng tôi sẽ nhanh chóng đổi sản phẩm khác cho quý khách nếu quý khách muốn thay thế sản phẩm khác. Nếu quý khách muốn trả lại sản phẩm, Shop sẽ hoàn lại 100% giá trị sản phẩm cho quý khách.',
+                'quest' => 'What if I receive a damaged product? ',
+                'answer' => 'In case you receive a damaged product from your order, first we would like to apologise</br>
+                             the unfortunate inconvenience you had, then we will send you a new order just like the</br>
+                             one you placed as soon as possible.',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
             ],
             [
                 'id' => 9,
-                'quest' => 'SHOP CÓ GIAO HÀNG RA NƯỚC NGOÀI KHÔNG',
-                'answer' => 'Hiện nay Shop chỉ có thể chuyển hàng trên các tỉnh thành ở Việt Nam.',
+                'quest' => 'Is overseas delivery available ?',
+                'answer' => 'Unfortunately we are currently only able to delivery in Vietnam, but we will soon expand</br>
+                             our delivery location abroad',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
             ],
