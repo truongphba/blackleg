@@ -228,6 +228,7 @@
                     @endforeach
                 </ul>
             </div>
+
             <!-- slider navigation btn -->
             <fieldset class="seq-nav" aria-controls="sequence" aria-label="Slider buttons">
                 <a type="button" class="seq-prev" aria-label="Previous"><span class="fa fa-angle-left"></span></a>
