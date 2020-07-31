@@ -275,6 +275,7 @@
                                 </li>
                             </ul>
                         </li>
+
                         <li><a href="#">Kids <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Casual</a></li>
