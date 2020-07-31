@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Product;
 use Illuminate\Http\Request;
@@ -16,8 +17,7 @@ class CategoryController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->get('keyword');
-        $list = Product::with('category')
-            ->orderBy('created_at', 'desc')
+        $list = Category::orderBy('created_at', 'desc')
             ->where('name', 'like', '%' . $keyword . '%')
             ->paginate(10)
             ->appends($request->only('keyword'));
