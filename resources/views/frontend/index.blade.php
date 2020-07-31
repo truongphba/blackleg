@@ -65,52 +65,18 @@
                     <div class="aa-header-top-area">
                         <!-- start header top left -->
                         <div class="aa-header-top-left">
-                            <!-- start language -->
-                            <div class="aa-language">
-                                <div class="dropdown">
-                                    <a class="btn dropdown-toggle" href="#" type="button" id="dropdownMenu1"
-                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                        <img src="{{asset("frontend/img/flag/english.jpg")}}" alt="english flag">ENGLISH
-                                        <span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                        <li><a href="#"><img src="{{asset("frontend/img/flag/french.jpg")}}" alt="">FRENCH</a>
-                                        </li>
-                                        <li><a href="#"><img src="{{asset("frontend/img/flag/english.jpg")}}" alt="">ENGLISH</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- / language -->
-
-                            <!-- start currency -->
-                            <div class="aa-currency">
-                                <div class="dropdown">
-                                    <a class="btn dropdown-toggle" href="#" type="button" id="dropdownMenu1"
-                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                        <i class="fa fa-usd"></i>USD
-                                        <span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                        <li><a href="#"><i class="fa fa-euro"></i>EURO</a></li>
-                                        <li><a href="#"><i class="fa fa-jpy"></i>YEN</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- / currency -->
-                            <!-- start cellphone -->
                             <div class="cellphone hidden-xs">
-                                <p><span class="fa fa-phone"></span>0989859398</p>
+                                <a href="tel:0989859398"><p><span class="fa fa-phone"></span>0989859398</p></a>
                             </div>
                             <!-- / cellphone -->
                         </div>
                         <!-- / header top left -->
                         <div class="aa-header-top-right">
                             <ul class="aa-head-top-nav-right">
-                                <li><a href="account.html">My Account</a></li>
-                                <li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li>
+                                {{--                                <li><a href="account.html">My Account</a></li>--}}
+                                {{--                                <li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li>--}}
                                 <li class="hidden-xs"><a href="cart.html">My Cart</a></li>
-                                <li class="hidden-xs"><a href="checkout.html">Checkout</a></li>
+                                {{--                                <li class="hidden-xs"><a href="checkout.html">Checkout</a></li>--}}
                                 <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>
                             </ul>
                         </div>
@@ -213,113 +179,24 @@
                 <div class="navbar-collapse collapse">
                     <!-- Left nav -->
                     <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#">Men <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Casual</a></li>
-                                <li><a href="#">Sports</a></li>
-                                <li><a href="#">Formal</a></li>
-                                <li><a href="#">Standard</a></li>
-                                <li><a href="#">T-Shirts</a></li>
-                                <li><a href="#">Shirts</a></li>
-                                <li><a href="#">Jeans</a></li>
-                                <li><a href="#">Trousers</a></li>
-                                <li><a href="#">And more.. <span class="caret"></span></a>
+                        @foreach([
+                            (object)['name'=>'Home','link'=>'/','sub'=>''],
+                            (object)['name'=>'Sale','link'=>'#','sub'=>''],
+                            (object)['name'=>'Category','link'=>'#','sub'=>$categories],
+                            (object)['name'=>'Collection','link'=>'#','sub'=>$collections],
+                            (object)['name'=>'Q&A','link'=>'#','sub'=>''],
+                            (object)['name'=>'Contact','link'=>'#','sub'=>''],
+                        ] as $i=>$obj)
+                            <li><a href="{{$obj->link}}">{{$obj->name}}<span class="{{$obj->sub?'caret':'dn'}}"></span></a>
+                                @if($obj->sub)
                                     <ul class="dropdown-menu">
-                                        <li><a href="#">Sleep Wear</a></li>
-                                        <li><a href="#">Sandals</a></li>
-                                        <li><a href="#">Loafers</a></li>
+                                    @foreach($obj->sub as $i=>$subMenu)
+                                            <li><a href="{{$subMenu->id}}">{{$subMenu->name}}</a></li>
+                                    @endforeach
                                     </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Women <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Kurta & Kurti</a></li>
-                                <li><a href="#">Trousers</a></li>
-                                <li><a href="#">Casual</a></li>
-                                <li><a href="#">Sports</a></li>
-                                <li><a href="#">Formal</a></li>
-                                <li><a href="#">Sarees</a></li>
-                                <li><a href="#">Shoes</a></li>
-                                <li><a href="#">And more.. <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Sleep Wear</a></li>
-                                        <li><a href="#">Sandals</a></li>
-                                        <li><a href="#">Loafers</a></li>
-                                        <li><a href="#">And more.. <span class="caret"></span></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#">Rings</a></li>
-                                                <li><a href="#">Earrings</a></li>
-                                                <li><a href="#">Jewellery Sets</a></li>
-                                                <li><a href="#">Lockets</a></li>
-                                                <li class="disabled"><a class="disabled" href="#">Disabled item</a></li>
-                                                <li><a href="#">Jeans</a></li>
-                                                <li><a href="#">Polo T-Shirts</a></li>
-                                                <li><a href="#">SKirts</a></li>
-                                                <li><a href="#">Jackets</a></li>
-                                                <li><a href="#">Tops</a></li>
-                                                <li><a href="#">Make Up</a></li>
-                                                <li><a href="#">Hair Care</a></li>
-                                                <li><a href="#">Perfumes</a></li>
-                                                <li><a href="#">Skin Care</a></li>
-                                                <li><a href="#">Hand Bags</a></li>
-                                                <li><a href="#">Single Bags</a></li>
-                                                <li><a href="#">Travel Bags</a></li>
-                                                <li><a href="#">Wallets & Belts</a></li>
-                                                <li><a href="#">Sunglases</a></li>
-                                                <li><a href="#">Nail</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Kids <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Casual</a></li>
-                                <li><a href="#">Sports</a></li>
-                                <li><a href="#">Formal</a></li>
-                                <li><a href="#">Standard</a></li>
-                                <li><a href="#">T-Shirts</a></li>
-                                <li><a href="#">Shirts</a></li>
-                                <li><a href="#">Jeans</a></li>
-                                <li><a href="#">Trousers</a></li>
-                                <li><a href="#">And more.. <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Sleep Wear</a></li>
-                                        <li><a href="#">Sandals</a></li>
-                                        <li><a href="#">Loafers</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Sports</a></li>
-                        <li><a href="#">Digital <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Camera</a></li>
-                                <li><a href="#">Mobile</a></li>
-                                <li><a href="#">Tablet</a></li>
-                                <li><a href="#">Laptop</a></li>
-                                <li><a href="#">Accesories</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Furniture</a></li>
-                        <li><a href="blog-archive.html">Blog <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="blog-archive.html">Blog Style 1</a></li>
-                                <li><a href="blog-archive-2.html">Blog Style 2</a></li>
-                                <li><a href="blog-single.html">Blog Single</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="#">Pages <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="product.html">Shop Page</a></li>
-                                <li><a href="product-detail.html">Shop Single</a></li>
-                                <li><a href="404.html">404 Page</a></li>
-                            </ul>
-                        </li>
+                                @endif
+                            </li>
+                        @endforeach
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
@@ -416,68 +293,68 @@
                             <!-- start prduct navigation -->
                             <ul class="nav nav-tabs aa-products-tab">
                                 @foreach($categories as $i => $category)
-{{--                                    @if($i!=2&&$i!=5)--}}
-                                        <li class="{{$i==1?"active":""}}"><a href="{{"#categoryHome".$category->id}}"
-                                                                             data-toggle="tab">{{$category->name}}</a>
-                                        </li>
-{{--                                    @endif--}}
+                                    {{--                                    @if($i!=2&&$i!=5)--}}
+                                    <li class="{{$i==1?"active":""}}"><a href="{{"#categoryHome".$category->id}}"
+                                                                         data-toggle="tab">{{$category->name}}</a>
+                                    </li>
+                                    {{--                                    @endif--}}
                                 @endforeach
                             </ul>
                             <!-- Tab panes -->
                             <div class="tab-content">
                                 <!-- Start men product category -->
                                 @foreach($categories as $i => $category)
-{{--                                    @if($i!=2&&$i!=5)--}}
-                                        <div class="tab-pane fade pb25 in {{$i==1?"active":""}}"
-                                             id="categoryHome{{$category->id}}">
-                                            <ul class="aa-product-catg" style="min-width: 100%">
-                                                <!-- start single product item -->
-                                                @foreach($category->product as $i => $product)
-                                                    @if($i<8)
-                                                        <li class="">
-                                                            <figure>
-                                                                <a class="aa-product-img" href="#">
-                                                                    <div class="img-11 bgpti"
-                                                                         style="background-image: url('{{$product->thumbnail}}')"></div>
-                                                                </a>
-                                                                <a class="aa-add-card-btn" href="#"><span
-                                                                        class="fa fa-shopping-cart"></span>Add To
-                                                                    Cart</a>
-                                                                <figcaption>
-                                                                    <h4 class="aa-product-title ttu"><a
-                                                                            href="#">{{$product->name}}</a>
-                                                                    </h4>
-                                                                    <span
-                                                                        class="aa-product-price">{{number_format(($product->price-(($product->price*30)/100)))}}</span>
-                                                                    <span class="aa-product-price"><del>{{number_format($product->price)}}</del></span>
-                                                                </figcaption>
-                                                            </figure>
-                                                            <div class="aa-product-hvr-content">
-                                                                <a href="#" data-toggle="tooltip" data-placement="top"
-                                                                   title="Add to Wishlist"><span
-                                                                        class="fa fa-heart-o"></span></a>
-                                                                <a href="#" data-toggle="tooltip" data-placement="top"
-                                                                   title="Compare"><span class="fa fa-exchange"></span></a>
-                                                                <a href="#" data-toggle2="tooltip" data-placement="top"
-                                                                   title="Quick View" data-toggle="modal"
-                                                                   data-target="#product-modal-home{{$product->id}}"><span
-                                                                        class="fa fa-search"></span></a>
-                                                            </div>
-                                                            <!-- product badge -->
-                                                            <span
-                                                                class="aa-badge aa-sale"
-                                                                href="#">SALE!</span>
-                                                            {{--                                                            <span--}}
-                                                            {{--                                                                class="aa-badge {{$product->status=='SALE!'?"aa-sale":($product->status=='HOT!'?"aa-hot":($product->status=='Sold Out!'?"aa-sold-out":""))}}"--}}
-                                                            {{--                                                                href="#">{{$product->status}}</span>--}}
-                                                        </li>
-                                                    @endif
-                                                @endforeach
-                                            </ul>
-                                            <div class="tac"><a class="aa-browse-btn" href="#">Browse all Product <span
-                                                        class="fa fa-long-arrow-right"></span></a></div>
-                                        </div>
-{{--                                    @endif--}}
+                                    {{--                                    @if($i!=2&&$i!=5)--}}
+                                    <div class="tab-pane fade pb25 in {{$i==1?"active":""}}"
+                                         id="categoryHome{{$category->id}}">
+                                        <ul class="aa-product-catg" style="min-width: 100%">
+                                            <!-- start single product item -->
+                                            @foreach($category->product as $i => $product)
+                                                @if($i<8)
+                                                    <li class="">
+                                                        <figure>
+                                                            <a class="aa-product-img" href="#">
+                                                                <div class="img-11 bgpti"
+                                                                     style="background-image: url('{{$product->thumbnail}}')"></div>
+                                                            </a>
+                                                            <a class="aa-add-card-btn" href="#"><span
+                                                                    class="fa fa-shopping-cart"></span>Add To
+                                                                Cart</a>
+                                                            <figcaption>
+                                                                <h4 class="aa-product-title ttu"><a
+                                                                        href="#">{{$product->name}}</a>
+                                                                </h4>
+                                                                <span
+                                                                    class="aa-product-price">{{number_format(($product->price-(($product->price*30)/100)))}}</span>
+                                                                <span class="aa-product-price"><del>{{number_format($product->price)}}</del></span>
+                                                            </figcaption>
+                                                        </figure>
+                                                        <div class="aa-product-hvr-content">
+                                                            <a href="#" data-toggle="tooltip" data-placement="top"
+                                                               title="Add to Wishlist"><span
+                                                                    class="fa fa-heart-o"></span></a>
+                                                            <a href="#" data-toggle="tooltip" data-placement="top"
+                                                               title="Compare"><span class="fa fa-exchange"></span></a>
+                                                            <a href="#" data-toggle2="tooltip" data-placement="top"
+                                                               title="Quick View" data-toggle="modal"
+                                                               data-target="#product-modal-home{{$product->id}}"><span
+                                                                    class="fa fa-search"></span></a>
+                                                        </div>
+                                                        <!-- product badge -->
+                                                        <span
+                                                            class="aa-badge aa-sale"
+                                                            href="#">SALE!</span>
+                                                        {{--                                                            <span--}}
+                                                        {{--                                                                class="aa-badge {{$product->status=='SALE!'?"aa-sale":($product->status=='HOT!'?"aa-hot":($product->status=='Sold Out!'?"aa-sold-out":""))}}"--}}
+                                                        {{--                                                                href="#">{{$product->status}}</span>--}}
+                                                    </li>
+                                                @endif
+                                            @endforeach
+                                        </ul>
+                                        <div class="tac"><a class="aa-browse-btn" href="#">Browse all Product <span
+                                                    class="fa fa-long-arrow-right"></span></a></div>
+                                    </div>
+                                    {{--                                    @endif--}}
                                 @endforeach
 
                             </div>
@@ -515,11 +392,11 @@
 
                                                                 <div class="simpleLens-thumbnails-container  df fww ">
                                                                     @foreach($product->images as $i=>$image)
-                                                                        <div url = "{{$image->url}}"
-                                                                            class="simpleLens-thumbnail-wrapper cp w25 pa3">
-                                                                             <div
-                                                                                 class="img-56 bgpti simpleLens-big-image bw2 bss bcf bcdh"
-                                                                                 style="background-image: url('{{$image->url}}')"></div>
+                                                                        <div url="{{$image->url}}"
+                                                                             class="simpleLens-thumbnail-wrapper cp w25 pa3">
+                                                                            <div
+                                                                                class="img-56 bgpti simpleLens-big-image bw2 bss bcf bcdh"
+                                                                                style="background-image: url('{{$image->url}}')"></div>
                                                                         </div>
                                                                     @endforeach
                                                                 </div>
@@ -531,7 +408,8 @@
                                                         <div class="aa-product-view-content">
                                                             <h3>T-Shirt</h3>
                                                             <div class="aa-price-block">
-                                                                <span class="aa-product-view-price">{{number_format($product->price)}}</span>
+                                                                <span
+                                                                    class="aa-product-view-price">{{number_format($product->price)}}</span>
                                                                 <p class="aa-product-avilability">Avilability: <span>In stock</span>
                                                                 </p>
                                                             </div>
