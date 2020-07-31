@@ -13,11 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    $categories = \App\Category::all()->where('status','=',1);
-//    $collections = \App\Collection::all()->where('status','=',1);
-//    $products = \App\Product::all()->where('status','=',1);
-//    return view('frontend.index',['categories'=>$categories,'collections'=>$collections,'products'=>$products]);
-//});
+Route::group(['prefix'=>'admin','as'=>'backend.'], function(){
+    Route::get('/', ['as' => 'index', 'uses' => 'Backend\SiteController@index']);
+    Route::resource('products','Backend\ProductController');
+    Route::resource('categories','Backend\CategoryController');
+});
 
 Route::get('/', 'Frontend\SiteController@index');
+
+Route::get('/product/{id}', 'Frontend\SiteController@productDetail')->name('productDetail');
+Route::get('/category/{id}', 'Frontend\SiteController@category')->name('product');
