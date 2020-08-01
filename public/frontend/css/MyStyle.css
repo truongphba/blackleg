@@ -6955,6 +6955,15 @@ input[type="submit"] , input[type="reset"]{
 .menu>*:hover::after,.menu>*:hover::before{
     width: 50%;
 }
+.size{
+    border: 1px solid #0f74a8;
+    border-radius: 3px;
+}
+.size:focus{
+    /*border: 1px solid #0f74a8;*/
+    background: #0f74a8;
+    color: #fff;
+}
 /*img{*/
 /*    background: #636b6f;*/
 /*}*/
