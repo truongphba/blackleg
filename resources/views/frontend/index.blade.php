@@ -190,13 +190,14 @@
                             <li><a href="{{$obj->link}}">{{$obj->name}}<span class="{{$obj->sub?'caret':'dn'}}"></span></a>
                                 @if($obj->sub)
                                     <ul class="dropdown-menu">
-                                    @foreach($obj->sub as $i=>$subMenu)
-                                            <li><a href="{{strtolower($obj->name).'/'.$subMenu->id}}">{{$subMenu->name}}</a></li>
-                                    @endforeach
+                                        @foreach($obj->sub as $i=>$subMenu)
+                                            <li>
+                                                <a href="{{strtolower($obj->name).'/'.$subMenu->id}}">{{$subMenu->name}}</a>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 @endif
                             </li>
-{{--                            route('product', $category->id)--}}
                         @endforeach
                     </ul>
                 </div><!--/.nav-collapse -->
@@ -327,16 +328,16 @@
                                                                         href="#">{{$product->name}}</a>
                                                                 </h4>
                                                                 <span
-                                                                    class="aa-product-price">{{number_format(($product->price-(($product->price*30)/100)))}}</span>
-                                                                <span class="aa-product-price"><del>{{number_format($product->price)}}</del></span>
+                                                                    class="aa-product-price">{{number_format($product->price)}}</span>
+                                                                {{--                                                                <span class="aa-product-price"><del>{{number_format($product->price)}}</del></span>--}}
                                                             </figcaption>
                                                         </figure>
                                                         <div class="aa-product-hvr-content">
                                                             <a href="#" data-toggle="tooltip" data-placement="top"
                                                                title="Add to Wishlist"><span
                                                                     class="fa fa-heart-o"></span></a>
-                                                            <a href="#" data-toggle="tooltip" data-placement="top"
-                                                               title="Compare"><span class="fa fa-exchange"></span></a>
+                                                            {{--                                                            <a href="#" data-toggle="tooltip" data-placement="top"--}}
+                                                            {{--                                                               title="Compare"><span class="fa fa-exchange"></span></a>--}}
                                                             <a href="#" data-toggle2="tooltip" data-placement="top"
                                                                title="Quick View" data-toggle="modal"
                                                                data-target="#product-modal-home{{$product->id}}"><span
@@ -344,8 +345,8 @@
                                                         </div>
                                                         <!-- product badge -->
                                                         <span
-                                                            class="aa-badge aa-sale"
-                                                            href="#">SALE!</span>
+                                                            class="aa-badge {{$product->highlight?"aa-hot":"dn"}}"
+                                                            href="#">HOT!</span>
                                                         {{--                                                            <span--}}
                                                         {{--                                                                class="aa-badge {{$product->status=='SALE!'?"aa-sale":($product->status=='HOT!'?"aa-hot":($product->status=='Sold Out!'?"aa-sold-out":""))}}"--}}
                                                         {{--                                                                href="#">{{$product->status}}</span>--}}
@@ -415,16 +416,13 @@
                                                                 <p class="aa-product-avilability">Avilability: <span>In stock</span>
                                                                 </p>
                                                             </div>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                                Officiis animi, veritatis quae repudiandae quod nulla
-                                                                porro
-                                                                quidem, itaque quis quaerat!</p>
+                                                            <p>{!! $product->description?$product->description:"Đang cập nhật!!" !!}</p>
                                                             <h4>Size</h4>
-                                                            <div class="aa-prod-view-size">
-                                                                <a href="#">S</a>
-                                                                <a href="#">M</a>
-                                                                <a href="#">L</a>
-                                                                <a href="#">XL</a>
+                                                            <div class="aa-prod-view-size mb15">
+                                                                @foreach($product->size as $size)
+                                                                    <a class="size dib wh25 tac"
+                                                                       href="#">{{$size->pivot->quantity?$size->name:""}}</a>
+                                                                @endforeach
                                                             </div>
                                                             <div class="aa-prod-quantity">
                                                                 <form action="">
@@ -438,14 +436,16 @@
                                                                     </select>
                                                                 </form>
                                                                 <p class="aa-prod-category">
-                                                                    Category: <a href="#">Polo T-Shirt</a>
+                                                                    Category: <a
+                                                                        href="category/{{$product->category->id}}">{{$product->category->name}}</a>
                                                                 </p>
                                                             </div>
                                                             <div class="aa-prod-view-bottom">
                                                                 <a href="#" class="aa-add-to-cart-btn"><span
                                                                         class="fa fa-shopping-cart"></span>Add To
                                                                     Cart</a>
-                                                                <a href="#" class="aa-add-to-cart-btn">View Details</a>
+                                                                <a href="product/{{$product->id}}"
+                                                                   class="aa-add-to-cart-btn">View Details</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -653,7 +653,7 @@
                         <div class="aa-support-single">
                             <span class="fa fa-truck"></span>
                             <h4>FREE SHIPPING</h4>
-                            <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, nobis.</P>
+                            <P>Miễn phí giao hàng, thanh toán tại nhà.</P>
                         </div>
                     </div>
                     <!-- single support -->
@@ -661,7 +661,7 @@
                         <div class="aa-support-single">
                             <span class="fa fa-clock-o"></span>
                             <h4>30 DAYS MONEY BACK</h4>
-                            <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, nobis.</P>
+                            <P>30 ngày đổi trả miễn phí.</P>
                         </div>
                     </div>
                     <!-- single support -->
@@ -669,7 +669,7 @@
                         <div class="aa-support-single">
                             <span class="fa fa-phone"></span>
                             <h4>SUPPORT 24/7</h4>
-                            <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, nobis.</P>
+                            <P>Hỗ trợ tư vấn phục vụ tận tình 24/7.</P>
                         </div>
                     </div>
                 </div>
@@ -687,54 +687,24 @@
                 <div class="aa-testimonial-area">
                     <ul class="aa-testimonial-slider">
                         <!-- single slide -->
-                        <li>
-                            <div class="aa-testimonial-single">
-                                <img class="aa-testimonial-img" src="{{asset("frontend/img/testimonial-img-2.jpg")}}"
-                                     alt="testimonial img">
-
-                                <span class="fa fa-quote-left aa-testimonial-quote"></span>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt distinctio omnis
-                                    possimus, facere, quidem qui!consectetur adipisicing elit. Sunt distinctio omnis
-                                    possimus, facere, quidem qui.</p>
-                                <div class="aa-testimonial-info">
-                                    <p>Allison</p>
-                                    <span>Designer</span>
-                                    <a href="#">Dribble.com</a>
+                        @foreach($qas as $i=>$qa)
+                            <li>
+                                <div class="aa-testimonial-single">
+                                    <img class="aa-testimonial-img"
+                                         src="{{asset("frontend/img/testimonial-img-2.jpg")}}"
+                                         alt="testimonial img">
+                                    <span class="fa fa-quote-left aa-testimonial-quote"></span>
+                                    <p><b>Quest: </b>{!!$qa->quest !!}</p>
+                                    <p><b>Answer: </b>{!! $qa->answer !!}</p>
+                                    <div class="aa-testimonial-info">
+                                        <p>Allison</p>
+                                        <span>Designer</span>
+                                        <a href="#">Dribble.com</a>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                        <!-- single slide -->
-                        <li>
-                            <div class="aa-testimonial-single">
-                                <img class="aa-testimonial-img" src="{{asset("frontend/img/testimonial-img-1.jpg")}}"
-                                     alt="testimonial img">
-                                <span class="fa fa-quote-left aa-testimonial-quote"></span>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt distinctio omnis
-                                    possimus, facere, quidem qui!consectetur adipisicing elit. Sunt distinctio omnis
-                                    possimus, facere, quidem qui.</p>
-                                <div class="aa-testimonial-info">
-                                    <p>KEVIN MEYER</p>
-                                    <span>CEO</span>
-                                    <a href="#">Alphabet</a>
-                                </div>
-                            </div>
-                        </li>
-                        <!-- single slide -->
-                        <li>
-                            <div class="aa-testimonial-single">
-                                <img class="aa-testimonial-img" src="{{asset("frontend/img/testimonial-img-3.jpg")}}"
-                                     alt="testimonial img">
-                                <span class="fa fa-quote-left aa-testimonial-quote"></span>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt distinctio omnis
-                                    possimus, facere, quidem qui!consectetur adipisicing elit. Sunt distinctio omnis
-                                    possimus, facere, quidem qui.</p>
-                                <div class="aa-testimonial-info">
-                                    <p>Luner</p>
-                                    <span>COO</span>
-                                    <a href="#">Kinatic Solution</a>
-                                </div>
-                            </div>
-                        </li>
+                            </li>
+                    @endforeach
+                    <!-- single slide  swar-->
                     </ul>
                 </div>
             </div>
