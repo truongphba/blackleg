@@ -31,7 +31,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.category.create');
     }
 
     /**
@@ -42,7 +42,17 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+         'name' => 'required'
+        ]);
+        $category = new Category();
+        $category->name = $request->name;
+        $category->thumbnail = $request->thumbnail;
+        $category->description = $request->description;
+        $category->save();
+
+        return  redirect()->route('backend.categories.show',$category->id);
     }
 
     /**
@@ -53,7 +63,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+       $category = Category::find($id);
+       return view('backend.category.detail',['category' => $category]);
     }
 
     /**
@@ -64,7 +75,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        return view('backend.category.edit',['category' => $category]);
     }
 
     /**
@@ -76,7 +88,18 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $request->validate([
+            'name' => 'required'
+        ]);
+        $category = Category::find($id);
+        $category->name = $request->name;
+        $category->thumbnail = $request->thumbnail;
+        $category->description = $request->description;
+        $category->status = $request->status;
+        $category->save();
+
+        return  redirect()->route('backend.categories.show',$category->id);
     }
 
     /**
@@ -87,6 +110,6 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }

@@ -16,9 +16,15 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('backend/css/sb-admin-2.min.css')}}" rel="stylesheet">
+
+    @yield('style')
 <style>
     table tbody td{
         font-size: 11pt;
+    }
+    table tbody tr:hover{
+        background-color: rgba(255,0,0,0.2);
+        cursor: pointer;
     }
 </style>
 </head>
