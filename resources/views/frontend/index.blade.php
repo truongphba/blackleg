@@ -254,7 +254,7 @@
                                          style="background-image: url({{$categories[0]->product[random_int(0,count($categories[0]->product)-1)]->thumbnail}})"></div>
                                     <div class="aa-prom-content">
                                         <div class="dib bgcf7 pa5" style="color: #ff6666">75% Off</div>
-                                        <h4><a href="#">{{$categories[0]->name}}</a></h4>
+                                        <h4><a href="category/{{$categories[0]->id}}">{{$categories[0]->name}}</a></h4>
                                     </div>
                                 </div>
                             </div>
@@ -270,7 +270,8 @@
                                                      style="background-image: url('{{$category->product[random_int(0,count($category->product)-1)]->thumbnail}}')"></div>
                                                 <div class="aa-prom-content">
                                                     {{--                                                <div class="dib bgcf7 pa5" style="color: #ff6666">{{$obj->sale}}</div>--}}
-                                                    <h4><a href="#">{{$category->name}}</a></h4>
+                                                    <h4><a href="category/{{$category->id}}">{{$category->name}}</a>
+                                                    </h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -354,7 +355,8 @@
                                                 @endif
                                             @endforeach
                                         </ul>
-                                        <div class="tac"><a class="aa-browse-btn" href="#">Browse all Product <span
+                                        <div class="tac"><a class="aa-browse-btn" href="category/{{$category->id}}">Browse
+                                                all Product <span
                                                     class="fa fa-long-arrow-right"></span></a></div>
                                     </div>
                                     {{--                                    @endif--}}
@@ -409,7 +411,7 @@
                                                     <!-- Modal view content -->
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                                         <div class="aa-product-view-content">
-                                                            <h3>T-Shirt</h3>
+                                                            <h3>{{$product->name}}</h3>
                                                             <div class="aa-price-block">
                                                                 <span
                                                                     class="aa-product-view-price">{{number_format($product->price)}}</span>
@@ -420,26 +422,24 @@
                                                             <h4>Size</h4>
                                                             <div class="aa-prod-view-size mb15">
                                                                 @foreach($product->size as $size)
-                                                                    <a class="size dib wh25 tac"
+                                                                    <a quantity="{{$size->pivot->quantity}}"
+                                                                       class="sizeProduct size dib wh25 tac"
                                                                        href="#">{{$size->pivot->quantity?$size->name:""}}</a>
                                                                 @endforeach
                                                             </div>
                                                             <div class="aa-prod-quantity">
-                                                                <form action="">
-                                                                    <select name="" id="">
-                                                                        <option value="0" selected="1">1</option>
-                                                                        <option value="1">2</option>
-                                                                        <option value="2">3</option>
-                                                                        <option value="3">4</option>
-                                                                        <option value="4">5</option>
-                                                                        <option value="5">6</option>
-                                                                    </select>
+                                                                <form action="" class="formQuantity dn">
+                                                                    <div class="mb10">
+                                                                        <div class="dib">Kho:</div>
+                                                                        <div class="sumQuantity dib ml10">10</div>
+                                                                    </div>
+                                                                    <input type="number" class="quantityProduct" style="width: 50px" value="1" min="1" max="">
                                                                 </form>
-                                                                <p class="aa-prod-category">
-                                                                    Category: <a
-                                                                        href="category/{{$product->category->id}}">{{$product->category->name}}</a>
-                                                                </p>
                                                             </div>
+                                                            <p class="aa-prod-category">
+                                                                Category: <a
+                                                                    href="category/{{$product->category->id}}">{{$product->category->name}}</a>
+                                                            </p>
                                                             <div class="aa-prod-view-bottom">
                                                                 <a href="#" class="aa-add-to-cart-btn"><span
                                                                         class="fa fa-shopping-cart"></span>Add To
@@ -455,99 +455,6 @@
                                     </div><!-- /.modal-dialog -->
                                 </div><!-- / quick view modal -->
                             @endforeach
-                            <div class="modal fade" id="quick-view-modal" tabindex="-1" role="dialog"
-                                 aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-body">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                                &times;
-                                            </button>
-                                            <div class="row">
-                                                <!-- Modal view slider -->
-                                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <div class="aa-product-view-slider">
-                                                        <div class="simpleLens-gallery-container" id="demo-1">
-                                                            <div class="simpleLens-container">
-                                                                <div class="simpleLens-big-image-container">
-                                                                    <a class="simpleLens-lens-image"
-                                                                       data-lens-image="img/view-slider/large/polo-shirt-1.png">
-                                                                        <img
-                                                                            src="{{asset("frontend/img/view-slider/medium/polo-shirt-1.png")}}"
-                                                                            class="simpleLens-big-image">
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="simpleLens-thumbnails-container">
-                                                                <a href="#" class="simpleLens-thumbnail-wrapper"
-                                                                   data-lens-image="img/view-slider/large/polo-shirt-1.png"
-                                                                   data-big-image="img/view-slider/medium/polo-shirt-1.png">
-                                                                    <img
-                                                                        src="{{asset("frontend/img/view-slider/thumbnail/polo-shirt-1.png")}}">
-                                                                </a>
-                                                                <a href="#" class="simpleLens-thumbnail-wrapper"
-                                                                   data-lens-image="img/view-slider/large/polo-shirt-3.png"
-                                                                   data-big-image="img/view-slider/medium/polo-shirt-3.png">
-                                                                    <img
-                                                                        src="{{asset("frontend/img/view-slider/thumbnail/polo-shirt-3.png")}}">
-                                                                </a>
-
-                                                                <a href="#" class="simpleLens-thumbnail-wrapper"
-                                                                   data-lens-image="img/view-slider/large/polo-shirt-4.png"
-                                                                   data-big-image="img/view-slider/medium/polo-shirt-4.png">
-                                                                    <img
-                                                                        src="{{asset("frontend/img/view-slider/thumbnail/polo-shirt-4.png")}}">
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Modal view content -->
-                                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <div class="aa-product-view-content">
-                                                        <h3>T-Shirt</h3>
-                                                        <div class="aa-price-block">
-                                                            <span class="aa-product-view-price">$34.99</span>
-                                                            <p class="aa-product-avilability">Avilability: <span>In stock</span>
-                                                            </p>
-                                                        </div>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                            Officiis animi, veritatis quae repudiandae quod nulla porro
-                                                            quidem, itaque quis quaerat!</p>
-                                                        <h4>Size</h4>
-                                                        <div class="aa-prod-view-size">
-                                                            <a href="#">S</a>
-                                                            <a href="#">M</a>
-                                                            <a href="#">L</a>
-                                                            <a href="#">XL</a>
-                                                        </div>
-                                                        <div class="aa-prod-quantity">
-                                                            <form action="">
-                                                                <select name="" id="">
-                                                                    <option value="0" selected="1">1</option>
-                                                                    <option value="1">2</option>
-                                                                    <option value="2">3</option>
-                                                                    <option value="3">4</option>
-                                                                    <option value="4">5</option>
-                                                                    <option value="5">6</option>
-                                                                </select>
-                                                            </form>
-                                                            <p class="aa-prod-category">
-                                                                Category: <a href="#">Polo T-Shirt</a>
-                                                            </p>
-                                                        </div>
-                                                        <div class="aa-prod-view-bottom">
-                                                            <a href="#" class="aa-add-to-cart-btn"><span
-                                                                    class="fa fa-shopping-cart"></span>Add To Cart</a>
-                                                            <a href="#" class="aa-add-to-cart-btn">View Details</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div><!-- /.modal-content -->
-                                </div><!-- /.modal-dialog -->
-                            </div><!-- / quick view modal -->
                         </div>
                     </div>
                 </div>
@@ -607,19 +514,19 @@
                                                                 href="#">{{$product->name}}</a>
                                                         </h4>
                                                         <span
-                                                            class="aa-product-price">{{number_format(($product->price-(($product->price*10)/100)))}}</span>
-                                                        <span class="aa-product-price"><del>{{number_format($product->price)}}</del></span>
+                                                            class="aa-product-price">{{number_format($product->price)}}</span>
+                                                        {{--                                                        <span class="aa-product-price"><del>{{number_format($product->price)}}</del></span>--}}
                                                     </figcaption>
                                                 </figure>
                                                 <div class="aa-product-hvr-content">
                                                     <a href="#" data-toggle="tooltip" data-placement="top"
                                                        title="Add to Wishlist"><span
                                                             class="fa fa-heart-o"></span></a>
-                                                    <a href="#" data-toggle="tooltip" data-placement="top"
-                                                       title="Compare"><span class="fa fa-exchange"></span></a>
+                                                    {{--                                                    <a href="#" data-toggle="tooltip" data-placement="top"--}}
+                                                    {{--                                                       title="Compare"><span class="fa fa-exchange"></span></a>--}}
                                                     <a href="#" data-toggle2="tooltip" data-placement="top"
                                                        title="Quick View" data-toggle="modal"
-                                                       data-target="#quick-view-modal"><span
+                                                       data-target="#product-modal-home{{$product->id}}"><span
                                                             class="fa fa-search"></span></a>
                                                 </div>
                                                 <!-- product badge -->
@@ -688,21 +595,36 @@
                     <ul class="aa-testimonial-slider">
                         <!-- single slide -->
                         @foreach($qas as $i=>$qa)
-                            <li>
-                                <div class="aa-testimonial-single">
-                                    <img class="aa-testimonial-img"
-                                         src="{{asset("frontend/img/testimonial-img-2.jpg")}}"
-                                         alt="testimonial img">
-                                    <span class="fa fa-quote-left aa-testimonial-quote"></span>
-                                    <p><b>Quest: </b>{!!$qa->quest !!}</p>
-                                    <p><b>Answer: </b>{!! $qa->answer !!}</p>
-                                    <div class="aa-testimonial-info">
-                                        <p>Allison</p>
-                                        <span>Designer</span>
-                                        <a href="#">Dribble.com</a>
+                            @if($i<=12)
+                                <li>
+                                    <div class="aa-testimonial-single">
+                                        <img class="aa-testimonial-img"
+                                             src="{{["https://cdn.24h.com.vn/upload/3-2019/images/2019-09-15/1568562240-300-a--8--1568544356-width650height866.jpg",
+                                                 "https://2sao.vietnamnetjsc.vn/images/2020/03/14/12/30/hot-girl-1.jpg",
+                                                 "https://cdn.24h.com.vn/upload/2-2020/images/2020-04-24/1587664061-778-nu-sinh-viet-19-tuoi-mac-ao-sieu-tao-bao-94270777_718462938899238_2452930847234326528_n-1587612005-width774height960.jpg",
+                                                 "https://vnn-imgs-a1.vgcloud.vn/cdn.24h.com.vn/upload/1-2020/images/2020-03-16/1584324285-49-anh-1-1584088794-width650height638.jpg",
+                                                 "https://nguoinoitieng.tv/images/nnt/97/0/bcjl.jpg",
+                                                 "https://ttol.vietnamnetjsc.vn/images/2019/11/17/14/07/ho-girl-banh-trang-tron-3.jpg",
+                                                 "https://sohanews.sohacdn.com/2020/4/11/2-15865649222911381986719.jpg",
+                                                 "https://nguoinoitieng.tv/images/nnt/99/0/bdti.jpg",
+                                                 "https://mcnewsmd1.keeng.net/netnews/archive/images/2019112710/tinngan_103107_358328798_0wap_320.jpg",
+                                                 "https://ttol.vietnamnetjsc.vn/images/2019/04/19/09/40/nu-sinh-xinh-dep-1.jpg",
+                                                 "https://nghesiviet.vn/storage/files/7/tramanh/tram-anh.jpg",
+                                                 "https://static2.yan.vn/YanNews/2167221/201909/nhan-sac-hoi-hotgirl-viet-noi-tieng-mxh-trung-quoc-22da3c9c.jpg",
+                                              ][$i]}}"
+                                             alt="testimonial img">
+                                        <span class="fa fa-quote-left aa-testimonial-quote"></span>
+                                        <p><b>Quest: </b>{!!$qa->quest !!}</p>
+                                        <p><b>Answer: </b>{!! $qa->answer !!}</p>
+{{--                                        <div class="aa-testimonial-info">--}}
+{{--                                            <p>Allison</p>--}}
+{{--                                            <span>Designer</span>--}}
+{{--                                            <a href="#">Dribble.com</a>--}}
+{{--                                        </div>--}}
                                     </div>
-                                </div>
-                            </li>
+                                </li>
+                            @endif
+
                     @endforeach
                     <!-- single slide  swar-->
                     </ul>
@@ -720,7 +642,7 @@
                 <div class="aa-client-brand-area">
                     <ul class="aa-client-brand-slider">
                         @foreach($collections as $i =>$collection )
-                            <li><a href="#" class="fwb ttu">{{$collection->name}}</a></li>
+                            <li><a href="collection/{{$collection->id}}" class="fwb ttu">{{$collection->name}}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -729,7 +651,6 @@
     </div>
 </section>
 <!-- / Client Brand -->
-
 <!-- Subscribe section -->
 <section id="aa-subscribe">
     <div class="container">
@@ -763,23 +684,23 @@
                                     <h3>Main Menu</h3>
                                     <ul class="aa-footer-nav">
                                         <li><a href="#">Home</a></li>
-                                        <li><a href="#">Our Services</a></li>
-                                        <li><a href="#">Our Products</a></li>
-                                        <li><a href="#">About Us</a></li>
-                                        <li><a href="#">Contact Us</a></li>
+                                        <li><a href="#">Category</a></li>
+                                        <li><a href="#">Collection</a></li>
+                                        <li><a href="#">Q&A</a></li>
+                                        <li><a href="#">Contact</a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-6">
                                 <div class="aa-footer-widget">
                                     <div class="aa-footer-widget">
-                                        <h3>Knowledge Base</h3>
+                                        <h3>Chính sách chung</h3>
                                         <ul class="aa-footer-nav">
-                                            <li><a href="#">Delivery</a></li>
-                                            <li><a href="#">Returns</a></li>
-                                            <li><a href="#">Services</a></li>
-                                            <li><a href="#">Discount</a></li>
-                                            <li><a href="#">Special Offer</a></li>
+                                            <li><a href="#">FREE SHIPPING</a></li>
+                                            <li><a href="#">30 DAYS MONEY BACK</a></li>
+                                            <li><a href="#">SUPPORT 24/7</a></li>
+                                            {{--                                            <li><a href="#">Discount</a></li>--}}
+                                            {{--                                            <li><a href="#">Special Offer</a></li>--}}
                                         </ul>
                                     </div>
                                 </div>
@@ -803,8 +724,8 @@
                                     <div class="aa-footer-widget">
                                         <h3>Contact Us</h3>
                                         <address>
-                                            <p> 25 Astor Pl, NY 10003, USA</p>
-                                            <p><span class="fa fa-phone"></span>+1 212-982-4589</p>
+                                            <p> Tôn Thất Thuyết, Cầu Giấy, Hà Nội</p>
+                                            <p><span class="fa fa-phone"></span>0989859398</p>
                                             <p><span class="fa fa-envelope"></span>dailyshop@gmail.com</p>
                                         </address>
                                         <div class="aa-footer-social">
@@ -828,7 +749,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="aa-footer-bottom-area">
-                        <p>Designed by <a href="http://www.markups.io/">MarkUps.io</a></p>
+                        <p>Designed by <a href="http://www.markups.io/">NhomOfQuan</a></p>
                         <div class="aa-footer-payment">
                             <span class="fa fa-cc-mastercard"></span>
                             <span class="fa fa-cc-visa"></span>
