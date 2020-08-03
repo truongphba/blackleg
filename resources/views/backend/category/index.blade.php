@@ -1,5 +1,11 @@
 @extends('backend.layouts.layout')
-
+@section('style')
+    <style>
+        .select-active{
+            display: none;
+        }
+    </style>
+@endsection
 @section('title','Category')
 @section('content')
     <div class="container-fluid">
@@ -21,7 +27,10 @@
                         </form>
                     </div>
                     <div class="col-md-2 text-right">
-                        <a href="{{route('backend.categories.create')}}"> <button class="btn btn-success text-uppercase">Add</button></a>
+                        <button class="btn btn-outline-primary text-uppercase select-btn">Select</button>
+                        <a href="{{route('backend.categories.create')}}">
+                            <button class="btn btn-success text-uppercase">Add</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -30,7 +39,8 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
-                            <th>Id</th>
+                            <th class="select-active"></th>
+                            <th class="text-center">Id</th>
                             <th>Name</th>
                             <th>Description</th>
                             <th>Thumbnail</th>
@@ -40,15 +50,21 @@
                         </thead>
                         <tbody>
                         @foreach($list as $item)
-                            <tr>
-                                <td>{{$item->id}}</td>
+                            <tr class="tr-click">
+                                <td class="select-active">
+                                   <div class="form-check form-group text-center pt-3">
+                                       <input type="checkbox" name="selected" class="form-check-input" style="height: 20px;width: 20px">
+                                   </div>
+                                </td>
+                                <td class="text-center">{{$item->id}}</td>
                                 <td>{{$item->name}}</td>
-                                <td>{{$item->description}}</td>
-                                <td>{{$item->thumnail}}</td>
+                                <td>{!!$item->description!!}</td>
+                                <td class="text-center"><img style="height: 70px;width: 100px;overflow: hidden"
+                                                             src="{{$item->photo}}"></td>
                                 @if($item->status)
                                     <td style="color: green" class="text-uppercase">Active</td>
                                 @else
-                                    <td style="color: red" class="text-uppercase">Deactive</td>
+                                    <td style="color: red" class="text-uppercase">Lock</td>
                                 @endif
                                 <td>{{date_format($item->created_at, 'Y-m-d')}}</td>
                             </tr>
@@ -70,4 +86,15 @@
         </div>
     </div>
 @endsection
-
+@section('script')
+    <script>
+        $(document).ready(function () {
+            $('#dataTable tbody tr').dblclick(function () {
+                window.location.href = '/admin/categories/' + $(this).children().first().text();
+            });
+            $('.select-btn').click(function () {
+                $('.select-active').toggle();
+            });
+        });
+    </script>
+@endsection
