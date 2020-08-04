@@ -24,18 +24,29 @@ class SiteController extends Controller
     }
 
     public function productDetail($id){
+        $categories = Category::all()->where('status','=',1);
+        $collections = Collection::all()->where('status','=',1);
         $products = Product::all()->where('status','=',1);
         $product = Product::where('id', '=', $id)->where('status','=',1)->first();
         return view('frontend.product-detail')
             ->with('products', $products)
-            ->with('product', $product);
+            ->with('product', $product)
+            ->with('categories', $categories)
+            ->with('collections', $collections);
     }
 
     public function category($id){
+        $products = Product::all()->where('status','=',1);
+        $collections = Collection::all()->where('status','=',1);
         $categories = Category::all()->where('status','=',1);
         $category = Category::where('id', '=', $id)->where('status','=',1)->first();
+
+
         return view('frontend.product')
             ->with('category', $category)
-            ->with('categories', $categories);
+            ->with('categories', $categories)
+            ->with('products', $products)
+            ->with('collections', $collections);
     }
+
 }
