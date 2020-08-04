@@ -108,6 +108,15 @@
                         <p style="color: red">{{ $message }}</p>
                         @enderror
                     </div>
+                    <div class="form-group">
+                        <label>Images:</label>
+                        <button type="button" id="upload_widget_2" class="btn btn-success">Upload files</button>
+                        <div class="images"></div>
+                    </div>
+                    <div class="form-group">
+                        <button id="back" type="button" class="btn btn-primary text-uppercase">Back</button>
+                        <button class="btn btn-success text-uppercase">Submit</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -131,12 +140,33 @@
                 }, function (error, result) {
                     if (!error && result && result.event === "success") {
                         console.log('Done! Here is the image info: ', result.info.url);
+                        $('.thumbnail').removeClass('thumbnail');
                     }
                 }
             );
 
             document.getElementById("upload_widget").addEventListener("click", function () {
                 myWidget.open();
+            }, false);
+
+            var myWidget2 = cloudinary.createUploadWidget(
+                {
+                    cloudName: 'truongph',
+                    uploadPreset: 'au4uj3sm',
+                    form: '#product_form',
+                    multiple: true,
+                    fieldName: 'images[]',
+                    thumbnails: '.images',
+                    thumbnailTransformation: [{width: 200, height: 200, crop: 'fill'}]
+                }, function (error, result) {
+                    if (!error && result && result.event === "success") {
+                        console.log('Done! Here is the image info: ', result.info.url);
+                    }
+                }
+            );
+
+            document.getElementById("upload_widget_2").addEventListener("click", function () {
+                myWidget2.open();
             }, false);
 
             $('body').on('click', '.cloudinary-delete', function () {

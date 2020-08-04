@@ -19,11 +19,15 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->get('keyword');
-        $list = Product::with('category')
-            ->orderBy('created_at', 'desc')
-            ->where('name', 'like', '%' . $keyword . '%')
-            ->orWhereHas('category', function ($query) use ($keyword) {
-                $query->Where('name', 'like', '%' . $keyword . '%');
+        $list = Product::orderBy('created_at', 'desc')
+            ->whereHas('category', function ($query){
+                $query->where('status',1);
+            })
+            ->where(function ($query) use ($keyword){
+                $query->where('name', 'like', '%' . $keyword . '%')
+                    ->orWhereHas('category', function ($query) use ($keyword) {
+                        $query->where('name', 'like', '%' . $keyword . '%');
+                    });
             })
             ->paginate(10)
             ->appends($request->only('keyword'));
