@@ -1,7 +1,7 @@
 @extends('backend.layouts.layout')
 @section('style')
     <style>
-        .select-active{
+        .select-active {
             display: none;
         }
     </style>
@@ -19,6 +19,9 @@
                 <div class="row">
                     <div class="col-md-3">
                         <h4 class="m-0 font-weight-bold text-primary">Category List</h4>
+                        @error('selected')
+                        <p style="color: red">{{$message}}</p>
+                        @enderror
                     </div>
                     <div class="col-md-5"></div>
                     <div class="col-md-2">
@@ -28,6 +31,8 @@
                     </div>
                     <div class="col-md-2 text-right">
                         <button class="btn btn-outline-primary text-uppercase select-btn">Select</button>
+                        <button class="btn btn-primary text-uppercase unselected-btn" style="display: none">Unselected
+                        </button>
                         <a href="{{route('backend.categories.create')}}">
                             <button class="btn btn-success text-uppercase">Add</button>
                         </a>
@@ -39,7 +44,15 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
-                            <th class="select-active"></th>
+                            <th class="select-active">
+                                <form class="text-center" id="form-delete" method="post"
+                                      action="{{route('backend.categories.deleteSelected')}}">
+                                    @csrf
+                                    <div class="categoryIds"></div>
+                                    <button type="button" class="btn btn-danger text-uppercase" id="delete">Delete
+                                    </button>
+                                </form>
+                            </th>
                             <th class="text-center">Id</th>
                             <th>Name</th>
                             <th>Description</th>
@@ -52,9 +65,12 @@
                         @foreach($list as $item)
                             <tr class="tr-click">
                                 <td class="select-active">
-                                   <div class="form-check form-group text-center pt-3">
-                                       <input type="checkbox" name="selected" class="form-check-input" style="height: 20px;width: 20px">
-                                   </div>
+                                    @if($item->status == 1)
+                                        <div class="form-check form-group text-center pt-3">
+                                            <input type="checkbox" name="selected[]" class="form-check-input selected"
+                                                   style="height: 20px;width: 20px" value="{{$item->id}}">
+                                        </div>
+                                    @endif
                                 </td>
                                 <td class="text-center">{{$item->id}}</td>
                                 <td>{{$item->name}}</td>
@@ -90,10 +106,33 @@
     <script>
         $(document).ready(function () {
             $('#dataTable tbody tr').dblclick(function () {
-                window.location.href = '/admin/categories/' + $(this).children().first().text();
+                window.location.href = '/admin/categories/' + $(this).children().first().next().text();
+            });
+            $('.select-btn,.unselected-btn').click(function () {
+                $('.select-btn,.unselected-btn').toggle();
             });
             $('.select-btn').click(function () {
-                $('.select-active').toggle();
+                $('.select-active').show();
+            });
+            $('.unselected-btn').click(function () {
+                $('.select-active').hide();
+            });
+            $('.select-active').change(function () {
+                selected = [];
+                $('.selected:checked').each(function (i) {
+                    selected[i] = $(this).val();
+                });
+
+            });
+            $('#delete').click(function () {
+                if (typeof selected !== 'undefined') {
+                    for (var i = 0; i < selected.length; i++) {
+                        $('.categoryIds').append('<input type="hidden" name="selected[]" value=' + selected[i] + '>');
+                    }
+                }
+                if (confirm('Do you sure to delete ?')) {
+                    $('#form-delete').submit();
+                }
             });
         });
     </script>

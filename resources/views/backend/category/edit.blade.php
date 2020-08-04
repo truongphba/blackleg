@@ -49,7 +49,7 @@
                       <div class="row">
                          <div class="col-md-3">
                              <label>Status:</label>
-                             <select class="form-control text-uppercase" name="status" style="color: {{$category->status ? 'green' : 'red'}}">
+                             <select class="form-control text-uppercase" name="status">
                                  <option value="0" style="color: red;text-transform: uppercase" {{!$category->status ? 'selected' : ''}}>Lock</option>
                                  <option value="1" style="color: green;text-transform: uppercase" {{$category->status ? 'selected' : ''}}>Active</option>
                              </select>
