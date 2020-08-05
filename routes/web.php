@@ -17,6 +17,7 @@ Route::group(['prefix'=>'admin','as'=>'backend.'], function(){
     Route::get('/', ['as' => 'index', 'uses' => 'Backend\SiteController@index']);
     Route::resource('products','Backend\ProductController');
     Route::resource('categories','Backend\CategoryController');
+    Route::post('/categories/delete-selected','Backend\CategoryController@deleteSelected')->name('categories.deleteSelected');
 });
 
 Route::get('/', 'Frontend\SiteController@index');
