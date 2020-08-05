@@ -8,8 +8,8 @@
             <div class="aa-catg-head-banner-content">
                 <h2>{{$product->name}}</h2>
                 <ul class="breadcrumb">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#">Product</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="{{route('product', $product->category_id)}}">{{$product->category->name}}</a></li>
                     <li class="active">{{$product->name}}</li>
                 </ul>
             </div>
@@ -37,9 +37,9 @@
                                                     class="simpleLens-big-image-container  dbi w1i">
                                                     <a class="simpleLens-lens-image  dbi w1i ohi"
                                                        style="height: 100% !important;"
-                                                       data-lens-image="{{$product->thumbnail}}">
+                                                       data-lens-image="{{$image->url}}">
                                                         <img
-                                                            src="{{$product->thumbnail}}"
+                                                            src="{{$image->url}}"
                                                             class="simpleLens-big-image">
                                                     </a>
                                                 </div>
@@ -208,7 +208,7 @@
                                 @if($item->category_id == $product->category_id && $item->id != $product->id)
                                     <li class="">
                                         <figure>
-                                            <a class="aa-product-img" href="#">
+                                            <a class="aa-product-img" href="{{route('productDetail', $item->id)}}">
                                                 <div class="img-11 bgpti"
                                                      style="background-image: url('{{$item->thumbnail}}')"></div>
                                             </a>
