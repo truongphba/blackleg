@@ -1,4 +1,3 @@
-
 @extends('backend.layouts.layout')
 @section('style')
     <style>
@@ -7,26 +6,26 @@
         }
     </style>
 @endsection
-@section('title','Category')
+@section('title','Collection')
 @section('content')
     <div class="container-fluid">
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Category Management</h1>
+            <h1 class="h3 mb-0 text-gray-800">Collection Management</h1>
         </div>
 
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <div class="row">
                     <div class="col-md-3">
-                        <h4 class="m-0 font-weight-bold text-primary">Category List</h4>
+                        <h4 class="m-0 font-weight-bold text-primary">Collection List</h4>
                         @error('selected')
                         <p style="color: red">{{$message}}</p>
                         @enderror
                     </div>
                     <div class="col-md-5"></div>
                     <div class="col-md-2">
-                        <form method="get" action="{{route('backend.categories.index')}}">
+                        <form method="get" action="{{route('backend.collections.index')}}">
                             <input class="form-control" name="keyword" placeholder="Search....">
                         </form>
                     </div>
@@ -34,7 +33,7 @@
                         <button class="btn btn-outline-primary text-uppercase select-btn">Select</button>
                         <button class="btn btn-primary text-uppercase unselected-btn" style="display: none">Unselected
                         </button>
-                        <a href="{{route('backend.categories.create')}}">
+                        <a href="{{route('backend.collections.create')}}">
                             <button class="btn btn-success text-uppercase">Add</button>
                         </a>
                     </div>
@@ -47,9 +46,9 @@
                         <tr>
                             <th class="select-active">
                                 <form class="text-center" id="form-delete" method="post"
-                                      action="{{route('backend.categories.deleteSelected')}}">
+                                      action="{{route('backend.collections.deleteSelected')}}">
                                     @csrf
-                                    <div class="categoryIds"></div>
+                                    <div class="collectionIds"></div>
                                     <button type="button" class="btn btn-danger text-uppercase" id="delete">Delete
                                     </button>
                                 </form>
@@ -107,7 +106,7 @@
     <script>
         $(document).ready(function () {
             $('#dataTable tbody tr').dblclick(function () {
-                window.location.href = '/admin/categories/' + $(this).children().first().next().text();
+                window.location.href = '/admin/collections/' + $(this).children().first().next().text();
             });
             $('.select-btn,.unselected-btn').click(function () {
                 $('.select-btn,.unselected-btn').toggle();
@@ -123,12 +122,11 @@
                 $('.selected:checked').each(function (i) {
                     selected[i] = $(this).val();
                 });
-
             });
             $('#delete').click(function () {
                 if (typeof selected !== 'undefined') {
                     for (var i = 0; i < selected.length; i++) {
-                        $('.categoryIds').append('<input type="hidden" name="selected[]" value=' + selected[i] + '>');
+                        $('.collectionIds').append('<input type="hidden" name="selected[]" value=' + selected[i] + '>');
                     }
                 }
                 if (confirm('Do you sure to delete ?')) {
