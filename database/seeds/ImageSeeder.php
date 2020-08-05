@@ -170,7 +170,7 @@ class ImageSeeder extends Seeder
             [
                 'id' => 21,
                 'product_id' => 7,
-                'url' => 'https://ferosh.vn/uploads/13-09-2019/420x630/DRE1062-5.jpg',
+                'url' => 'https://ferosh.vn/uploads/02-10-2019/420x630/VL1902082Tr-1.jpg',
                 'status' => 1,
                 'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
@@ -178,7 +178,7 @@ class ImageSeeder extends Seeder
             [
                 'id' => 22,
                 'product_id' => 7,
-                'url' =>'https://ferosh.vn/uploads/13-09-2019/420x630/DRE1062-7.jpg',
+                'url' =>'https://ferosh.vn/uploads/02-10-2019/420x630/VL1902082Tr-5.jpg',
                 'status' => 1,
                 'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
