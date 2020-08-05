@@ -46,6 +46,7 @@
                         <textarea id="description" class="form-control" name="description" data="{{$category->description}}"></textarea>
                     </div>
                     <div class="form-group">
+
                         <div class="row">
                             <div class="col-md-3">
                                 <label>Status:</label>
@@ -55,6 +56,17 @@
                                 </select>
                             </div>
                         </div>
+
+                      <div class="row">
+                         <div class="col-md-3">
+                             <label>Status:</label>
+                             <select class="form-control text-uppercase" name="status">
+                                 <option value="0" style="color: red;text-transform: uppercase" {{!$category->status ? 'selected' : ''}}>Lock</option>
+                                 <option value="1" style="color: green;text-transform: uppercase" {{$category->status ? 'selected' : ''}}>Active</option>
+                             </select>
+                         </div>
+                      </div>
+
                     </div>
                     <div class="form-group">
                         <a href="{{route('backend.categories.index')}}"><button type="button" class="btn btn-primary text-uppercase">Back</button></a>
@@ -71,6 +83,7 @@
         $(document).ready(function () {
             CKEDITOR.replace('description');
             CKEDITOR.instances['description'].setData($('#description').attr('data'));
+
             var myWidget = cloudinary.createUploadWidget(
                 {
                     cloudName: 'truongph',
@@ -87,9 +100,17 @@
                     }
                 }
             );
+
             document.getElementById("upload_widget").addEventListener("click", function () {
                 myWidget.open();
             }, false);
+
+
+            document.getElementById("upload_widget").addEventListener("click", function () {
+                myWidget.open();
+            }, false);
+
+
             $('body').on('click', '.cloudinary-delete', function () {
                 $('input[name=thumbnail]').remove();
                 $(this).parent().remove();
@@ -97,3 +118,4 @@
         });
     </script>
 @endsection
+

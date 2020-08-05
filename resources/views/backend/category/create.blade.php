@@ -53,6 +53,7 @@
         $(document).ready(function () {
             CKEDITOR.replace('description');
             CKEDITOR.replace('detail');
+
             var myWidget = cloudinary.createUploadWidget(
                 {
                     cloudName: 'truongph',
@@ -69,9 +70,17 @@
                     }
                 }
             );
+
             document.getElementById("upload_widget").addEventListener("click", function () {
                 myWidget.open();
             }, false);
+
+
+            document.getElementById("upload_widget").addEventListener("click", function () {
+                myWidget.open();
+            }, false);
+
+
             $('body').on('click', '.cloudinary-delete', function () {
                 $('input[name=thumbnail]').remove();
             });

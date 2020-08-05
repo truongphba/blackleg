@@ -123,6 +123,7 @@
                 $('.selected:checked').each(function (i) {
                     selected[i] = $(this).val();
                 });
+
             });
             $('#delete').click(function () {
                 if (typeof selected !== 'undefined') {
