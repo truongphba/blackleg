@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Product;
 use App\QA;
 use Illuminate\Http\Request;
+use Symfony\Component\Console\Input\Input;
 
 class SiteController extends Controller
 {
@@ -23,19 +24,4 @@ class SiteController extends Controller
         return view('frontend.index',['categories'=>$categories,'collections'=>$collections,'products'=>$products,'qas'=>$qas]);
     }
 
-    public function productDetail($id){
-        $products = Product::all()->where('status','=',1);
-        $product = Product::where('id', '=', $id)->where('status','=',1)->first();
-        return view('frontend.product-detail')
-            ->with('products', $products)
-            ->with('product', $product);
-    }
-
-    public function category($id){
-        $categories = Category::all()->where('status','=',1);
-        $category = Category::where('id', '=', $id)->where('status','=',1)->first();
-        return view('frontend.product')
-            ->with('category', $category)
-            ->with('categories', $categories);
-    }
 }
