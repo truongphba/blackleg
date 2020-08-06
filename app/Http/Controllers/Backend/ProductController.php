@@ -5,9 +5,13 @@ namespace App\Http\Controllers\Backend;
 use App\Category;
 use App\Collection;
 use App\Http\Controllers\Controller;
+use App\Image;
 use App\Product;
 use App\Size;
+use Carbon\Carbon;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -61,11 +65,64 @@ class ProductController extends Controller
             'price' => 'required|numeric',
             'detail' => 'required',
         ]);
-        $product = new Product();
-        $product->name = $request->name;
-        $product->category_id = $request->category_id;
-        $product->price = $request->price;
-        $product->colors = $request->colors;
+        DB::beginTransaction();
+        try {
+            $product = new Product();
+            $product->name = $request->name;
+            $product->category_id = $request->category_id;
+            $product->price = $request->price;
+            $product->colors = $request->colors;
+            $product->description = $request->description;
+            $product->detail = $request->detail;
+
+            $product->save();
+
+            $collection_input = $request->get('collection');
+
+            if (isset($collection_input)) {
+                $row_collection = [];
+                foreach ($collection_input as $collection) {
+                    $row_collection[] = [
+                        'product_id' => $product->id,
+                        'collection_id' => $collection,
+                    ];
+                }
+
+                DB::table('product_collection')->insert($row_collection);
+            }
+
+
+            $sizes = Size::where('status', 1)->get();
+            $row_size = [];
+            foreach ($sizes as $size) {
+                $row_size[] = [
+                    'product_id' => $product->id,
+                    'size_id' => $size->id,
+                    'quantity' => $request->get('quantity_' . $size->id)
+                ];
+            }
+            DB::table('product_size')->insert($row_size);
+
+            $images = $request->get('images');
+            if (isset($images) > 0) {
+                $row_image = [];
+                foreach ($images as $image) {
+                    $row_image[] = [
+                        'product_id' => $product->id,
+                        'url' => $image,
+                        'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                        'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                    ];
+                }
+                Image::insert($row_image);
+            }
+            DB::commit();
+        } catch (Exception $e) {
+            DB::rollBack();
+            $request->session()->flash('error','Something wrong, please try again!');
+            return redirect()->back();
+        }
+        return redirect()->route('backend.products.index');
 
     }
 

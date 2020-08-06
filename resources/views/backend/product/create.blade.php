@@ -1,6 +1,15 @@
 @extends('backend.layouts.layout')
 
-@section('title','Dashboard')
+@section('title','Product Management')
+@section('style')
+    <style>
+        .size-name {
+            position: absolute;
+            left: 14px;
+            top: 8px;
+        }
+    </style>
+@endsection
 @section('content')
     <div class="container-fluid">
         <!-- Page Heading -->
@@ -12,15 +21,19 @@
             <div class="card-header py-3">
                 <div class="row">
                     <h4 class="m-0 font-weight-bold text-primary">Create Product</h4>
+                    @if (session('error'))
+                        <p style="color: red">{{ session('error') }}</p>
+                    @endif
                 </div>
             </div>
             <div class="card-body">
-                <form id="product_form" action="{{route('backend.products.store')}}">
+                <form id="product_form" action="{{route('backend.products.store')}}" method="post">
+                    @csrf
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Name:</label>
-                                <input class="form-control" name="name" {{old('name')}}>
+                                <input maxlength="255" type="text" class="form-control" name="name" {{old('name')}}>
                                 @error('name')
                                 <p style="color: red">{{ $message }}</p>
                                 @enderror
@@ -44,7 +57,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Price:</label>
-                                <input class="form-control" name="price" {{old('price')}}>
+                                <input type="text" class="form-control" name="price" {{old('price')}}>
                                 @error('price')
                                 <p style="color: red">{{ $message }}</p>
                                 @enderror
@@ -53,7 +66,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Colors:</label>
-                                <input class="form-control" name="colors" {{old('colors')}}>
+                                <input maxlength="255" type="text" class="form-control" name="colors" {{old('colors')}}>
                                 @error('colors')
                                 <p style="color: red">{{ $message }}</p>
                                 @enderror
@@ -61,12 +74,12 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label>Collection:</label>
                                 @foreach($collections as $collection)
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="{{$collection->id}}"
+                                        <input class="form-check-input" name="collection[]" type="checkbox" value="{{$collection->id}}"
                                                id="collection_{{$collection->id}}">
                                         <label class="form-check-label" for="collection_{{$collection->id}}">
                                             {{$collection->name}}
@@ -75,14 +88,15 @@
                                 @endforeach
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <div class="form-group">
                                 <label>Quantity:</label>
                                 <div class="form-row">
                                     @foreach($sizes as $size)
                                         <div class="form-group col-md-2">
-                                            <input class="form-control mb-2" name="quantity_{{$size->name}}"
-                                                   placeholder="{{$size->name}}">
+                                            <label>{{$size->name}}:</label>
+                                            <input type="number" class="form-control mb-2" style="padding-left: 100px"
+                                                   name="quantity_{{$size->id}}">
                                         </div>
                                     @endforeach
                                 </div>
@@ -117,6 +131,7 @@
 @section('script')
     <script>
         $(document).ready(function () {
+            CKEDITOR.config.entities_latin = false
             CKEDITOR.replace('description');
             CKEDITOR.replace('detail');
 
@@ -132,6 +147,10 @@
                 }, function (error, result) {
                     if (!error && result && result.event === "success") {
                         console.log('Done! Here is the image info: ', result.info.url);
+                        var arrayThumnailInputs = document.querySelectorAll('input[name="images[]"]');
+                        for (let i = 0; i < arrayThumnailInputs.length; i++) {
+                            arrayThumnailInputs[i].value = arrayThumnailInputs[i].getAttribute('data-cloudinary-public-id');
+                        }
                     }
                 }
             );
