@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <form id="product_form">
+                <form id="product_form" action="{{route('backend.products.store')}}">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -29,12 +29,12 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Category:</label>
-                                <select class="form-control" name="category">
+                                <select class="form-control" name="category_id">
                                     @foreach($categories as $category)
                                         <option value="{{$category->id}}">{{$category->name}}</option>
                                     @endforeach
                                 </select>
-                                @error('title')
+                                @error('category_id')
                                 <p style="color: red">{{ $message }}</p>
                                 @enderror
                             </div>
@@ -61,14 +61,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Thumbnail:</label>
-                                <button type="button" id="upload_widget" class="btn btn-success">Upload files</button>
-                                <div class="thumbnail"></div>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label>Collection:</label>
                                 @foreach($collections as $collection)
@@ -95,7 +88,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <div class="form-group">
                         <label>Description:</label>
@@ -110,7 +102,7 @@
                     </div>
                     <div class="form-group">
                         <label>Images:</label>
-                        <button type="button" id="upload_widget_2" class="btn btn-success">Upload files</button>
+                        <button type="button" id="upload_widget" class="btn btn-success">Upload files</button>
                         <div class="images"></div>
                     </div>
                     <div class="form-group">
@@ -133,27 +125,6 @@
                     cloudName: 'truongph',
                     uploadPreset: 'au4uj3sm',
                     form: '#product_form',
-                    multiple: false,
-                    fieldName: 'thumbnail',
-                    thumbnails: '.thumbnail',
-                    thumbnailTransformation: [{width: 200, height: 200, crop: 'fill'}]
-                }, function (error, result) {
-                    if (!error && result && result.event === "success") {
-                        console.log('Done! Here is the image info: ', result.info.url);
-                        $('.thumbnail').removeClass('thumbnail');
-                    }
-                }
-            );
-
-            document.getElementById("upload_widget").addEventListener("click", function () {
-                myWidget.open();
-            }, false);
-
-            var myWidget2 = cloudinary.createUploadWidget(
-                {
-                    cloudName: 'truongph',
-                    uploadPreset: 'au4uj3sm',
-                    form: '#product_form',
                     multiple: true,
                     fieldName: 'images[]',
                     thumbnails: '.images',
@@ -165,8 +136,8 @@
                 }
             );
 
-            document.getElementById("upload_widget_2").addEventListener("click", function () {
-                myWidget2.open();
+            document.getElementById("upload_widget").addEventListener("click", function () {
+                myWidget.open();
             }, false);
 
             $('body').on('click', '.cloudinary-delete', function () {

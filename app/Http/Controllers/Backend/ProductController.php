@@ -20,10 +20,10 @@ class ProductController extends Controller
     {
         $keyword = $request->get('keyword');
         $list = Product::orderBy('created_at', 'desc')
-            ->whereHas('category', function ($query){
-                $query->where('status',1);
+            ->whereHas('category', function ($query) {
+                $query->where('status', 1);
             })
-            ->where(function ($query) use ($keyword){
+            ->where(function ($query) use ($keyword) {
                 $query->where('name', 'like', '%' . $keyword . '%')
                     ->orWhereHas('category', function ($query) use ($keyword) {
                         $query->where('name', 'like', '%' . $keyword . '%');
@@ -41,10 +41,10 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = Category::where('status',1)->get();
-        $sizes = Size::where('status',1)->get();
-        $collections = Collection::where('status',1)->get();
-        return view('backend.product.create')->with(['categories'=> $categories, 'sizes' => $sizes, 'collections' => $collections]);
+        $categories = Category::where('status', 1)->get();
+        $sizes = Size::where('status', 1)->get();
+        $collections = Collection::where('status', 1)->get();
+        return view('backend.product.create')->with(['categories' => $categories, 'sizes' => $sizes, 'collections' => $collections]);
     }
 
     /**
@@ -55,7 +55,18 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'category_id' => 'required',
+            'price' => 'required|numeric',
+            'detail' => 'required',
+        ]);
+        $product = new Product();
+        $product->name = $request->name;
+        $product->category_id = $request->category_id;
+        $product->price = $request->price;
+        $product->colors = $request->colors;
+
     }
 
     /**
