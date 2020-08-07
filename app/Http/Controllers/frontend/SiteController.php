@@ -29,14 +29,14 @@ class SiteController extends Controller
         });
         if($r->productId){
             foreach ($cart as $i=>$c) if($c->productId==$r->productId){
-                $c->size=$r->size?$r->size:$c->size;
-                $c->quantity=$r->quantity?$r->quantity:$c->quantity;
+//                $c->size=$r->size?$r->size:$c->size;
+//                $c->quantity=$r->quantity?$r->quantity:$c->quantity;
                 $e=0;
             }
             $e&&array_push($cart,(object)["productId"=>$r->productId,"size"=>$r->size,"quantity"=>$r->quantity]);
             session(['cart' => $cart]);
         }
-        return $cart;
+        return $e?$cart:$e;
     }
     public function showCart(Request $r){
         $categories = Category::all()->where('status','=',1);

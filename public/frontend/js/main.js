@@ -48,9 +48,12 @@ $(document).ready(function () {
             data: {productId: productId, size: null, quantity: 1},
             success: function (v) {
                 console.log("Du lieu tra ve", v)
+                v!=0&&notification({text:"Đăng ký thành công!!",type:"true"});
+                v==0&&notification({text:"Sản phẩm đã tồn tại trong giỏ hàng!!",type:"note"});
             },
             error: function (data, textStatus, errorThrown) {
                 console.log(data, textStatus, errorThrown);
+                notification({text:"Thêm sản phẩm thất bại!!",type:"fail"})
             },
         })
     })
@@ -68,7 +71,6 @@ $(".productCart").on("loadCart", function () {
             if (v && v.cart) {
                 t.find(".aa-cart-notify").text((v && v.cart) ? v.cart.length : "");
                 t.find(".aa-cartbox-summary ul").empty().append(
-
                     v.cart.map(function (d, i) {
                         // console.log(v.products[findWithAttr(v.products,"id",d.productId)]?,d.productId)
                         // console.log(getObj(v.products,"id",d.productId)?getObj(v.products,"id",d.productId).thumbnail:"")
@@ -83,7 +85,7 @@ $(".productCart").on("loadCart", function () {
                                 $("<h4>",{class:""}).append(
                                     $("<a>", {text:getAttrInObj(v.products, "id", d.productId, "name"), href: "/product/" + d.productId})
                                 ),
-                                $("<p>", {text: (getAttrInObj(v.cart, "productId", d.productId, "quantity") || 1) + " x " + getAttrInObj(v.products, "id", d.productId, "price").phẩy() + " VNĐ"})
+                                $("<p>", {text: (getAttrInObj(v.cart, "productId", d.productId, "quantity") || 1) + " x " + getAttrInObj(v.products, "id", d.productId, "price").comma() + " VNĐ"})
                             ),
                             $("<a>", {class: "aa-remove-product", href: "/product/" + d.productId}).append(
                                 $("<span>",{class:"fa fa-times"})
@@ -102,7 +104,7 @@ $(".productCart").on("loadCart", function () {
     })
     //
 })
-$(".productCart").trigger("loadCart")
+$(".productCart").trigger("loadCart");
 $.fn.extend({
     editClass: function (a) {
         return this.each(function () {
@@ -136,7 +138,7 @@ $.fn.extend({
                 o.change.call(t, v);
                 fn && fn.call(t, v);
             })
-            t.editClass("pr,bấmĐc,iSelect").attr({tabindex: 0}).data({type: "select"}).focus(function () {
+            t.editClass("pr,cp,iSelect").attr({tabindex: 0}).data({type: "select"}).focus(function () {
                 t.editClass("bgcyl")
                 t.append(
                     $("<div>", {class: "pa t1 l0 df fdc bw1 bss bcd boxSelect oya bóng trắng"}).append(
@@ -206,6 +208,33 @@ $.fn.extend({
     },
 })
 {
+    notification = function(o){
+        var o = $.extend(
+            {
+                text:"true",
+                type:""
+            },o
+        ),
+        color;
+        console.log(o)
+        o.type=="true"&&(color="bgcgl");
+        o.type=="false"&&(color="bgcrd");
+        o.type=="note"&&(color="bgcyl");
+        $("body").append(
+            $("<div>",{class:"pf bra5 t50 l50 pa25  ta5 tty o0 " +color ,text:o.text}).each(function () {
+                var t = $(this);
+                setTimeout(function () {
+                    t.editClass("o1,tt,-tty");
+                    setTimeout(function () {
+                        t.editClass("-o1,-tt,tty");
+                        setTimeout(function () {
+                            t.remove();
+                        },500)
+                    },1000)
+                },100)
+            })
+        )
+    }
     range = function (a, b) {
         var arr = [];
         for (var i = a; i <= b; i++) {
@@ -232,7 +261,7 @@ $.fn.extend({
             return getObj(array, attr, value)[str];
         }
     }
-    phẩy = function (n) {
+    comma = function (n) {
         var b = [], str = "";
         if (n && typeof (n * 1) == "number") {
             n = (n + "").split("");
@@ -250,10 +279,10 @@ $.fn.extend({
             return 0;
         }
     }
-    String.prototype.phẩy = function () {
-        return phẩy(this);
+    String.prototype.comma = function () {
+        return comma(this);
     }
-    Number.prototype.phẩy = function () {
-        return phẩy(this);
+    Number.prototype.comma = function () {
+        return comma(this);
     }
 }
