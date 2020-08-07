@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Category;
+use App\Collection;
 use App\Http\Controllers\Controller;
 use App\Product;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class CollectionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,11 +17,11 @@ class CategoryController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->get('keyword');
-        $list = Category::orderBy('created_at', 'desc')
+        $list = Collection::orderBy('created_at', 'desc')
             ->where('name', 'like', '%' . $keyword . '%')
             ->paginate(10)
             ->appends($request->only('keyword'));
-        return view('backend.category.index')->with('list', $list);
+        return view('backend.collection.index')->with('list', $list);
     }
 
     /**
@@ -31,7 +31,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('backend.category.create');
+        return view('backend.collection.create');
     }
 
     /**
@@ -46,13 +46,13 @@ class CategoryController extends Controller
         $request->validate([
             'name' => 'required'
         ]);
-        $category = new Category();
-        $category->name = $request->name;
-        $category->thumbnail = $request->thumbnail;
-        $category->description = $request->description;
-        $category->save();
+        $collection = new Collection();
+        $collection->name = $request->name;
+        $collection->thumbnail = $request->thumbnail;
+        $collection->description = $request->description;
+        $collection->save();
 
-        return redirect()->route('backend.categories.show', $category->id);
+        return redirect()->route('backend.collections.show', $collection->id);
     }
 
     /**
@@ -63,8 +63,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $category = Category::find($id);
-        return view('backend.category.detail', ['category' => $category]);
+        $collection = Collection::find($id);
+        return view('backend.collection.detail', ['collection' => $collection]);
     }
 
     /**
@@ -75,8 +75,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
-        return view('backend.category.edit', ['category' => $category]);
+        $collection = Collection::find($id);
+        return view('backend.collection.edit', ['collection' => $collection]);
     }
 
     /**
@@ -92,14 +92,14 @@ class CategoryController extends Controller
         $request->validate([
             'name' => 'required'
         ]);
-        $category = Category::find($id);
-        $category->name = $request->name;
-        $category->thumbnail = $request->thumbnail;
-        $category->description = $request->description;
-        $category->status = $request->status;
-        $category->save();
+        $collection = Collection::find($id);
+        $collection->name = $request->name;
+        $collection->thumbnail = $request->thumbnail;
+        $collection->description = $request->description;
+        $collection->status = $request->status;
+        $collection->save();
 
-        return redirect()->route('backend.categories.show', $category->id);
+        return redirect()->route('backend.collections.show', $collection->id);
     }
 
     /**
@@ -121,9 +121,9 @@ class CategoryController extends Controller
             [
                 'selected.required' => 'You did not select any!!'
             ]);
-        $categories = $request->input('selected');
+        $collections = $request->input('selected');
 
-        Category::whereIn('id',$categories)->update(['status'=> 0]);
+        Collection::whereIn('id',$collections)->update(['status'=> 0]);
 
         return redirect()->back();
     }

@@ -58,7 +58,7 @@ $(document).ready(function () {
 
 //Hiển thị giỏ hàng
 
-$(".aa-cartbox").on("loadCart", function () {
+$(".productCart").on("loadCart", function () {
     var t = $(this);
     $.ajax({
         method: "POST",

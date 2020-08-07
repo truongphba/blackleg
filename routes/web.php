@@ -17,11 +17,14 @@ Route::group(['prefix'=>'admin','as'=>'backend.'], function(){
     Route::get('/', ['as' => 'index', 'uses' => 'Backend\SiteController@index']);
     Route::resource('products','Backend\ProductController');
     Route::resource('categories','Backend\CategoryController');
+    Route::resource('collections','Backend\CollectionController');
+    Route::post('/categories/delete-selected','Backend\CategoryController@deleteSelected')->name('categories.deleteSelected');
 });
 
 Route::get('/', 'Frontend\SiteController@index');
-Route::get('/product/{id}', 'Frontend\SiteController@productDetail')->name('productDetail');
-Route::get('/category/{id}', 'Frontend\SiteController@category')->name('product');
-
 Route::post('/cart', 'Frontend\SiteController@cart');
 Route::post('/showCart', 'Frontend\SiteController@showCart');
+Route::get('/product/{id}', 'Frontend\ProductController@productDetail')->name('productDetail');
+Route::get('/category/{id}', 'Frontend\CategoryController@category')->name('product');
+Route::get('/collection/{id}', 'Frontend\CollectionController@collection')->name('collection');
+

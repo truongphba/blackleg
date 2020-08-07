@@ -325,6 +325,39 @@
                 </div>
             </div>
         </div>
+
+    </div>
+</section>
+<!-- / popular section -->
+<!-- Support section -->
+<section id="aa-support">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="aa-support-area row">
+                    <!-- single support -->
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="aa-support-single">
+                            <span class="fa fa-truck"></span>
+                            <h4>DELIVERY SERVICE</h4>
+                            <P>Fast shipping, various payment methods</P>
+                        </div>
+                    </div>
+                    <!-- single support -->
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="aa-support-single">
+                            <span class="fa fa-clock-o"></span>
+                            <h4>RETURN AND EXCHANGE POLICY</h4>
+                            <P>Free return and exchange within 30 days</P>
+                        </div>
+                    </div>
+                    <!-- single support -->
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="aa-support-single">
+                            <span class="fa fa-phone"></span>
+                            <h4>CUSTOMER SERVICE</h4>
+                            <P>24/7 customer support and advice</P>
+
     </section>
     <!-- / popular section -->
     <!-- Support section -->
@@ -356,6 +389,7 @@
                                 <h4>SUPPORT 24/7</h4>
                                 <P>Hỗ trợ tư vấn phục vụ tận tình 24/7.</P>
                             </div>
+
                         </div>
                     </div>
                 </div>

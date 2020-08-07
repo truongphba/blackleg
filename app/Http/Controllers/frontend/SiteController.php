@@ -9,7 +9,7 @@ use App\Product;
 use App\QA;
 use Illuminate\Http\Request;
 use mysql_xdevapi\Session;
-
+use Symfony\Component\Console\Input\Input;
 class SiteController extends Controller
 {
     public function index(){
@@ -21,22 +21,6 @@ class SiteController extends Controller
             $product->priceSale = 1;// $product->price-($product->price*$product->sale/100);
         }
         return view('frontend.index',['categories'=>$categories,'collections'=>$collections,'products'=>$products,'qas'=>$qas]);
-    }
-
-    public function productDetail($id){
-        $products = Product::all()->where('status','=',1);
-        $product = Product::where('id', '=', $id)->where('status','=',1)->first();
-        return view('frontend.product-detail')
-            ->with('products', $products)
-            ->with('product', $product);
-    }
-
-    public function category($id){
-        $categories = Category::all()->where('status','=',1);
-        $category = Category::where('id', '=', $id)->where('status','=',1)->first();
-        return view('frontend.product')
-            ->with('category', $category)
-            ->with('categories', $categories);
     }
     public function cart(Request $r){
         $e=1;
