@@ -86,7 +86,7 @@
                                     <ul class="dropdown-menu">
                                         @foreach($obj->sub as $i=>$subMenu)
                                             <li>
-                                                <a href="{{strtolower($obj->name).'/'.$subMenu->id}}">{{$subMenu->name}}</a>
+                                                <a href="/{{strtolower($obj->name).'/'.$subMenu->id}}">{{$subMenu->name}}</a>
                                             </li>
                                         @endforeach
                                     </ul>
