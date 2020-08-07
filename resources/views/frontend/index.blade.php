@@ -104,7 +104,6 @@
                                 <div class="tab-content">
                                     <!-- Start men product category -->
                                     @foreach($categories as $i => $category)
-                                        {{--                                    @if($i!=2&&$i!=5)--}}
                                         <div class="tab-pane fade pb25 in {{$i==1?"active":""}}"
                                              id="categoryHome{{$category->id}}">
                                             <ul class="aa-product-catg" style="min-width: 100%">
@@ -113,11 +112,11 @@
                                                     @if($i<8)
                                                         <li class="">
                                                             <figure>
-                                                                <a class="aa-product-img" href="#">
+                                                                <a class="aa-product-img" href="product/{{$product->id}}">
                                                                     <div class="img-11 bgpti"
                                                                          style="background-image: url('{{$product->thumbnail}}')"></div>
                                                                 </a>
-                                                                <a class="aa-add-card-btn" href="#"><span
+                                                                <a class="aa-add-card-btn cp" productId = "{{$product->id}}"><span
                                                                         class="fa fa-shopping-cart"></span>Add To
                                                                     Cart</a>
                                                                 <figcaption>
@@ -126,15 +125,9 @@
                                                                     </h4>
                                                                     <span
                                                                         class="aa-product-price">{{number_format($product->price)}}</span>
-                                                                    {{--                                                                <span class="aa-product-price"><del>{{number_format($product->price)}}</del></span>--}}
                                                                 </figcaption>
                                                             </figure>
                                                             <div class="aa-product-hvr-content">
-                                                                <a href="#" data-toggle="tooltip" data-placement="top"
-                                                                   title="Add to Wishlist"><span
-                                                                        class="fa fa-heart-o"></span></a>
-                                                                {{--                                                            <a href="#" data-toggle="tooltip" data-placement="top"--}}
-                                                                {{--                                                               title="Compare"><span class="fa fa-exchange"></span></a>--}}
                                                                 <a href="#" data-toggle2="tooltip" data-placement="top"
                                                                    title="Quick View" data-toggle="modal"
                                                                    data-target="#product-modal-home{{$product->id}}"><span
@@ -144,9 +137,6 @@
                                                             <span
                                                                 class="aa-badge {{$product->highlight?"aa-hot":"dn"}}"
                                                                 href="#">HOT!</span>
-                                                            {{--                                                            <span--}}
-                                                            {{--                                                                class="aa-badge {{$product->status=='SALE!'?"aa-sale":($product->status=='HOT!'?"aa-hot":($product->status=='Sold Out!'?"aa-sold-out":""))}}"--}}
-                                                            {{--                                                                href="#">{{$product->status}}</span>--}}
                                                         </li>
                                                     @endif
                                                 @endforeach
@@ -160,7 +150,6 @@
 
                                 </div>
                                 <!-- quick view modal -->
-                                {{--                            product-modal-home{{$product->id}}--}}
                                 @foreach($products as $i=>$product)
                                     <div class="modal fade" id="product-modal-home{{$product->id}}" tabindex="-1"
                                          role="dialog"
@@ -241,7 +230,7 @@
                                                                         href="category/{{$product->category->id}}">{{$product->category->name}}</a>
                                                                 </p>
                                                                 <div class="aa-prod-view-bottom">
-                                                                    <a href="#" class="aa-add-to-cart-btn"><span
+                                                                    <a class="aa-add-to-cart-btn"><span
                                                                             class="fa fa-shopping-cart"></span>Add To
                                                                         Cart</a>
                                                                     <a href="product/{{$product->id}}"
@@ -289,8 +278,6 @@
                             <!-- start prduct navigation -->
                             <ul class="nav nav-tabs aa-products-tab">
                                 <li class="active"><a href="#popular" data-toggle="tab">Sản phẩm nổi bật</a></li>
-                                {{--                            <li><a href="#featured" data-toggle="tab">Featured</a></li>--}}
-                                {{--                            <li><a href="#latest" data-toggle="tab">Latest</a></li>--}}
                             </ul>
                             <!-- Tab panes -->
                             <div class="tab-content">
@@ -302,11 +289,11 @@
                                             @if($product->highlight==1)
                                                 <li class="">
                                                     <figure>
-                                                        <a class="aa-product-img" href="#">
+                                                        <a class="aa-product-img" href="product/{{$product->id}}">
                                                             <div class="img-11 bgpti"
                                                                  style="background-image: url('{{$product->thumbnail}}')"></div>
                                                         </a>
-                                                        <a class="aa-add-card-btn" href="#"><span
+                                                        <a class="aa-add-card-btn cp" productId = "{{$product->id}}"><span
                                                                 class="fa fa-shopping-cart"></span>Add To
                                                             Cart</a>
                                                         <figcaption>
@@ -315,15 +302,9 @@
                                                             </h4>
                                                             <span
                                                                 class="aa-product-price">{{number_format($product->price)}}</span>
-                                                            {{--                                                        <span class="aa-product-price"><del>{{number_format($product->price)}}</del></span>--}}
                                                         </figcaption>
                                                     </figure>
                                                     <div class="aa-product-hvr-content">
-                                                        <a href="#" data-toggle="tooltip" data-placement="top"
-                                                           title="Add to Wishlist"><span
-                                                                class="fa fa-heart-o"></span></a>
-                                                        {{--                                                    <a href="#" data-toggle="tooltip" data-placement="top"--}}
-                                                        {{--                                                       title="Compare"><span class="fa fa-exchange"></span></a>--}}
                                                         <a href="#" data-toggle2="tooltip" data-placement="top"
                                                            title="Quick View" data-toggle="modal"
                                                            data-target="#product-modal-home{{$product->id}}"><span
@@ -331,9 +312,6 @@
                                                     </div>
                                                     <!-- product badge -->
                                                     <span class="aa-badge aa-hot" href="#">HOT!</span>
-                                                    {{--                                                            <span--}}
-                                                    {{--                                                                class="aa-badge {{$product->status=='SALE!'?"aa-sale":($product->status=='HOT!'?"aa-hot":($product->status=='Sold Out!'?"aa-sold-out":""))}}"--}}
-                                                    {{--                                                                href="#">{{$product->status}}</span>--}}
                                                 </li>
                                             @endif
                                         @endforeach
