@@ -21,14 +21,16 @@ class QASeeder extends Seeder
                 'quest' => 'Will all of my informations be secured?',
                 'answer' => 'All of our client informations will always be secured. For more information, please check out our client privacy policy.',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+                'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
+                'status' => 1,
             ],
             [
                 'id' => 2,
                 'quest' => 'Can the shipping address and the card payment address be different?',
                 'answer' => 'Yes, you pay and order in 2 different addresses.',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+                'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
+                'status' => 1,
             ],
             [
                 'id' => 3,
@@ -36,18 +38,18 @@ class QASeeder extends Seeder
                 'answer' => 'In oder to change your delivery address in the payment process and delivery, please</br>
                              contact to our customer service to change your delivery address.',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+                'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
+                'status' => 1,
             ],
             [
                 'id' => 4,
                 'quest' => 'How to cancel my orders? ',
                 'answer' => 'In order to cancel your orders, please call directory or email to our customer service </br>
                              in 24 hours after ordering. </br>
-                             All you have to do is give us your order informations so that we cancel your order. </br>
-                             *After 24h ordering, your orders will might be in the delivery process, so we might </br>
-                              not able to cancel your order.',
+                             All you have to do is give us your order informations so that we cancel your order.',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+                'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
+                'status' => 1,
             ],
             [
                 'id' => 5,
@@ -55,7 +57,8 @@ class QASeeder extends Seeder
                 'answer' => 'Yes, but in some case and some particular product in your oders might not be able</br>
                              to cancel partially',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+                'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
+                'status' => 1,
             ],
             [
                 'id' => 6,
@@ -63,15 +66,17 @@ class QASeeder extends Seeder
                 'answer' => 'Yes, if you cancel your order in 24 hours after ordering, you will only have to pay </br>
                              a small fee depends on the product you have ordered',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+                'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
+                'status' => 1,
             ],
             [
                 'id' => 7,
                 'quest' => 'Can I change my orders?',
-                'answer' => 'Để thay đổi sản phẩm sau khi đặt hàng, quý khách vui lòng huỷ toàn bộ đơn đã đặt trước</br>
-                             đó và tiến hành đặt lại một đơn hàng mới với sản phẩm mà quý khách muốn chọn.',
+                'answer' => 'In order to change your orders, please cancel your current order, and then</br>
+                             order another product',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+                'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
+                'status' => 1,
             ],
             [
                 'id' => 8,
@@ -80,7 +85,8 @@ class QASeeder extends Seeder
                              the unfortunate inconvenience you had, then we will send you a new order just like the</br>
                              one you placed as soon as possible.',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+                'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
+                'status' => 1,
             ],
             [
                 'id' => 9,
@@ -88,7 +94,8 @@ class QASeeder extends Seeder
                 'answer' => 'Unfortunately we are currently only able to delivery in Vietnam, but we will soon expand</br>
                              our delivery location abroad',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
+                'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
+                'status' => 1,
             ],
         ]);
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');

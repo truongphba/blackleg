@@ -39,9 +39,9 @@ class ProductSeeder extends Seeder
 //                'name' => 'ĐẦM KẺ XUÔNG BÈO GẤU KẺ NÂU',
                 'name' => 'BROWN STRIPPED DROP WAIST DRESS',
                 'price' => '885000',
-                'thumbnail' => 'https://ferosh.vn/storage/images/0c28423a88b5dbffd0d1ee2aec41efd0/420x630/RrPhuNQc1LiOz64MVF9cZVOlFGMHBaUXMJThvI1l.jpeg',
+                    'thumbnail' => 'https://ferosh.vn/storage/images/0c28423a88b5dbffd0d1ee2aec41efd0/420x630/RrPhuNQc1LiOz64MVF9cZVOlFGMHBaUXMJThvI1l.jpeg',
                 'colorss' => 'Brown',
-                'description' => '',
+                'description' => 'A lightweight dress with a airy design that can be worn at home or out',
                 'detail' => '- Pads: Yes</br>
                              - Material: Korean Raw Linen</br>
                              - Elasticity: No',
@@ -58,7 +58,7 @@ class ProductSeeder extends Seeder
                 'price' => '745000',
                 'thumbnail' => 'https://ferosh.vn/storage/images/9d2596a5514f8021eaf84fc7e42f792b/420x630/pR6DDDFSpl2QCILHzVzwDiq6N0ktvPIQ06I6Oern.jpeg',
                 'colors' => 'Blue Navy',
-                'description' => '',
+                'description' => 'If you need a feminine dress to go out or go on a picnic in the summer and fall, this dress is a perfect choice',
                 'detail' => '- Pattern: Floral</br>
                              - Material: Korean Sand Chiffon</br>
                              - Pads: No</br>
@@ -76,7 +76,7 @@ class ProductSeeder extends Seeder
                 'price' => '745000',
                 'thumbnail' => 'https://ferosh.vn/storage/images/66a7bb0bfc7f4f952d518528c1c7e024/420x630/zwdag2m5k13NirHPQRS3ihKRY07VvsOPZ3yKhPYz.jpeg',
                 'colors' => 'Navy Blue',
-                'description' => '',
+                'description' => 'If you need a feminine clothes to go out or go on a picnic in the summer and fall, this jumpsuit is a perfect choice',
                 'detail' => '- Pattern: Floral</br>
                              - Material: Korean Sand Chiffon</br>
                              - Pads: No</br>
@@ -94,7 +94,7 @@ class ProductSeeder extends Seeder
                 'price' => '1397000 ',
                 'thumbnail' => 'https://ferosh.vn/storage/images/912527e69aef16ac97324684dda53015/420x630/DbPEVnJpRDKw09OC6PAAGa4q6buFoZjR5wTNQdrq.jpeg',
                 'colors' => 'Grey',
-                'description' => '',
+                'description' => 'A dress suitable for all seasons',
                 'detail' => '- Material: Silk Chiffon, Silk</br>
                              - Pads: No</br>
                              - Elasticity: No',
@@ -111,7 +111,7 @@ class ProductSeeder extends Seeder
                 'price' => '1397000 ',
                 'thumbnail' => 'https://ferosh.vn/storage/images/0f796eb02238d62a7ace5b8f2c416d91/420x630/35PGrsCIbpWDEhmfn03LF5Pa4gjrFOD349J774Tp.jpeg',
                 'colors' => 'Cherry',
-                'description' => '',
+                'description' => 'A dress suitable for all seasons',
                 'detail' => '- Material: Silk Chiffon, Silk</br>
                              - Pads: No</br>
                              - Elasticity: No',
@@ -128,7 +128,7 @@ class ProductSeeder extends Seeder
                 'price' => '990000 ',
                 'thumbnail' => 'https://ferosh.vn/uploads/02-10-2019/420x630/VL1902082Tr-1.jpg',
                 'colors' => 'White',
-                'description' => '',
+                'description' => 'A perfect dress for a girl night out',
                 'detail' => '- Material: Stretchy Tuytsi</br>
                              - Pads: No</br>
                              - Elasticity: No',
@@ -145,7 +145,7 @@ class ProductSeeder extends Seeder
                 'price' => '495000 ',
                 'thumbnail' => 'https://ferosh.vn/uploads/03-07-2019/420x630/BLS10212-5.jpg',
                 'colors' => 'Pink',
-                'description' => '',
+                'description' => 'This comfortable shirt is perfect for you whether you go to work or out',
                 'detail' => '- Material: Sand Chiffon</br>
                              - Pads: No</br>
                              - Elasticity: No',
@@ -162,7 +162,7 @@ class ProductSeeder extends Seeder
                 'price' => '1750000 ',
                 'thumbnail' => 'https://ferosh.vn/uploads/16-01-2020/420x630/IMGL1981.jpg',
                 'colors' => 'White',
-                'description' => '',
+                'description' => 'A perfect dress for a girl night out',
                 'detail' => '- Product dimensions: 98,100,102cm.</br>
                              - Material: Ren.</br>
                              - Pads: No</br>
@@ -180,7 +180,7 @@ class ProductSeeder extends Seeder
                 'price' => '1980000 ',
                 'thumbnail' => 'https://ferosh.vn/uploads/16-01-2020/420x630/IMGL2126.jpg',
                 'colors' => 'Ruby',
-                'description' => '',
+                'description' => 'A luxurious dress for events or parties ',
                 'detail' => '- Product dimensions: 98,100,102cm.</br>
                              - Material: Twead.</br>
                              - Pads: No</br>
@@ -198,7 +198,7 @@ class ProductSeeder extends Seeder
                 'price' => '1750000 ',
                 'thumbnail' => 'https://ferosh.vn/uploads/16-01-2020/420x630/IMGL1761.jpg',
                 'colors' => 'Orange',
-                'description' => '',
+                'description' => 'A luxurious dress for events or parties',
                 'detail' => '- Product dimensions: 98,100,102cm.</br>
                              - Material: Crepe.</br>
                              - Pads: No</br>
@@ -216,7 +216,7 @@ class ProductSeeder extends Seeder
                 'price' => '1860000 ',
                 'thumbnail' => 'https://ferosh.vn/uploads/16-01-2020/420x630/IMGL1368.jpg',
                 'colors' => 'Đen',
-                'description' => '',
+                'description' => 'A luxurious dress for events or parties',
                 'detail' => '- Product dimensions: 98,100,102cm.</br>
                              - Material: Lace</br>
                              - Pads: No</br>
@@ -234,7 +234,7 @@ class ProductSeeder extends Seeder
                 'price' => '1890000 ',
                 'thumbnail' => 'https://ferosh.vn/uploads/16-01-2020/420x630/IMGL2014.jpg',
                 'colors' => 'Salmon',
-                'description' => '',
+                'description' => 'A luxurious dress for events or parties',
                 'detail' => '- Product dimensions: 105,107,109cm.</br>
                              - Material: Bonte.</br>
                              - Pads: No</br>
@@ -252,7 +252,7 @@ class ProductSeeder extends Seeder
                 'price' => '1750000 ',
                 'thumbnail' => 'https://ferosh.vn/uploads/16-01-2020/420x630/IMGL2204.jpg',
                 'colors' => 'Black',
-                'description' => '',
+                'description' => 'A luxurious dress for events or parties',
                 'detail' => '- Product dimensions: 98,100,102cm.</br>
                              - Material: Crepe.</br>
                              - Pads: No</br>
@@ -270,7 +270,7 @@ class ProductSeeder extends Seeder
                 'price' => '1560000 ',
                 'thumbnail' => 'https://ferosh.vn/uploads/23-12-2019/420x630/-34A8389.jpg',
                 'colors' => 'Black',
-                'description' => '',
+                'description' => 'A slim skirt suitable for work and out',
                 'detail' => '- Product dimensions: 96/98/100/101.5cm.</br>
                              - Material: Umi.</br>
                              - Pads: No</br>
@@ -288,7 +288,7 @@ class ProductSeeder extends Seeder
                 'price' => '790000 ',
                 'thumbnail' => 'https://ferosh.vn/uploads/23-12-2019/420x630/-34A8308(1).jpg',
                 'colors' => 'Pink',
-                'description' => '',
+                'description' => 'A slim skirt suitable for work and out',
                 'detail' => '- Product dimensions: 59/60/62cm. </br>
                              - Material: Crep.</br>
                              - Pads: No</br>
@@ -306,7 +306,7 @@ class ProductSeeder extends Seeder
                 'price' => '790000 ',
                 'thumbnail' => 'https://ferosh.vn/uploads/23-12-2019/420x630/-34A8303(1).jpg',
                 'colors' => 'Dark Blue',
-                'description' => '',
+                'description' => 'A slim skirt suitable for work and out',
                 'detail' => '- Product dimensions: 71/72/73cm.</br>
                              - Material: Crep</br>
                              - Pads: No</br>
@@ -324,7 +324,7 @@ class ProductSeeder extends Seeder
                 'price' => '790000 ',
                 'thumbnail' => 'https://ferosh.vn/uploads/09-11-2019/420x630/3M3A8351.jpg',
                 'colors' => 'Grey',
-                'description' => '',
+                'description' => 'With a familiar but never outdated pattern, this skirt can go with a lot of outfits',
                 'detail' => '- Product dimensions upon sizes: 65,66,67,68cm.</br>
                              - Material: Boi.</br>
                              - Pads: No</br>
@@ -342,7 +342,7 @@ class ProductSeeder extends Seeder
                 'price' => '1499000',
                 'thumbnail' => 'https://ferosh.vn/storage/images/d94500cbf74c4ea234acc780c04913a2/525x787/P7clnBppXmthRsLt8OeB4OUAWtGOFzFFRWxgTAlM.jpeg',
                 'colors' => 'Blue',
-                'description' => '',
+                'description' => 'A girly dress for gatherings and parties',
                 'detail' => '- Material: Silk</br>
                              - Pads: No</br>
                              - Elasticity: No',
@@ -359,7 +359,7 @@ class ProductSeeder extends Seeder
                 'price' => '1099000',
                 'thumbnail' => 'https://ferosh.vn/storage/images/2188a2fe8f909b85070d055dfe363142/525x787/BZZxgrbycyr6gxWepaMS9aKzeoFiZJ06Qz7CLWKm.jpeg',
                 'colors' => 'White',
-                'description' => '',
+                'description' => 'A girly dress for gatherings and parties',
                 'detail' => '- Material: Silk</br>
                              - Pads: No</br>
                              - Elasticity: No',
@@ -376,7 +376,7 @@ class ProductSeeder extends Seeder
                 'price' => '1399000',
                 'thumbnail' => 'https://ferosh.vn/storage/images/8646de4bf4a5dc60490bf6479ada9250/525x787/C8GzJ6BJh22jnzfTxYvSJ400fJIHWAkT1oLUX6zw.jpeg',
                 'colors' => 'Black',
-                'description' => '',
+                'description' => 'A girly dress for picnics and summer holidays',
                 'detail' => '- Material: Raw Cloth</br>
                              - Pads: No</br>
                              - Elasticity: No',
@@ -393,7 +393,7 @@ class ProductSeeder extends Seeder
                 'price' => '1399000',
                 'thumbnail' => 'https://ferosh.vn/storage/images/2ef1bbdc45ad8e0abaa18d187033bca2/525x787/CjneRHpR0Rf7HDp95fDV05xB57BbT7krw2dHs5Ub.jpeg',
                 'colors' => 'CREAM',
-                'description' => '',
+                'description' => 'A girly dress for gatherings and parties',
                 'detail' => '- Material: Raw Cloth</br>
                              - Pads: No</br>
                              - Elasticity: No',
@@ -410,7 +410,7 @@ class ProductSeeder extends Seeder
                 'price' => '1499000',
                 'thumbnail' => 'https://ferosh.vn/storage/images/f133b30511fd4fcb683d685de5514bc7/525x787/70uGXzF1ITd9PRnNrywjzCSxknqd9e0ALYf2CHVC.jpeg',
                 'colors' => 'Black',
-                'description' => '',
+                'description' => 'A girly dress for gatherings and parties',
                 'detail' => '- Material: Raw Cloth</br>
                              - Pads: No</br>
                              - Elasticity: No',
@@ -427,7 +427,7 @@ class ProductSeeder extends Seeder
                 'price' => '1499000',
                 'thumbnail' => 'https://ferosh.vn/storage/images/8fc2ff25a36a84a76e695d7a30819c21/525x787/igsPT7sR7pwGKlXIqHXWX9ypFa7qYOztHpEmCIRT.jpeg',
                 'colors' => 'Blue, yellow',
-                'description' => '',
+                'description' => 'A stylist dress for gatherings and parties',
                 'detail' => '- Material: Raw Cloth</br>
                              - Pads: No</br>
                              - Elasticity: No',
@@ -444,7 +444,7 @@ class ProductSeeder extends Seeder
                 'price' => '1299000',
                 'thumbnail' => 'https://ferosh.vn/storage/images/96f10132748c7049e3bbf5ca0b275f18/525x787/YmKsB5dNUwUt77E1ydq2NEIkJLOxKYP9A0QvGC2g.jpeg',
                 'colors' => 'Red,blue,green',
-                'description' => '',
+                'description' => 'Gentle but no less luxurious for the meetings',
                 'detail' => '- Material: Silk</br>
                              - Pads: No</br>
                              - Elasticity: No',

@@ -18,6 +18,7 @@ class CreateQASTable extends Migration
             $table->text('quest');
             $table->text('answer');
             $table->timestamps();
+            $table->tinyInteger('status')->default('1');
         });
     }
 

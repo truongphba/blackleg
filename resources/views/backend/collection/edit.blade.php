@@ -11,7 +11,7 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <div class="row">
-                    <h4 class="m-0 font-weight-bold text-primary">Create Collection</h4>
+                    <h4 class="m-0 font-weight-bold text-primary">Edit Collection</h4>
                 </div>
             </div>
             <div class="card-body">

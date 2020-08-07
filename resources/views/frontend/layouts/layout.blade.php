@@ -184,7 +184,7 @@
                             (object)['name'=>'Sale','link'=>'#','sub'=>''],
                             (object)['name'=>'Category','link'=>'#','sub'=>$categories],
                             (object)['name'=>'Collection','link'=>'#','sub'=>$collections],
-                            (object)['name'=>'Q&A','link'=>'#','sub'=>''],
+                            (object)['name'=>'QA','link'=>'#','sub'=>''],
                             (object)['name'=>'Contact','link'=>'#','sub'=>''],
                         ] as $i=>$obj)
                             <li><a href="{{$obj->link}}">{{$obj->name}}<span class="{{$obj->sub?'caret':'dn'}}"></span></a>

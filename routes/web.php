@@ -19,6 +19,8 @@ Route::group(['prefix'=>'admin','as'=>'backend.'], function(){
     Route::resource('categories','Backend\CategoryController');
 
     Route::resource('collections','Backend\CollectionController');
+    Route::resource('q_a_s','Backend\QAController');
+    Route::resource('contacts','Backend\ContactController');
 
     Route::post('/categories/delete-selected','Backend\CategoryController@deleteSelected')->name('categories.deleteSelected');
 
@@ -27,5 +29,7 @@ Route::group(['prefix'=>'admin','as'=>'backend.'], function(){
 Route::get('/', 'Frontend\SiteController@index');
 Route::get('/product/{id}', 'Frontend\ProductController@productDetail')->name('productDetail');
 Route::get('/category/{id}', 'Frontend\CategoryController@category')->name('product');
-Route::get('/collection/{id}', 'Frontend\CollectionController@collection')->name('collection');
+Route::get('/collection/{id}', 'Frontend\CollectionController@collection')->name('product');
+Route::get('/contact/{id}', 'Frontend\QAController@collection')->name('qa');
+Route::get('/qa/{id}', 'Frontend\ContactController@collection')->name('contact');
 
