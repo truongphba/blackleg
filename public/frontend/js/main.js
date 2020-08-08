@@ -12,11 +12,12 @@ $(document).ready(function () {
         var t = $(this),
             qua = $(".quantityProduct"),
             q = t.attr("quantity");
-        console.log(range(1,q));
+        console.log(range(1, q));
         qua.closest(".formQuantity").editClass("-dn").find(".sumQuantity").text(q);
-        qua.attr({max:q});
+        qua.attr({max: q});
         console.log(qua.val())
     })
+
     // html
 //     <h4>Size</h4>
 //     <div class="aa-prod-view-size mb15">
@@ -36,7 +37,74 @@ $(document).ready(function () {
 //         </form>
 //         </div>
 // focus size -> chon size (end)
+
+    // add to cart
+
+    $("[productId]").on("click", function () {
+        var t = $(this), productId = t.attr("productId");
+        $.ajax({
+            method: "POST",
+            url: "/cart",
+            data: {productId: productId, size: null, quantity: 1},
+            success: function (v) {
+                console.log("Du lieu tra ve", v)
+                v!=0&&notification({text:"Đăng ký thành công!!",type:"true"});
+                v==0&&notification({text:"Sản phẩm đã tồn tại trong giỏ hàng!!",type:"note"});
+            },
+            error: function (data, textStatus, errorThrown) {
+                console.log(data, textStatus, errorThrown);
+                notification({text:"Thêm sản phẩm thất bại!!",type:"fail"})
+            },
+        })
+    })
 })
+
+//Hiển thị giỏ hàng
+
+$(".productCart").on("loadCart", function () {
+    var t = $(this);
+    $.ajax({
+        method: "POST",
+        url: "/showCart",
+        success: function (v) {
+            console.log("Du lieu tra ve", v);
+            if (v && v.cart) {
+                t.find(".aa-cart-notify").text((v && v.cart) ? v.cart.length : "");
+                t.find(".aa-cartbox-summary ul").empty().append(
+                    v.cart.map(function (d, i) {
+                        // console.log(v.products[findWithAttr(v.products,"id",d.productId)]?,d.productId)
+                        // console.log(getObj(v.products,"id",d.productId)?getObj(v.products,"id",d.productId).thumbnail:"")
+                        return d.productId ? $("<li>", {class: ""}).append(
+                            $("<a>", {class: "aa-cartbox-img", href: "/product/" + d.productId}).append(
+                                $("<div>", {
+                                    class: "img-11 bgpti",
+                                    style: "background-image: url('" + getAttrInObj(v.products, "id", d.productId, "thumbnail") + "')"
+                                }),
+                            ),
+                            $("<div>", {class: "aa-cartbox-info"}).append(
+                                $("<h4>",{class:""}).append(
+                                    $("<a>", {text:getAttrInObj(v.products, "id", d.productId, "name"), href: "/product/" + d.productId})
+                                ),
+                                $("<p>", {text: (getAttrInObj(v.cart, "productId", d.productId, "quantity") || 1) + " x " + getAttrInObj(v.products, "id", d.productId, "price").comma() + " VNĐ"})
+                            ),
+                            $("<a>", {class: "aa-remove-product", href: "/product/" + d.productId}).append(
+                                $("<span>",{class:"fa fa-times"})
+                            )
+                            ) :
+                            ""
+                    })
+                )
+            }
+
+
+        },
+        error: function (data, textStatus, errorThrown) {
+            console.log(data, textStatus, errorThrown);
+        },
+    })
+    //
+})
+$(".productCart").trigger("loadCart");
 $.fn.extend({
     editClass: function (a) {
         return this.each(function () {
@@ -70,7 +138,7 @@ $.fn.extend({
                 o.change.call(t, v);
                 fn && fn.call(t, v);
             })
-            t.editClass("pr,bấmĐc,iSelect").attr({tabindex: 0}).data({type: "select"}).focus(function () {
+            t.editClass("pr,cp,iSelect").attr({tabindex: 0}).data({type: "select"}).focus(function () {
                 t.editClass("bgcyl")
                 t.append(
                     $("<div>", {class: "pa t1 l0 df fdc bw1 bss bcd boxSelect oya bóng trắng"}).append(
@@ -140,11 +208,81 @@ $.fn.extend({
     },
 })
 {
-    range = function (a,b) {
-        var arr=[];
-        for(var i=a;i<=b;i++){
+    notification = function(o){
+        var o = $.extend(
+            {
+                text:"true",
+                type:""
+            },o
+        ),
+        color;
+        console.log(o)
+        o.type=="true"&&(color="bgcgl");
+        o.type=="false"&&(color="bgcrd");
+        o.type=="note"&&(color="bgcyl");
+        $("body").append(
+            $("<div>",{class:"pf bra5 t50 l50 pa25  ta5 tty o0 " +color ,text:o.text}).each(function () {
+                var t = $(this);
+                setTimeout(function () {
+                    t.editClass("o1,tt,-tty");
+                    setTimeout(function () {
+                        t.editClass("-o1,-tt,tty");
+                        setTimeout(function () {
+                            t.remove();
+                        },500)
+                    },1000)
+                },100)
+            })
+        )
+    }
+    range = function (a, b) {
+        var arr = [];
+        for (var i = a; i <= b; i++) {
             arr.push(i);
         }
         return arr;
+    }
+    findWithAttr = function (array, attr, value) {
+        for (var i = 0; i < array.length; i += 1) {
+            if (array[i][attr] == value) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    getObj = function (array, attr, value) {
+        var i = findWithAttr(array, attr, value);
+        if (i >= 0) {
+            return array[i];
+        }
+    }
+    getAttrInObj = function (array, attr, value, str) {
+        if (getObj(array, attr, value)) {
+            return getObj(array, attr, value)[str];
+        }
+    }
+    comma = function (n) {
+        var b = [], str = "";
+        if (n && typeof (n * 1) == "number") {
+            n = (n + "").split("");
+            while (n.length > 3) {
+                var c = n.splice(-3);
+                c.unshift(",");
+                b = c.concat(b)
+            }
+
+            n.concat(b).map(function (d) {
+                str = str + d;
+            });
+            return str;
+        } else {
+            return 0;
+        }
+    }
+    String.prototype.comma = function () {
+        return comma(this);
+    }
+    Number.prototype.comma = function () {
+        return comma(this);
     }
 }

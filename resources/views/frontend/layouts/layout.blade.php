@@ -1,9 +1,11 @@
+{{--@extends('frontend.layouts.header')--}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Daily Shop | Home</title>
     <link href="{{asset("frontend/css/MyStyle.css")}}" rel="stylesheet">
     <!-- Font awesome -->
@@ -34,6 +36,7 @@
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -42,8 +45,9 @@
     <![endif]-->
 
 
+
 </head>
-<body>
+<body >
 <!-- wpf loader Two -->
 <div id="wpf-loader-two">
     <div class="wpf-loader-two-inner">
@@ -57,111 +61,9 @@
 
 
 <!-- Start header section -->
-<header id="aa-header">
-    <!-- start header top  -->
-    <div class="aa-header-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="aa-header-top-area">
-                        <!-- start header top left -->
-                        <div class="aa-header-top-left">
-                            <div class="cellphone hidden-xs">
-                                <a href="tel:0989859398"><p><span class="fa fa-phone"></span>0989859398</p></a>
-                            </div>
-                            <!-- / cellphone -->
-                        </div>
-                        <!-- / header top left -->
-                        <div class="aa-header-top-right">
-                            <ul class="aa-head-top-nav-right">
-                                {{--                                <li><a href="account.html">My Account</a></li>--}}
-                                {{--                                <li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li>--}}
-                                <li class="hidden-xs"><a href="cart.html">My Cart</a></li>
-                                {{--                                <li class="hidden-xs"><a href="checkout.html">Checkout</a></li>--}}
-                                <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- / header top  -->
 
-    <!-- start header bottom  -->
-    <div class="aa-header-bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="aa-header-bottom-area">
-                        <!-- logo  -->
-                        <div class="aa-logo">
-                            <!-- Text based logo -->
-                            <a href="index.html">
-                                <span class="fa fa-shopping-cart"></span>
-                                <p>daily<strong>Shop</strong> <span>Your Shopping Partner</span></p>
-                            </a>
-                            <!-- img based logo -->
-                        <!-- <a href="index.html"><img src="{{asset("frontend/img/logo.jpg")}}" alt="logo img"></a> -->
-                        </div>
-                        <!-- / logo  -->
-                        <!-- cart box -->
-                        <div class="aa-cartbox">
-                            <a class="aa-cart-link" href="#">
-                                <span class="fa fa-shopping-basket"></span>
-                                <span class="aa-cart-title">SHOPPING CART</span>
-                                <span class="aa-cart-notify">2</span>
-                            </a>
-                            <div class="aa-cartbox-summary">
-                                <ul>
-                                    <li>
-                                        <a class="aa-cartbox-img" href="#"><img
-                                                src="{{asset("frontend/img/woman-small-2.jpg")}}"
-                                                alt="img"></a>
-                                        <div class="aa-cartbox-info">
-                                            <h4><a href="#">Product Name</a></h4>
-                                            <p>1 x $250</p>
-                                        </div>
-                                        <a class="aa-remove-product" href="#"><span class="fa fa-times"></span></a>
-                                    </li>
-                                    <li>
-                                        <a class="aa-cartbox-img" href="#"><img
-                                                src="{{asset("frontend/img/woman-small-1.jpg")}}"
-                                                alt="img"></a>
-                                        <div class="aa-cartbox-info">
-                                            <h4><a href="#">Product Name</a></h4>
-                                            <p>1 x $250</p>
-                                        </div>
-                                        <a class="aa-remove-product" href="#"><span class="fa fa-times"></span></a>
-                                    </li>
-                                    <li>
-                      <span class="aa-cartbox-total-title">
-                        Total
-                      </span>
-                                        <span class="aa-cartbox-total-price">
-                        $500
-                      </span>
-                                    </li>
-                                </ul>
-                                <a class="aa-cartbox-checkout aa-primary-btn" href="checkout.html">Checkout</a>
-                            </div>
-                        </div>
-                        <!-- / cart box -->
-                        <!-- search box -->
-                        <div class="aa-search-box">
-                            <form action="">
-                                <input type="text" name="" id="" placeholder="Nhập tên sản phẩm">
-                                <button type="submit"><span class="fa fa-search"></span></button>
-                            </form>
-                        </div>
-                        <!-- / search box -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- / header bottom  -->
-</header>
+@include('frontend.layouts.header')
+
 <!-- / header section -->
 <!-- menu -->
 <section id="menu">
@@ -182,18 +84,20 @@
                     <ul class="nav navbar-nav">
                         @foreach([
                             (object)['name'=>'Home','link'=>'/','sub'=>''],
+                            (object)['name'=>'About','link'=>'/','sub'=>''],
                             (object)['name'=>'Sale','link'=>'#','sub'=>''],
                             (object)['name'=>'Category','link'=>'#','sub'=>$categories],
                             (object)['name'=>'Collection','link'=>'#','sub'=>$collections],
                             (object)['name'=>'Q&A','link'=>'#','sub'=>''],
                             (object)['name'=>'Contact','link'=>'#','sub'=>''],
                         ] as $i=>$obj)
+
                             <li><a href="{{$obj->link}}">{{$obj->name}}<span class="{{$obj->sub?'caret':'dn'}}"></span></a>
                                 @if($obj->sub)
                                     <ul class="dropdown-menu">
                                         @foreach($obj->sub as $i=>$subMenu)
                                             <li>
-                                                <a href="{{strtolower($obj->name).'/'.$subMenu->id}}">{{$subMenu->name}}</a>
+                                                <a href="/{{strtolower($obj->name).'/'.$subMenu->id}}">{{$subMenu->name}}</a>
                                             </li>
                                         @endforeach
                                     </ul>
@@ -210,136 +114,46 @@
 <!-- Start slider -->
 @yield('content')
 <!-- footer -->
-<footer id="aa-footer">
-    <!-- footer bottom -->
-    <div class="aa-footer-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="aa-footer-top-area">
-                        <div class="row">
-                            <div class="col-md-3 col-sm-6">
-                                <div class="aa-footer-widget">
-                                    <h3>Main Menu</h3>
-                                    <ul class="aa-footer-nav">
-                                        <li><a href="#">Home</a></li>
-                                        <li><a href="#">Category</a></li>
-                                        <li><a href="#">Collection</a></li>
-                                        <li><a href="#">Q&A</a></li>
-                                        <li><a href="#">Contact</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <div class="aa-footer-widget">
-                                    <div class="aa-footer-widget">
-                                        <h3>Chính sách chung</h3>
-                                        <ul class="aa-footer-nav">
-                                            <li><a href="#">FREE SHIPPING</a></li>
-                                            <li><a href="#">30 DAYS MONEY BACK</a></li>
-                                            <li><a href="#">SUPPORT 24/7</a></li>
-                                            {{--                                            <li><a href="#">Discount</a></li>--}}
-                                            {{--                                            <li><a href="#">Special Offer</a></li>--}}
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <div class="aa-footer-widget">
-                                    <div class="aa-footer-widget">
-                                        <h3>Useful Links</h3>
-                                        <ul class="aa-footer-nav">
-                                            <li><a href="#">Site Map</a></li>
-                                            <li><a href="#">Search</a></li>
-                                            <li><a href="#">Advanced Search</a></li>
-                                            <li><a href="#">Suppliers</a></li>
-                                            <li><a href="#">FAQ</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <div class="aa-footer-widget">
-                                    <div class="aa-footer-widget">
-                                        <h3>Contact Us</h3>
-                                        <address>
-                                            <p> Tôn Thất Thuyết, Cầu Giấy, Hà Nội</p>
-                                            <p><span class="fa fa-phone"></span>0989859398</p>
-                                            <p><span class="fa fa-envelope"></span>dailyshop@gmail.com</p>
-                                        </address>
-                                        <div class="aa-footer-social">
-                                            <a href="#"><span class="fa fa-facebook"></span></a>
-                                            <a href="#"><span class="fa fa-twitter"></span></a>
-                                            <a href="#"><span class="fa fa-google-plus"></span></a>
-                                            <a href="#"><span class="fa fa-youtube"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- footer-bottom -->
-    <div class="aa-footer-bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="aa-footer-bottom-area">
-                        <p>Designed by <a href="http://www.markups.io/">NhomOfQuan</a></p>
-                        <div class="aa-footer-payment">
-                            <span class="fa fa-cc-mastercard"></span>
-                            <span class="fa fa-cc-visa"></span>
-                            <span class="fa fa-paypal"></span>
-                            <span class="fa fa-cc-discover"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+@include('frontend.layouts.footer')
+
 <!-- / footer -->
 
 <!-- Login Modal -->
-<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4>Login or Register</h4>
-                <form class="aa-login-form" action="">
-                    <label for="">Username or Email address<span>*</span></label>
-                    <input type="text" placeholder="Username or email">
-                    <label for="">Password<span>*</span></label>
-                    <input type="password" placeholder="Password">
-                    <button class="aa-browse-btn" type="submit">Login</button>
-                    <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Remember me
-                    </label>
-                    <p class="aa-lost-password"><a href="#">Lost your password?</a></p>
-                    <div class="aa-register-now">
-                        Don't have an account?<a href="account.html">Register now!</a>
-                    </div>
-                </form>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div>
+{{--<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">--}}
+{{--    <div class="modal-dialog">--}}
+{{--        <div class="modal-content">--}}
+{{--            <div class="modal-body">--}}
+{{--                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>--}}
+{{--                <h4>Login or Register</h4>--}}
+{{--                <form class="aa-login-form" action="">--}}
+{{--                    <label for="">Username or Email address<span>*</span></label>--}}
+{{--                    <input type="text" placeholder="Username or email">--}}
+{{--                    <label for="">Password<span>*</span></label>--}}
+{{--                    <input type="password" placeholder="Password">--}}
+{{--                    <button class="aa-browse-btn" type="submit">Login</button>--}}
+{{--                    <label for="rememberme" class="rememberme"><input type="checkbox" id="rememberme"> Remember me--}}
+{{--                    </label>--}}
+{{--                    <p class="aa-lost-password"><a href="#">Lost your password?</a></p>--}}
+{{--                    <div class="aa-register-now">--}}
+{{--                        Don't have an account?<a href="account.html">Register now!</a>--}}
+{{--                    </div>--}}
+{{--                </form>--}}
+{{--            </div>--}}
+{{--        </div><!-- /.modal-content -->--}}
+{{--    </div><!-- /.modal-dialog -->--}}
+{{--</div>--}}
 
+
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+<![endif]-->
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-</script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-{{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>--}}
 <script>
     $.ajaxSetup({
         headers: {
@@ -347,6 +161,7 @@
         }
     });
 </script>
+{{--</script>--}}
 <script src="{{asset("frontend/js/main.js")}}"></script>
 {{--<script src="{{asset("frontend/js/main.js")}}"></script>--}}
 <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -367,6 +182,8 @@
 <script type="text/javascript" src="{{asset("frontend/js/nouislider.js")}}"></script>
 <!-- Custom js -->
 <script src="{{asset("frontend/js/custom.js")}}"></script>
+
 @yield('script')
+
 </body>
 </html>
