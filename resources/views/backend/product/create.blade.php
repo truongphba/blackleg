@@ -33,7 +33,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Name:</label>
-                                <input maxlength="255" type="text" class="form-control" name="name" {{old('name')}}>
+                                <input maxlength="255" type="text" class="form-control" name="name" value="{{old('name')}}" >
                                 @error('name')
                                 <p style="color: red">{{ $message }}</p>
                                 @enderror
@@ -57,7 +57,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Price:</label>
-                                <input type="text" class="form-control" name="price" {{old('price')}}>
+                                <input type="text" class="form-control" name="price" value="{{old('price')}}" >
                                 @error('price')
                                 <p style="color: red">{{ $message }}</p>
                                 @enderror
@@ -66,7 +66,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Colors:</label>
-                                <input maxlength="255" type="text" class="form-control" name="colors" {{old('colors')}}>
+                                <input maxlength="255" type="text" class="form-control" name="colors" value="{{old('colors')}}" >
                                 @error('colors')
                                 <p style="color: red">{{ $message }}</p>
                                 @enderror
@@ -74,7 +74,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <label>Collection:</label>
                                 @foreach($collections as $collection)
@@ -88,15 +88,15 @@
                                 @endforeach
                             </div>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-9">
                             <div class="form-group">
                                 <label>Quantity:</label>
                                 <div class="form-row">
                                     @foreach($sizes as $size)
                                         <div class="form-group col-md-2">
                                             <label>{{$size->name}}:</label>
-                                            <input type="number" class="form-control mb-2" style="padding-left: 100px"
-                                                   name="quantity_{{$size->id}}">
+                                            <input type="number" class="form-control mb-2"
+                                                   name="quantity_{{$size->id}}" value="{{old('quantity_' . $size->id)}}">
                                         </div>
                                     @endforeach
                                 </div>
@@ -109,7 +109,7 @@
                     </div>
                     <div class="form-group">
                         <label>Detail:</label>
-                        <textarea id="detail" class="form-control" name="detail" {{old('detail')}}></textarea>
+                        <textarea id="detail" class="form-control" name="detail"></textarea>
                         @error('detail')
                         <p style="color: red">{{ $message }}</p>
                         @enderror
