@@ -235,11 +235,13 @@
                             <h3>Shop By Price</h3>
                             <!-- price range -->
                             <div class="aa-sidebar-price-range">
-                                <form action="#">
+                                <form id="filter-price" action="#" method="get">
                                     <div id="skipstep"
                                          class="noUi-target noUi-ltr noUi-horizontal noUi-background"></div>
-                                    <span id="skip-value-lower" class="example-val">30.00</span>
-                                    <span id="skip-value-upper" class="example-val">100.00</span>
+                                    <span id="skip-value-lower" class="example-val"></span>
+                                    <span id="skip-value-upper" class="example-val"></span>
+                                    <input type="hidden" id="min_price" name="min_price">
+                                    <input type="hidden" id="max_price" name="max_price">
                                     <button class="aa-filter-btn" type="submit">Filter</button>
                                 </form>
                             </div>
