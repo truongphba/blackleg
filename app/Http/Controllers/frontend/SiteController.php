@@ -27,6 +27,7 @@ class SiteController extends Controller
         $cart=session()->get('cart', function () {
             return [];
         });
+        $cart= $cart!=null?$cart: [];
         if($r->productId){
             foreach ($cart as $i=>$c) if($c->productId==$r->productId){
 //                $c->size=$r->size?$r->size:$c->size;
@@ -46,5 +47,19 @@ class SiteController extends Controller
             return [];
         });
         return ['categories'=>$categories,'collections'=>$collections,'products'=>$products,'cart'=>$cart];
+    }
+    public function removeProductInCart(Request $r){
+        session(['cart' => $r->cart]);
+       return 1;
+    }
+    public function checkout(Request $r){
+        $categories = Category::all()->where('status','=',1);
+        $collections = Collection::all()->where('status','=',1);
+        $products = Product::all()->where('status','=',1);
+        $qas= QA::all();
+        foreach ($products as $i => $product){
+            $product->priceSale = 1;// $product->price-($product->price*$product->sale/100);
+        }
+        return view('frontend.checkout',['categories'=>$categories,'collections'=>$collections,'products'=>$products,'qas'=>$qas]);
     }
 }
