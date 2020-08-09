@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Category;
 use App\Collection;
 use App\Http\Controllers\Controller;
 use App\Product;
@@ -115,16 +116,14 @@ class CollectionController extends Controller
 
     public function deleteSelected(Request $request)
     {
-        $request->validate([
-            'selected' => 'required'
-        ],
-            [
-                'selected.required' => 'You did not select any!!'
-            ]);
-        $collections = $request->input('selected');
-
-        Collection::whereIn('id',$collections)->update(['status'=> 0]);
-
-        return redirect()->back();
+        $ids = $request->get('ids');
+        Collection::whereIn('id', $ids)->update(['status' => 0]);
+        return $ids;
+    }
+    public function activeSelected(Request $request)
+    {
+        $ids = $request->get('ids');
+        Collection::whereIn('id', $ids)->update(['status' => 1]);
+        return $ids;
     }
 }

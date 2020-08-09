@@ -38,17 +38,12 @@
             <span>Category</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{route('backend.collections.index')}}">
             <i class="fas fa-fw fa-table"></i>
             <span>Collection</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Size</span></a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{route('backend.q_a_s.index')}}">
             <i class="fas fa-fw fa-table"></i>
             <span>Q&A</span></a>
     </li>
@@ -58,7 +53,7 @@
             <span>Order</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{route('backend.contacts.index')}}">
             <i class="fas fa-fw fa-table"></i>
             <span>Contact</span></a>
     </li>

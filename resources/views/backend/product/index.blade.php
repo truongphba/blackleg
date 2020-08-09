@@ -68,6 +68,7 @@
                 </div>
             </div>
             <div class="card-body">
+                @if(count($list) > 0)
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
@@ -114,6 +115,9 @@
                         </div>
                     </div>
                 </div>
+                @else
+                    <h4>Have no product</h4>
+                @endif
             </div>
         </div>
     </div>
