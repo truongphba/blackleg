@@ -20,7 +20,7 @@ class CreateProductSizeTable extends Migration
             $table->unsignedBigInteger('size_id');
             $table->foreign('size_id')->references('id')->on('sizes');
             $table->unique(['product_id', 'size_id']);
-            $table->integer('quantity')->nullable();
+            $table->integer('quantity')->nullable()->default(0);
         });
     }
 

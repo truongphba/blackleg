@@ -115,16 +115,14 @@ class CategoryController extends Controller
 
     public function deleteSelected(Request $request)
     {
-        $request->validate([
-            'selected' => 'required'
-        ],
-            [
-                'selected.required' => 'You did not select any!!'
-            ]);
-        $categories = $request->input('selected');
-
-        Category::whereIn('id',$categories)->update(['status'=> 0]);
-
-        return redirect()->back();
+        $ids = $request->get('ids');
+        Category::whereIn('id', $ids)->update(['status' => 0]);
+        return $ids;
+    }
+    public function activeSelected(Request $request)
+    {
+        $ids = $request->get('ids');
+        Category::whereIn('id', $ids)->update(['status' => 1]);
+        return $ids;
     }
 }

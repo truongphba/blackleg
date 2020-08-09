@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     public static $cloudinary_link = 'https://res.cloudinary.com/truongph/image/upload/';
+
     public function category(){
         return $this->belongsTo('App\Category');
     }
