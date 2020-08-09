@@ -21,8 +21,10 @@ Route::group(['prefix'=>'admin','as'=>'backend.'], function(){
     Route::post('/categories/delete-selected','Backend\CategoryController@deleteSelected')->name('categories.deleteSelected');
 });
 
-Route::get('/', 'Frontend\SiteController@index');
+Route::get('/', 'Frontend\SiteController@index');//removeProduvtInCart
+Route::get('/checkout', 'Frontend\SiteController@checkout');
 Route::post('/cart', 'Frontend\SiteController@cart');
+Route::post('/removeProductInCart', 'Frontend\SiteController@removeProductInCart');
 Route::post('/showCart', 'Frontend\SiteController@showCart');
 Route::get('/product/{id}', 'Frontend\ProductController@productDetail')->name('productDetail');
 Route::get('/category/{id}', 'Frontend\CategoryController@category')->name('product');

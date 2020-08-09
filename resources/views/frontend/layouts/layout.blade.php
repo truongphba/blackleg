@@ -82,7 +82,6 @@
                             (object)['name'=>'Q&A','link'=>'#','sub'=>''],
                             (object)['name'=>'Contact','link'=>'#','sub'=>''],
                         ] as $i=>$obj)
-
                             <li><a href="{{$obj->link}}">{{$obj->name}}<span class="{{$obj->sub?'caret':'dn'}}"></span></a>
                                 @if($obj->sub)
                                     <ul class="dropdown-menu">
