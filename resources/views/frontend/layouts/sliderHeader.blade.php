@@ -3,7 +3,8 @@
         <div id="sequence" class="seq">
             <div class="seq-screen">
                 <ul class="seq-canvas">
-                    @foreach($collections as $i => $obj)
+                    @foreach($products as $i => $obj)
+                        @if($obj->highlight == 1)
                         <li>
                             <div class="seq-model">
                                 <div class="img-925" style="background-image: url('{{$obj->thumbnail}}')"></div>
@@ -16,6 +17,7 @@
 {{--                                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>--}}
                             </div>
                         </li>
+                        @endif
                     @endforeach
                 </ul>
             </div>
