@@ -20,15 +20,25 @@ Route::group(['prefix'=>'admin','as'=>'backend.'], function(){
     Route::resource('collections','Backend\CollectionController');
     Route::resource('q_a_s','Backend\QAController');
     Route::resource('contacts','Backend\ContactController');
-
     Route::post('/categories/delete-selected','Backend\CategoryController@deleteSelected')->name('categories.deleteSelected');
-    Route::post('/collections/delete-selected','Backend\CollectionController@deleteSelected')->name('collections.deleteSelected');
+    Route::post('/categories/active-selected','Backend\CategoryController@activeSelected')->name('categories.activeSelected');
+    Route::post('/products/delete-selected','Backend\ProductController@deleteSelected')->name('products.deleteSelected');
+    Route::post('/products/active-selected','Backend\ProductController@activeSelected')->name('products.activeSelected');
+    Route::post('/products/highlight-selected','Backend\ProductController@highlightSelected')->name('products.highlightSelected');
+    Route::post('/products/unhighlight-selected','Backend\ProductController@unhighlightSelected')->name('products.unhighlightSelected');
 
 });
 
-Route::get('/', 'Frontend\SiteController@index');
+Route::get('/', 'Frontend\SiteController@index');//removeProduvtInCart
+Route::get('/checkout', 'Frontend\SiteController@checkout');
+Route::post('/cart', 'Frontend\SiteController@cart');
+Route::post('/removeProductInCart', 'Frontend\SiteController@removeProductInCart');
+Route::post('/showCart', 'Frontend\SiteController@showCart');
 Route::get('/product/{id}', 'Frontend\ProductController@productDetail')->name('productDetail');
-Route::get('/category/{id}', 'Frontend\CategoryController@category')->name('product');
-Route::get('/collection/{id}', 'Frontend\CollectionController@collection')->name('collection');
 
+//Route::get('/category/{id}', 'Frontend\CategoryController@category')->name('product');
+//Route::get('/collection/{id}', 'Frontend\CollectionController@collection')->name('collection');
+Route::get('/all-product', 'Frontend\ProductController@allProduct')->name('all-product');
+Route::get('/contact', 'Frontend\ContactController@index');
+Route::post('/contact', 'Frontend\ContactController@createContact');
 

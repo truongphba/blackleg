@@ -9,7 +9,7 @@
                 <h2>{{$product->name}}</h2>
                 <ul class="breadcrumb">
                     <li><a href="/">Home</a></li>
-                    <li><a href="{{route('product', $product->category_id)}}">{{$product->category->name}}</a></li>
+                    <li><a href="/all-product?cate={{$product->category->id}}">{{$product->category->name}}</a></li>
                     <li class="active">{{$product->name}}</li>
                 </ul>
             </div>
@@ -37,22 +37,24 @@
                                                     class="simpleLens-big-image-container  dbi w1i">
                                                     <a class="simpleLens-lens-image  dbi w1i ohi"
                                                        style="height: 100% !important;"
-                                                       data-lens-image="{{$image->url}}">
+                                                       data-lens-image="{{$product->photos[0]}}">
                                                         <img
-                                                            src="{{$image->url}}"
+                                                            src="{{$product->photos[0]}}"
                                                             class="simpleLens-big-image">
                                                     </a>
                                                 </div>
                                             </div>
 
                                             <div class="simpleLens-thumbnails-container  df fww ">
-                                                @foreach($product->images as $image)
-                                                    <div url="{{$image->url}}"
-                                                         class="simpleLens-thumbnail-wrapper cp w25 pa3">
-                                                        <div
-                                                            class="img-56 bgpti simpleLens-big-image bw2 bss bcf bcdh"
-                                                            style="background-image: url('{{$image->url}}')"></div>
-                                                    </div>
+                                                @foreach($product->photos as $i => $photo)
+                                                    @if($i > 0)
+                                                        <div url="{{$photo}}"
+                                                             class="simpleLens-thumbnail-wrapper cp w25 pa3">
+                                                            <div
+                                                                class="img-56 bgpti simpleLens-big-image bw2 bss bcf bcdh"
+                                                                style="background-image: url('{{$photo}}')"></div>
+                                                        </div>
+                                                    @endif
                                                 @endforeach
                                             </div>
                                         </div>

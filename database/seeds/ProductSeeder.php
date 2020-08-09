@@ -45,7 +45,7 @@ class ProductSeeder extends Seeder
                 'detail' => '- Pads: Yes</br>
                              - Material: Korean Raw Linen</br>
                              - Elasticity: No',
-                'highlight' => 1,
+                'highlight' => 0,
                 'status' => 1,
                 'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
@@ -149,7 +149,7 @@ class ProductSeeder extends Seeder
                 'detail' => '- Material: Sand Chiffon</br>
                              - Pads: No</br>
                              - Elasticity: No',
-                'highlight' => 0,
+                'highlight' => 1,
                 'status' => 1,
                 'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
@@ -167,7 +167,7 @@ class ProductSeeder extends Seeder
                              - Material: Ren.</br>
                              - Pads: No</br>
                              - Elasticity: No',
-                'highlight' => 1,
+                'highlight' => 0,
                 'status' => 1,
                 'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
@@ -346,7 +346,7 @@ class ProductSeeder extends Seeder
                 'detail' => '- Material: Silk</br>
                              - Pads: No</br>
                              - Elasticity: No',
-                'highlight' => 1,
+                'highlight' => 0,
                 'status' => 1,
                 'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
@@ -363,7 +363,7 @@ class ProductSeeder extends Seeder
                 'detail' => '- Material: Silk</br>
                              - Pads: No</br>
                              - Elasticity: No',
-                'highlight' => 1,
+                'highlight' => 0,
                 'status' => 1,
                 'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
@@ -465,7 +465,7 @@ class ProductSeeder extends Seeder
                 'detail' => '- Material: Silk</br>
                              - Pads: No</br>
                              - Elasticity: No',
-                'highlight' => 0,
+                'highlight' => 1,
                 'status' => 1,
                 'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
@@ -483,7 +483,7 @@ class ProductSeeder extends Seeder
                              - Material: Korean Raw Cloth</br>
                              - Pads: No</br>
                              - Elasticity: No',
-                'highlight' => 1,
+                'highlight' => 0,
                 'status' => 1,
                 'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
@@ -534,7 +534,7 @@ class ProductSeeder extends Seeder
                 'detail' => '- Material: Linen</br>
                              - Pads: No</br>
                              - Elasticity: No',
-                'highlight' => 0,
+                'highlight' => 1,
                 'status' => 1,
                 'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
@@ -653,7 +653,7 @@ class ProductSeeder extends Seeder
                 'detail' => '- Material: Silk</br>
                              - Pads: No</br>
                              - Elasticity: No',
-                'highlight' => 1,
+                'highlight' => 0,
                 'status' => 1,
                 'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
@@ -704,7 +704,7 @@ class ProductSeeder extends Seeder
                 'detail' => '- Material: Silk</br>
                              - Pads: No</br>
                              - Elasticity: No',
-                'highlight' => 1,
+                'highlight' => 0,
                 'status' => 1,
                 'created_at' => \Illuminate\Support\Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2)->format('Y-m-d H:i:s')
