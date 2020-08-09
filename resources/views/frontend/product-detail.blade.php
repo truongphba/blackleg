@@ -37,9 +37,9 @@
                                                     class="simpleLens-big-image-container  dbi w1i">
                                                     <a class="simpleLens-lens-image  dbi w1i ohi"
                                                        style="height: 100% !important;"
-                                                       data-lens-image="{{$image->url}}">
+                                                       data-lens-image="{{$product->thumbnail}}">
                                                         <img
-                                                            src="{{$image->url}}"
+                                                            src="{{$product->thumbnail}}"
                                                             class="simpleLens-big-image">
                                                     </a>
                                                 </div>

@@ -1,9 +1,21 @@
 @extends('frontend.layouts.layout')
 
-
+@section('style')
+    <style>
+        .img-925{
+            background-size: 50% 100%;
+            background-attachment: fixed;
+        }
+        .seq-model{
+            background-color: rgba(187,187,187,0.2)
+        }
+    </style>
+@endsection
 @section('content')
     <!-- Start slider -->
+
 @include('frontend.layouts.sliderHeader')
+
     <!-- / slider -->
     <!-- Start Promo section -->
     <section id="aa-promo">
@@ -397,7 +409,7 @@
                                               ][$i]}}"
                                                  alt="testimonial img">
                                             <span class="fa fa-quote-left aa-testimonial-quote"></span>
-                                            <p><b>Quest: </b>{!!$qa->quest !!}</p>
+                                            <p><b>Question: </b>{!!$qa->quest !!}</p>
                                             <p><b>Answer: </b>{!! $qa->answer !!}</p>
                                             {{--                                        <div class="aa-testimonial-info">--}}
                                             {{--                                            <p>Allison</p>--}}

@@ -33,9 +33,17 @@
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+
+    <![endif]-->
+
+    @yield('style')
 
 </head>
 <body >
@@ -76,7 +84,7 @@
                         @foreach([
                             (object)['name'=>'Home','link'=>'/','sub'=>''],
                             (object)['name'=>'About','link'=>'/','sub'=>''],
-                            (object)['name'=>'Sale','link'=>'#','sub'=>''],
+                            (object)['name'=>'Product','link'=>'/all-product','sub'=>''],
                             (object)['name'=>'Category','link'=>'#','sub'=>$categories],
                             (object)['name'=>'Collection','link'=>'#','sub'=>$collections],
                             (object)['name'=>'Q&A','link'=>'#','sub'=>''],
@@ -172,6 +180,8 @@
 <script type="text/javascript" src="{{asset("frontend/js/nouislider.js")}}"></script>
 <!-- Custom js -->
 <script src="{{asset("frontend/js/custom.js")}}"></script>
+
+@yield('script')
 
 </body>
 </html>

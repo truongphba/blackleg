@@ -26,23 +26,23 @@
                     <div class="aa-product-catg-content">
                         <div class="aa-product-catg-head">
                             <div class="aa-product-catg-head-left">
-                                <form action="" class="aa-sort-form">
+                                <form action="/category/{{$category->id}}" method="get" id="product_form" class="aa-sort-form">
                                     <label for="">Sort by</label>
-                                    <select name="">
-                                        <option value="1" selected="Default">Default</option>
-                                        <option value="2">name</option>
-                                        <option value="3">Price</option>
-                                        <option value="4">Date</option>
+                                    <select name="sort_by" id="categorySelect">
+                                        <option value="0" selected="Default">All</option>
+                                        <option value="name">Name</option>
+                                        <option value="price">Price</option>
+                                        <option value="date">Date</option>
                                     </select>
                                 </form>
-                                <form action="" class="aa-show-form">
-                                    <label for="">Show</label>
-                                    <select name="">
-                                        <option value="1" selected="12">12</option>
-                                        <option value="2">24</option>
-                                        <option value="3">36</option>
-                                    </select>
-                                </form>
+{{--                                <form action="" class="aa-show-form">--}}
+{{--                                    <label for="">Show</label>--}}
+{{--                                    <select name="">--}}
+{{--                                        <option value="1" selected="12">12</option>--}}
+{{--                                        <option value="2">24</option>--}}
+{{--                                        <option value="3">36</option>--}}
+{{--                                    </select>--}}
+{{--                                </form>--}}
                             </div>
                             <div class="aa-product-catg-head-right">
                                 <a id="grid-catg" href="#"><span class="fa fa-th"></span></a>
@@ -212,7 +212,7 @@
                         <div class="aa-sidebar-widget">
                             <h3>Category</h3>
                             <ul class="aa-catg-nav">
-                                @foreach($categories as $i => $category)
+                                @foreach($categories as $category)
                                     <li><a href="{{route('product', $category->id)}}">{{$category->name}}</a></li>
                                 @endforeach
                             </ul>
@@ -235,11 +235,13 @@
                             <h3>Shop By Price</h3>
                             <!-- price range -->
                             <div class="aa-sidebar-price-range">
-                                <form action="#">
+                                <form id="filter-price" action="{{route('product', $product->category->id)}}" method="get">
                                     <div id="skipstep"
                                          class="noUi-target noUi-ltr noUi-horizontal noUi-background"></div>
-                                    <span id="skip-value-lower" class="example-val">30.00</span>
-                                    <span id="skip-value-upper" class="example-val">100.00</span>
+                                    <span id="skip-value-lower" class="example-val"></span>
+                                    <span id="skip-value-upper" class="example-val"></span>
+                                    <input type="hidden" id="min_price" name="min_price">
+                                    <input type="hidden" id="max_price" name="max_price">
                                     <button class="aa-filter-btn" type="submit">Filter</button>
                                 </form>
                             </div>
@@ -332,4 +334,10 @@
     <!-- / Subscribe section -->
     </body>
 @endsection
-
+@section('script')
+    <script>
+        $('#categorySelect').change(function () {
+            $('#product_form').submit();
+        })
+    </script>
+@endsection
