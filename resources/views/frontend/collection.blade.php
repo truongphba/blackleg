@@ -3,14 +3,14 @@
     <body class="productPage">
     <!-- catg header banner section -->
     <section id="aa-catg-head-banner">
-        <img style="width: 1920px; height: 600px" src="{{$category->thumbnail}}" alt="fashion img">
+        <img style="width: 1920px; height: 600px" src="{{$collection->thumbnail}}" alt="fashion img">
         <div class="aa-catg-head-banner-area">
             <div class="container">
                 <div class="aa-catg-head-banner-content">
-                    <h2>Category</h2>
+                    <h2>Collection</h2>
                     <ol class="breadcrumb">
                         <li><a href="/">Home</a></li>
-                        <li class="active">{{$category->name}}</li>
+                        <li class="active">{{$collection->name}}</li>
                     </ol>
                 </div>
             </div>
@@ -26,23 +26,23 @@
                     <div class="aa-product-catg-content">
                         <div class="aa-product-catg-head">
                             <div class="aa-product-catg-head-left">
-                                <form action="/category/{{$category->id}}" method="get" id="product_form" class="aa-sort-form">
+                                <form action="" class="aa-sort-form">
                                     <label for="">Sort by</label>
-                                    <select name="sort_by" id="categorySelect">
-                                        <option value="0" selected="Default">All</option>
-                                        <option value="name">Name</option>
-                                        <option value="price">Price</option>
-                                        <option value="date">Date</option>
+                                    <select name="">
+                                        <option value="1" selected="Default">Default</option>
+                                        <option value="2">name</option>
+                                        <option value="3">Price</option>
+                                        <option value="4">Date</option>
                                     </select>
                                 </form>
-{{--                                <form action="" class="aa-show-form">--}}
-{{--                                    <label for="">Show</label>--}}
-{{--                                    <select name="">--}}
-{{--                                        <option value="1" selected="12">12</option>--}}
-{{--                                        <option value="2">24</option>--}}
-{{--                                        <option value="3">36</option>--}}
-{{--                                    </select>--}}
-{{--                                </form>--}}
+                                <form action="" class="aa-show-form">
+                                    <label for="">Show</label>
+                                    <select name="">
+                                        <option value="1" selected="12">12</option>
+                                        <option value="2">24</option>
+                                        <option value="3">36</option>
+                                    </select>
+                                </form>
                             </div>
                             <div class="aa-product-catg-head-right">
                                 <a id="grid-catg" href="#"><span class="fa fa-th"></span></a>
@@ -51,11 +51,11 @@
                         </div>
                         <div class="aa-product-catg-body">
                             <ul class="aa-product-catg">
-                            @foreach($product as $item)
+                            @foreach($collection->product as $item)
                                 <!-- start single product item -->
                                     <li class="">
                                         <figure>
-                                            <a class="aa-product-img" href="{{route('productDetail', $category->id)}}">
+                                            <a class="aa-product-img" href="{{route('productDetail', $item->id)}}">
                                                 <div class="img-11 bgpti"
                                                      style="background-image: url('{{$item->thumbnail}}')"></div>
                                             </a>
@@ -86,12 +86,12 @@
                                     </li>
                                 @endforeach
                             </ul>
-                            <div class="aa-product-catg-pagination pagination">
-                                {{$product->links()}}
-                            </div>
+{{--                            <div class="aa-product-catg-pagination pagination">--}}
+{{--                                {{$product->links()}}--}}
+{{--                            </div>--}}
                             <!-- quick view modal -->
-                            @foreach($category->product as $product)
-                                <div class="modal fade" id="quick-view-modal{{$product->id}}" tabindex="-1"
+                            @foreach($collection->product as $item)
+                                <div class="modal fade" id="quick-view-modal{{$item->id}}" tabindex="-1"
                                      role="dialog"
                                      aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
@@ -112,16 +112,16 @@
                                                                         class="simpleLens-big-image-container  dbi w1i">
                                                                         <a class="simpleLens-lens-image  dbi w1i ohi"
                                                                            style="height: 100% !important;"
-                                                                           data-lens-image="{{$product->thumbnail}}">
+                                                                           data-lens-image="{{$item->thumbnail}}">
                                                                             <img
-                                                                                src="{{$product->thumbnail}}"
+                                                                                src="{{$item->thumbnail}}"
                                                                                 class="simpleLens-big-image">
                                                                         </a>
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="simpleLens-thumbnails-container  df fww ">
-                                                                    @foreach($product->images as $i=>$image)
+                                                                    @foreach($item->images as $i=>$image)
                                                                         <div url="{{$image->url}}"
                                                                              class="simpleLens-thumbnail-wrapper cp w25 pa3">
                                                                             <div
@@ -136,16 +136,16 @@
                                                     <!-- Modal view content -->
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                                         <div class="aa-product-view-content">
-                                                            <h3>{{$product->name}}</h3>
+                                                            <h3>{{$item->name}}</h3>
                                                             <div class="aa-price-block">
-                                                                <span class="aa-product-view-price">{{number_format($product->price)}} VND</span>
+                                                                <span class="aa-product-view-price">{{number_format($item->price)}} VND</span>
                                                                 <p class="aa-product-avilability">Avilability: <span>In stock</span>
                                                                 </p>
                                                             </div>
-                                                            <p>{!! $product->detail !!}</p>
+                                                            <p>{!! $item->detail !!}</p>
                                                             <h4>Size</h4>
                                                             <div class="aa-prod-view-size mb15">
-                                                                @foreach($product->size as $size)
+                                                                @foreach($item->size as $size)
                                                                     <a quantity="{{$size->pivot->quantity}}"
                                                                        class="sizeProduct size dib wh25 tac"
                                                                        href="#">{{$size->pivot->quantity?$size->name:""}}</a>
@@ -164,13 +164,13 @@
                                                             </div>
                                                             <p class="aa-prod-category">
                                                                 Category: <a
-                                                                    href="category/{{$product->category->id}}">{{$product->category->name}}</a>
+                                                                    href="category/{{$item->category->id}}">{{$item->category->name}}</a>
                                                             </p>
                                                             <div class="aa-prod-view-bottom">
                                                                 <a href="#" class="aa-add-to-cart-btn"><span
                                                                         class="fa fa-shopping-cart"></span>Add To
                                                                     Cart</a>
-                                                                <a href="{{route('productDetail', $product->id)}}"
+                                                                <a href="{{route('productDetail', $item->id)}}"
                                                                    class="aa-add-to-cart-btn">View Details</a>
                                                             </div>
                                                         </div>
@@ -210,10 +210,10 @@
                     <aside class="aa-sidebar">
                         <!-- single sidebar -->
                         <div class="aa-sidebar-widget">
-                            <h3>Category</h3>
+                            <h3>Collection</h3>
                             <ul class="aa-catg-nav">
-                                @foreach($categories as $category)
-                                    <li><a href="{{route('product', $category->id)}}">{{$category->name}}</a></li>
+                                @foreach($collections as $collec)
+                                    <li><a href="{{route('collection', $collec->id)}}">{{$collec->name}}</a></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -235,7 +235,7 @@
                             <h3>Shop By Price</h3>
                             <!-- price range -->
                             <div class="aa-sidebar-price-range">
-                                <form id="filter-price" action="{{route('product', $product->category->id)}}" method="get">
+                                <form id="filter-price" action="#" method="get">
                                     <div id="skipstep"
                                          class="noUi-target noUi-ltr noUi-horizontal noUi-background"></div>
                                     <span id="skip-value-lower" class="example-val"></span>
@@ -334,10 +334,4 @@
     <!-- / Subscribe section -->
     </body>
 @endsection
-@section('script')
-    <script>
-        $('#categorySelect').change(function () {
-            $('#product_form').submit();
-        })
-    </script>
-@endsection
+

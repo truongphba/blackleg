@@ -1,38 +1,21 @@
 @extends('frontend.layouts.layout')
 
-
+@section('style')
+    <style>
+        .img-925{
+            background-size: 50% 100%;
+            background-attachment: fixed;
+        }
+        .seq-model{
+            background-color: rgba(187,187,187,0.2)
+        }
+    </style>
+@endsection
 @section('content')
     <!-- Start slider -->
-    <section id="aa-slider">
-        <div class="aa-slider-area">
-            <div id="sequence" class="seq">
-                <div class="seq-screen">
-                    <ul class="seq-canvas">
-                        @foreach($collections as $i => $obj)
-                            <li>
-                                <div class="seq-model">
-                                    <div class="img-925" style="background-image: url('{{$obj->thumbnail}}')"></div>
-                                    {{--                                <img data-seq src="{{$obj}}" alt="Wristwatch slide img"/>--}}
-                                </div>
-                                <div class="seq-title">
-                                    <span data-seq>Save Up to 40% Off</span>
-                                    <h2 data-seq>{{$obj->name}}</h2>
-                                    {{--                            <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>--}}
-                                    <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
-                                </div>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
 
-                <!-- slider navigation btn -->
-                <fieldset class="seq-nav" aria-controls="sequence" aria-label="Slider buttons">
-                    <a type="button" class="seq-prev" aria-label="Previous"><span class="fa fa-angle-left"></span></a>
-                    <a type="button" class="seq-next" aria-label="Next"><span class="fa fa-angle-right"></span></a>
-                </fieldset>
-            </div>
-        </div>
-    </section>
+@include('frontend.layouts.sliderHeader')
+
     <!-- / slider -->
     <!-- Start Promo section -->
     <section id="aa-promo">
@@ -104,7 +87,6 @@
                                 <div class="tab-content">
                                     <!-- Start men product category -->
                                     @foreach($categories as $i => $category)
-                                        {{--                                    @if($i!=2&&$i!=5)--}}
                                         <div class="tab-pane fade pb25 in {{$i==1?"active":""}}"
                                              id="categoryHome{{$category->id}}">
                                             <ul class="aa-product-catg" style="min-width: 100%">
@@ -113,11 +95,11 @@
                                                     @if($i<8)
                                                         <li class="">
                                                             <figure>
-                                                                <a class="aa-product-img" href="#">
+                                                                <a class="aa-product-img" href="product/{{$product->id}}">
                                                                     <div class="img-11 bgpti"
                                                                          style="background-image: url('{{$product->thumbnail}}')"></div>
                                                                 </a>
-                                                                <a class="aa-add-card-btn" href="#"><span
+                                                                <a class="aa-add-card-btn cp" productId = "{{$product->id}}"><span
                                                                         class="fa fa-shopping-cart"></span>Add To
                                                                     Cart</a>
                                                                 <figcaption>
@@ -126,15 +108,9 @@
                                                                     </h4>
                                                                     <span
                                                                         class="aa-product-price">{{number_format($product->price)}}</span>
-                                                                    {{--                                                                <span class="aa-product-price"><del>{{number_format($product->price)}}</del></span>--}}
                                                                 </figcaption>
                                                             </figure>
                                                             <div class="aa-product-hvr-content">
-                                                                <a href="#" data-toggle="tooltip" data-placement="top"
-                                                                   title="Add to Wishlist"><span
-                                                                        class="fa fa-heart-o"></span></a>
-                                                                {{--                                                            <a href="#" data-toggle="tooltip" data-placement="top"--}}
-                                                                {{--                                                               title="Compare"><span class="fa fa-exchange"></span></a>--}}
                                                                 <a href="#" data-toggle2="tooltip" data-placement="top"
                                                                    title="Quick View" data-toggle="modal"
                                                                    data-target="#product-modal-home{{$product->id}}"><span
@@ -144,9 +120,6 @@
                                                             <span
                                                                 class="aa-badge {{$product->highlight?"aa-hot":"dn"}}"
                                                                 href="#">HOT!</span>
-                                                            {{--                                                            <span--}}
-                                                            {{--                                                                class="aa-badge {{$product->status=='SALE!'?"aa-sale":($product->status=='HOT!'?"aa-hot":($product->status=='Sold Out!'?"aa-sold-out":""))}}"--}}
-                                                            {{--                                                                href="#">{{$product->status}}</span>--}}
                                                         </li>
                                                     @endif
                                                 @endforeach
@@ -160,7 +133,6 @@
 
                                 </div>
                                 <!-- quick view modal -->
-                                {{--                            product-modal-home{{$product->id}}--}}
                                 @foreach($products as $i=>$product)
                                     <div class="modal fade" id="product-modal-home{{$product->id}}" tabindex="-1"
                                          role="dialog"
@@ -241,7 +213,7 @@
                                                                         href="category/{{$product->category->id}}">{{$product->category->name}}</a>
                                                                 </p>
                                                                 <div class="aa-prod-view-bottom">
-                                                                    <a href="#" class="aa-add-to-cart-btn"><span
+                                                                    <a class="aa-add-to-cart-btn " productId="{{$product->id}}"><span
                                                                             class="fa fa-shopping-cart"></span>Add To
                                                                         Cart</a>
                                                                     <a href="product/{{$product->id}}"
@@ -289,8 +261,6 @@
                             <!-- start prduct navigation -->
                             <ul class="nav nav-tabs aa-products-tab">
                                 <li class="active"><a href="#popular" data-toggle="tab">Sản phẩm nổi bật</a></li>
-                                {{--                            <li><a href="#featured" data-toggle="tab">Featured</a></li>--}}
-                                {{--                            <li><a href="#latest" data-toggle="tab">Latest</a></li>--}}
                             </ul>
                             <!-- Tab panes -->
                             <div class="tab-content">
@@ -302,11 +272,11 @@
                                             @if($product->highlight==1)
                                                 <li class="">
                                                     <figure>
-                                                        <a class="aa-product-img" href="#">
+                                                        <a class="aa-product-img" href="product/{{$product->id}}">
                                                             <div class="img-11 bgpti"
                                                                  style="background-image: url('{{$product->thumbnail}}')"></div>
                                                         </a>
-                                                        <a class="aa-add-card-btn" href="#"><span
+                                                        <a class="aa-add-card-btn cp" productId = "{{$product->id}}"><span
                                                                 class="fa fa-shopping-cart"></span>Add To
                                                             Cart</a>
                                                         <figcaption>
@@ -315,15 +285,9 @@
                                                             </h4>
                                                             <span
                                                                 class="aa-product-price">{{number_format($product->price)}}</span>
-                                                            {{--                                                        <span class="aa-product-price"><del>{{number_format($product->price)}}</del></span>--}}
                                                         </figcaption>
                                                     </figure>
                                                     <div class="aa-product-hvr-content">
-                                                        <a href="#" data-toggle="tooltip" data-placement="top"
-                                                           title="Add to Wishlist"><span
-                                                                class="fa fa-heart-o"></span></a>
-                                                        {{--                                                    <a href="#" data-toggle="tooltip" data-placement="top"--}}
-                                                        {{--                                                       title="Compare"><span class="fa fa-exchange"></span></a>--}}
                                                         <a href="#" data-toggle2="tooltip" data-placement="top"
                                                            title="Quick View" data-toggle="modal"
                                                            data-target="#product-modal-home{{$product->id}}"><span
@@ -331,9 +295,6 @@
                                                     </div>
                                                     <!-- product badge -->
                                                     <span class="aa-badge aa-hot" href="#">HOT!</span>
-                                                    {{--                                                            <span--}}
-                                                    {{--                                                                class="aa-badge {{$product->status=='SALE!'?"aa-sale":($product->status=='HOT!'?"aa-hot":($product->status=='Sold Out!'?"aa-sold-out":""))}}"--}}
-                                                    {{--                                                                href="#">{{$product->status}}</span>--}}
                                                 </li>
                                             @endif
                                         @endforeach
@@ -347,6 +308,39 @@
                 </div>
             </div>
         </div>
+
+    </div>
+</section>
+<!-- / popular section -->
+<!-- Support section -->
+<section id="aa-support">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="aa-support-area row">
+                    <!-- single support -->
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="aa-support-single">
+                            <span class="fa fa-truck"></span>
+                            <h4>DELIVERY SERVICE</h4>
+                            <P>Fast shipping, various payment methods</P>
+                        </div>
+                    </div>
+                    <!-- single support -->
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="aa-support-single">
+                            <span class="fa fa-clock-o"></span>
+                            <h4>RETURN AND EXCHANGE POLICY</h4>
+                            <P>Free return and exchange within 30 days</P>
+                        </div>
+                    </div>
+                    <!-- single support -->
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="aa-support-single">
+                            <span class="fa fa-phone"></span>
+                            <h4>CUSTOMER SERVICE</h4>
+                            <P>24/7 customer support and advice</P>
+
     </section>
     <!-- / popular section -->
     <!-- Support section -->
@@ -378,6 +372,7 @@
                                 <h4>SUPPORT 24/7</h4>
                                 <P>Hỗ trợ tư vấn phục vụ tận tình 24/7.</P>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -414,7 +409,7 @@
                                               ][$i]}}"
                                                  alt="testimonial img">
                                             <span class="fa fa-quote-left aa-testimonial-quote"></span>
-                                            <p><b>Quest: </b>{!!$qa->quest !!}</p>
+                                            <p><b>Question: </b>{!!$qa->quest !!}</p>
                                             <p><b>Answer: </b>{!! $qa->answer !!}</p>
                                             {{--                                        <div class="aa-testimonial-info">--}}
                                             {{--                                            <p>Allison</p>--}}
