@@ -50,16 +50,14 @@ class QAController extends Controller
 
     public function deleteSelected(Request $request)
     {
-        $request->validate([
-            'selected' => 'required'
-        ],
-            [
-                'selected.required' => 'You did not select any!!'
-            ]);
-        $q_a_s = $request->input('selected');
-
-        QA::whereIn('id',$q_a_s)->update(['status'=> 0]);
-
-        return redirect()->back();
+        $ids = $request->get('ids');
+        QA::whereIn('id', $ids)->update(['status' => 0]);
+        return $ids;
+    }
+    public function activeSelected(Request $request)
+    {
+        $ids = $request->get('ids');
+        QA::whereIn('id', $ids)->update(['status' => 1]);
+        return $ids;
     }
 }

@@ -20,13 +20,16 @@ Route::group(['prefix'=>'admin','as'=>'backend.'], function(){
     Route::resource('collections','Backend\CollectionController');
     Route::resource('q_a_s','Backend\QAController');
     Route::resource('contacts','Backend\ContactController');
-    Route::post('/categories/delete-selected','Backend\CategoryController@deleteSelected')->name('categories.deleteSelected');
-    Route::post('/categories/active-selected','Backend\CategoryController@activeSelected')->name('categories.activeSelected');
+    Route::post('/collections/delete-selected','Backend\CollectionController@deleteSelected')->name('collections.deleteSelected');
+    Route::post('/collections/active-selected','Backend\CollectionController@activeSelected')->name('collections.activeSelected');
     Route::post('/products/delete-selected','Backend\ProductController@deleteSelected')->name('products.deleteSelected');
     Route::post('/products/active-selected','Backend\ProductController@activeSelected')->name('products.activeSelected');
     Route::post('/products/highlight-selected','Backend\ProductController@highlightSelected')->name('products.highlightSelected');
     Route::post('/products/unhighlight-selected','Backend\ProductController@unhighlightSelected')->name('products.unhighlightSelected');
-
+    Route::post('/categories/delete-selected','Backend\CategoryController@deleteSelected')->name('categories.deleteSelected');
+    Route::post('/categories/active-selected','Backend\CategoryController@activeSelected')->name('categories.activeSelected');
+    Route::post('/q_a_s/delete-selected','Backend\QAController@deleteSelected')->name('q_a_s.deleteSelected');
+    Route::post('/q_a_s/active-selected','Backend\QAController@activeSelected')->name('q_a_s.activeSelected');
 });
 
 Route::get('/', 'Frontend\SiteController@index');//removeProduvtInCart

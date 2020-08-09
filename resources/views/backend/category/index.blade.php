@@ -18,7 +18,7 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <div class="row">
-                    <div class="col-md-7">
+                    <div class="col-md-4">
                         <h4 class="m-0 font-weight-bold text-primary">Category List</h4>
                     </div>
                     <div class="col-md-3">
@@ -32,6 +32,11 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-3">
+                        <form method="get" action="{{route('backend.categories.index')}}">
+                            <input class="form-control" name="keyword" placeholder="Search....">
+                        </form>
+                    </div>
                     <div class="col-md-2 text-right">
                         <a href="{{route('backend.categories.create')}}">
                             <button class="btn btn-success text-uppercase">Add</button>
@@ -40,6 +45,7 @@
                 </div>
             </div>
             <div class="card-body">
+                @if(count($list) > 0)
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
@@ -85,6 +91,9 @@
                         </div>
                     </div>
                 </div>
+                @else
+                    <h4>Have no category</h4>
+                @endif
             </div>
         </div>
     </div>

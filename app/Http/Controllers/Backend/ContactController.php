@@ -18,6 +18,7 @@ class ContactController extends Controller
         $keyword = $request->get('keyword');
         $list = Contact::orderBy('created_at', 'desc')
             ->where('name', 'like', '%' . $keyword . '%')
+            ->orWhere('phone', 'like', '%' . $keyword . '%')
             ->paginate(10)
             ->appends($request->only('keyword'));
         return view('backend.contact.index')->with('list', $list);

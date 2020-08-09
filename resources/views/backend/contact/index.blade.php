@@ -1,4 +1,3 @@
-
 @extends('backend.layouts.layout')
 @section('style')
     <style>
@@ -18,14 +17,11 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <h4 class="m-0 font-weight-bold text-primary">Contact List</h4>
-                        @error('selected')
-                        <p style="color: red">{{$message}}</p>
-                        @enderror
                     </div>
-                    <div class="col-md-5"></div>
-                    <div class="col-md-4">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3">
                         <form method="get" action="{{route('backend.contacts.index')}}">
                             <input class="form-control" name="keyword" placeholder="Search....">
                         </form>
@@ -34,49 +30,56 @@
                 </div>
             </div>
             <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                        <tr>
-                            <th class="text-center">Id</th>
-                            <th>Name</th>
-                            <th>Phone</th>
-                            <th>Title</th>
-                            <th>Message</th>
-                            <th>Status</th>
-                            <th>Created At</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($list as $item)
-                            <tr class="tr-click">
-                                <td class="text-center">{{$item->id}}</td>
-                                <td>{{$item->name}}</td>
-                                <td>{{$item->phone}}</td>
-                                <td>{{$item->email}}</td>
-                                <td>{{$item->title}}</td>
-                                <td>{{$item->message}}</td>
-                                @if($item->status)
-                                    <td style="color: green" class="text-uppercase">Active</td>
-                                @else
-                                    <td style="color: red" class="text-uppercase">Lock</td>
-                                @endif
-                                <td>{{date_format($item->created_at, 'Y-m-d')}}</td>
+                @if(count($list) > 0)
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th class="text-center">Id</th>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Title</th>
+                                <th>Message</th>
+                                <th>Status</th>
+                                <th>Created At</th>
                             </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <p>Showing {{$list->firstItem()}} to {{$list->lastItem()}} of {{$list->total()}} entries</p>
+                            </thead>
+                            <tbody>
+
+                            @foreach($list as $item)
+                                <tr class="tr-click">
+                                    <td class="text-center">{{$item->id}}</td>
+                                    <td>{{$item->name}}</td>
+                                    <td>{{$item->phone}}</td>
+                                    <td>{{$item->email}}</td>
+                                    <td>{{$item->title}}</td>
+                                    <td>{{$item->message}}</td>
+                                    @if($item->status)
+                                        <td style="color: green" class="text-uppercase">Active</td>
+                                    @else
+                                        <td style="color: red" class="text-uppercase">Lock</td>
+                                    @endif
+                                    <td>{{date_format($item->created_at, 'Y-m-d')}}</td>
+                                </tr>
+                            @endforeach
+
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="col-md-6">
-                        <div class="float-right">
-                            {{$list->links()}}
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>Showing {{$list->firstItem()}} to {{$list->lastItem()}} of {{$list->total()}} entries</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="float-right">
+                                {{$list->links()}}
+                            </div>
                         </div>
                     </div>
-                </div>
+                @else
+                    <h4>Have no contact</h4>
+                @endif
             </div>
         </div>
     </div>
