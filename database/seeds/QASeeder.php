@@ -35,8 +35,7 @@ class QASeeder extends Seeder
             [
                 'id' => 3,
                 'quest' => 'How do I change my delivery address?',
-                'answer' => 'In oder to change your delivery address in the payment process and delivery, please</br>
-                             contact to our customer service to change your delivery address.',
+                'answer' => 'In oder to change your delivery address in the payment process and delivery, please contact to our customer service to change your delivery address.',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
                 'status' => 1,
@@ -44,9 +43,7 @@ class QASeeder extends Seeder
             [
                 'id' => 4,
                 'quest' => 'How to cancel my orders? ',
-                'answer' => 'In order to cancel your orders, please call directory or email to our customer service </br>
-                             in 24 hours after ordering. </br>
-                             All you have to do is give us your order informations so that we cancel your order.',
+                'answer' => 'In order to cancel your orders, please call directory or email to our customer service  in 24 hours after ordering.  All you have to do is give us your order informations so that we cancel your order.',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
                 'status' => 1,
@@ -54,8 +51,7 @@ class QASeeder extends Seeder
             [
                 'id' => 5,
                 'quest' => 'Can I cancel a part of my order?',
-                'answer' => 'Yes, but in some case and some particular product in your oders might not be able</br>
-                             to cancel partially',
+                'answer' => 'Yes, but in some case and some particular product in your oders might not be able to cancel partially',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
                 'status' => 1,
@@ -63,8 +59,7 @@ class QASeeder extends Seeder
             [
                 'id' => 6,
                 'quest' => 'Do I have to pay fee if I cancel my order?',
-                'answer' => 'Yes, if you cancel your order in 24 hours after ordering, you will only have to pay </br>
-                             a small fee depends on the product you have ordered',
+                'answer' => 'Yes, if you cancel your order in 24 hours after ordering, you will only have to pay  a small fee depends on the product you have ordered',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
                 'status' => 1,
@@ -72,8 +67,7 @@ class QASeeder extends Seeder
             [
                 'id' => 7,
                 'quest' => 'Can I change my orders?',
-                'answer' => 'In order to change your orders, please cancel your current order, and then</br>
-                             order another product',
+                'answer' => 'In order to change your orders, please cancel your current order, and then order another product',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
                 'status' => 1,
@@ -81,9 +75,7 @@ class QASeeder extends Seeder
             [
                 'id' => 8,
                 'quest' => 'What if I receive a damaged product? ',
-                'answer' => 'In case you receive a damaged product from your order, first we would like to apologise</br>
-                             the unfortunate inconvenience you had, then we will send you a new order just like the</br>
-                             one you placed as soon as possible.',
+                'answer' => 'In case you receive a damaged product from your order, first we would like to apologise the unfortunate inconvenience you had, then we will send you a new order just like the one you placed as soon as possible.',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
                 'status' => 1,
@@ -91,8 +83,7 @@ class QASeeder extends Seeder
             [
                 'id' => 9,
                 'quest' => 'Is overseas delivery available ?',
-                'answer' => 'Unfortunately we are currently only able to delivery in Vietnam, but we will soon expand</br>
-                             our delivery location abroad',
+                'answer' => 'Unfortunately we are currently only able to delivery in Vietnam, but we will soon expand our delivery location abroad',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
                 'status' => 1,

@@ -30,7 +30,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        return view('backend.contact.create');
+
     }
 
     /**
@@ -42,18 +42,7 @@ class ContactController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'name' => 'required'
-        ]);
-        $contact = new Contact();
-        $contact->name = $request->name;
-        $contact->email = $request->email;
-        $contact->phone = $request->phone;
-        $contact->title = $request->title;
-        $contact->message = $request->message;
-        $contact->save();
 
-        return redirect()->route('backend.contacts.show', $contact->id);
     }
 
     /**
@@ -64,8 +53,7 @@ class ContactController extends Controller
      */
     public function show($id)
     {
-        $contact = Contact::find($id);
-        return view('backend.contact.detail', ['contact' => $contact]);
+
     }
 
 

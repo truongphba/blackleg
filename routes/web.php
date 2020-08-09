@@ -17,19 +17,18 @@ Route::group(['prefix'=>'admin','as'=>'backend.'], function(){
     Route::get('/', ['as' => 'index', 'uses' => 'Backend\SiteController@index']);
     Route::resource('products','Backend\ProductController');
     Route::resource('categories','Backend\CategoryController');
-
     Route::resource('collections','Backend\CollectionController');
     Route::resource('q_a_s','Backend\QAController');
     Route::resource('contacts','Backend\ContactController');
 
     Route::post('/categories/delete-selected','Backend\CategoryController@deleteSelected')->name('categories.deleteSelected');
+    Route::post('/collections/delete-selected','Backend\CollectionController@deleteSelected')->name('collections.deleteSelected');
 
 });
 
 Route::get('/', 'Frontend\SiteController@index');
 Route::get('/product/{id}', 'Frontend\ProductController@productDetail')->name('productDetail');
 Route::get('/category/{id}', 'Frontend\CategoryController@category')->name('product');
-Route::get('/collection/{id}', 'Frontend\CollectionController@collection')->name('product');
-Route::get('/contact/{id}', 'Frontend\QAController@collection')->name('qa');
-Route::get('/qa/{id}', 'Frontend\ContactController@collection')->name('contact');
+Route::get('/collection/{id}', 'Frontend\CollectionController@collection')->name('collection');
+
 

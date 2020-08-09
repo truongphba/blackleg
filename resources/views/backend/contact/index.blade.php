@@ -25,19 +25,12 @@
                         @enderror
                     </div>
                     <div class="col-md-5"></div>
-                    <div class="col-md-2">
+                    <div class="col-md-4">
                         <form method="get" action="{{route('backend.contacts.index')}}">
                             <input class="form-control" name="keyword" placeholder="Search....">
                         </form>
                     </div>
-                    <div class="col-md-2 text-right">
-                        <button class="btn btn-outline-primary text-uppercase select-btn">Select</button>
-                        <button class="btn btn-primary text-uppercase unselected-btn" style="display: none">Unselected
-                        </button>
-                        <a href="{{route('backend.contacts.create')}}">
-                            <button class="btn btn-success text-uppercase">Add</button>
-                        </a>
-                    </div>
+
                 </div>
             </div>
             <div class="card-body">
@@ -45,19 +38,11 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
-                            <th class="select-active">
-                                <form class="text-center" id="form-delete" method="post"
-                                      action="{{route('backend.contacts.deleteSelected')}}">
-                                    @csrf
-                                    <div class="contactIds"></div>
-                                    <button type="button" class="btn btn-danger text-uppercase" id="delete">Delete
-                                    </button>
-                                </form>
-                            </th>
                             <th class="text-center">Id</th>
                             <th>Name</th>
-                            <th>Description</th>
-                            <th>Thumbnail</th>
+                            <th>Phone</th>
+                            <th>Title</th>
+                            <th>Message</th>
                             <th>Status</th>
                             <th>Created At</th>
                         </tr>
@@ -65,19 +50,12 @@
                         <tbody>
                         @foreach($list as $item)
                             <tr class="tr-click">
-                                <td class="select-active">
-                                    @if($item->status == 1)
-                                        <div class="form-check form-group text-center pt-3">
-                                            <input type="checkbox" name="selected[]" class="form-check-input selected"
-                                                   style="height: 20px;width: 20px" value="{{$item->id}}">
-                                        </div>
-                                    @endif
-                                </td>
                                 <td class="text-center">{{$item->id}}</td>
                                 <td>{{$item->name}}</td>
-                                <td>{!!$item->description!!}</td>
-                                <td class="text-center"><img style="height: 70px;width: 100px;overflow: hidden"
-                                                             src="{{$item->photo}}"></td>
+                                <td>{{$item->phone}}</td>
+                                <td>{{$item->email}}</td>
+                                <td>{{$item->title}}</td>
+                                <td>{{$item->message}}</td>
                                 @if($item->status)
                                     <td style="color: green" class="text-uppercase">Active</td>
                                 @else
@@ -103,38 +81,4 @@
         </div>
     </div>
 @endsection
-@section('script')
-    <script>
-        $(document).ready(function () {
-            $('#dataTable tbody tr').dblclick(function () {
-                window.location.href = '/admin/contacts/' + $(this).children().first().next().text();
-            });
-            $('.select-btn,.unselected-btn').click(function () {
-                $('.select-btn,.unselected-btn').toggle();
-            });
-            $('.select-btn').click(function () {
-                $('.select-active').show();
-            });
-            $('.unselected-btn').click(function () {
-                $('.select-active').hide();
-            });
-            $('.select-active').change(function () {
-                selected = [];
-                $('.selected:checked').each(function (i) {
-                    selected[i] = $(this).val();
-                });
 
-            });
-            $('#delete').click(function () {
-                if (typeof selected !== 'undefined') {
-                    for (var i = 0; i < selected.length; i++) {
-                        $('.contactIds').append('<input type="hidden" name="selected[]" value=' + selected[i] + '>');
-                    }
-                }
-                if (confirm('Do you sure to delete ?')) {
-                    $('#form-delete').submit();
-                }
-            });
-        });
-    </script>
-@endsection
