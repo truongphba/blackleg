@@ -31,6 +31,7 @@ class ProductController extends Controller
         $products = Product::all()->where('status','=',1);
         $min_price = $request->get('min_price');
         $max_price = $request->get('max_price');
+        $keyword = $request->get('keyword');
 
         $products_list = Product::query();
         $data = array();
@@ -49,7 +50,9 @@ class ProductController extends Controller
             });
             $products_list = $products_list->whereIn('id', $ids);
         }
-
+        if ($request->has('keyword')){
+            $products_list = $products_list->orderBy('created_at', 'desc')->where('name', 'like', '%' . $keyword . '%');
+        }
         if(isset($min_price)){
             $products_list = $products_list->where('price','>=',$min_price);
         }
@@ -57,7 +60,12 @@ class ProductController extends Controller
             $products_list = $products_list->where('price','<=',$max_price);
         }
 
-        $data['list'] = $products_list->paginate(9)->appends($request->only('cate'))->appends($request->only('collection'))->appends($request->only('min_price'))->appends($request->only('max_price'));
+        $data['list'] = $products_list->paginate(9)
+            ->appends($request->only('cate'))
+            ->appends($request->only('collection'))
+            ->appends($request->only('min_price'))
+            ->appends($request->only('max_price'))
+            ->appends($request->only('keyword'));
         $data['categories'] = $categories;
         $data['collections'] = $collections;
 
