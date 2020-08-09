@@ -87,7 +87,6 @@ class ProductController extends Controller
                         'collection_id' => $collection,
                     ];
                 }
-
                 DB::table('product_collection')->insert($row_collection);
             }
 
@@ -145,7 +144,33 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        $categories = Category::where('status', 1)->get();
+        $sizes = Size::where('status', 1)->get();
+        $collections = Collection::where('status', 1)->get();
+        $images = $product->photos;
+        $product_collections = $product->collection->where('status', 1);
+        $collection_ids = $product_collections->map(function ($item){
+            return $item->id;
+        });
+        $product_sizes = $product->size->where('status', 1);
+        $product_sizes =  $product_sizes->map(function ($item){
+            return [
+                'size_id' => $item->pivot->size_id,
+                'quantity' => $item->pivot->quantity,
+            ];
+        });
+
+
+        return view('backend.product.edit',[
+            'product' => $product,
+            'categories' => $categories,
+            'sizes' => $sizes,
+            'collections' => $collections,
+            'images' => $images,
+            'collection_ids' => $collection_ids->toArray(),
+            'product_sizes' => $product_sizes
+        ]);
     }
 
     /**

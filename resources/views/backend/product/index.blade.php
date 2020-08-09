@@ -72,4 +72,38 @@
         </div>
     </div>
 @endsection
-
+@section('script')
+    <script>
+        $(document).ready(function () {
+            $('#dataTable tbody tr').dblclick(function () {
+                window.location.href = '/prouducts/' + $(this).children().first().next().text();
+            });
+            // $('.select-btn,.unselected-btn').click(function () {
+            //     $('.select-btn,.unselected-btn').toggle();
+            // });
+            // $('.select-btn').click(function () {
+            //     $('.select-active').show();
+            // });
+            // $('.unselected-btn').click(function () {
+            //     $('.select-active').hide();
+            // });
+            // $('.select-active').change(function () {
+            //     selected = [];
+            //     $('.selected:checked').each(function (i) {
+            //         selected[i] = $(this).val();
+            //     });
+            //
+            // });
+            // $('#delete').click(function () {
+            //     if (typeof selected !== 'undefined') {
+            //         for (var i = 0; i < selected.length; i++) {
+            //             $('.categoryIds').append('<input type="hidden" name="selected[]" value=' + selected[i] + '>');
+            //         }
+            //     }
+            //     if (confirm('Do you sure to delete ?')) {
+            //         $('#form-delete').submit();
+            //     }
+            // });
+        });
+    </script>
+@endsection
