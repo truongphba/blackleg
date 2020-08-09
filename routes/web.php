@@ -27,4 +27,4 @@ Route::post('/showCart', 'Frontend\SiteController@showCart');
 Route::get('/product/{id}', 'Frontend\ProductController@productDetail')->name('productDetail');
 Route::get('/category/{id}', 'Frontend\CategoryController@category')->name('product');
 Route::get('/collection/{id}', 'Frontend\CollectionController@collection')->name('collection');
-
+Route::get('/all-product', 'Frontend\ProductController@allProduct')->name('all-product');

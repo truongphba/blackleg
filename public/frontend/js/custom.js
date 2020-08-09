@@ -256,7 +256,7 @@ jQuery(function($){
             },
             snap: true,
             connect: true,
-            start: [0, 2000000]
+            start: [document.getElementById('min_price').value,  document.getElementById('max_price').value]
         });
         // for value print
         var skipValues = [
@@ -267,7 +267,7 @@ jQuery(function($){
             document.getElementById('min_price'),
             document.getElementById('max_price')
         ];
-        skipSlider.noUiSlider.on('update',async function( values, handle ) {
+        skipSlider.noUiSlider.on('update', function( values, handle ) {
         skipValues[handle].innerHTML =  values[handle];
         inputValues[handle].value = values[handle];
         });

@@ -12,7 +12,6 @@
     <link href="{{asset("frontend/css/font-awesome.css")}}" rel="stylesheet">
     <!-- Bootstrap -->
     <link href="{{asset("frontend/css/bootstrap.css")}}" rel="stylesheet">
-    <link href="{{asset("frontend/css/price-range.css")}}" rel="stylesheet">
     <!-- SmartMenus jQuery Bootstrap Addon CSS -->
     <link href="{{asset("frontend/css/jquery.smartmenus.bootstrap.css")}}" rel="stylesheet">
     <!-- Product view slider -->
@@ -44,7 +43,7 @@
 
     <![endif]-->
 
-
+    @yield('style')
 
 </head>
 <body >
@@ -85,7 +84,7 @@
                         @foreach([
                             (object)['name'=>'Home','link'=>'/','sub'=>''],
                             (object)['name'=>'About','link'=>'/','sub'=>''],
-                            (object)['name'=>'Sale','link'=>'#','sub'=>''],
+                            (object)['name'=>'Product','link'=>'/all-product','sub'=>''],
                             (object)['name'=>'Category','link'=>'#','sub'=>$categories],
                             (object)['name'=>'Collection','link'=>'#','sub'=>$collections],
                             (object)['name'=>'Q&A','link'=>'#','sub'=>''],

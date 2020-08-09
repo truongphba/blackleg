@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    public static $cloudinary_link = 'https://res.cloudinary.com/truongph/image/upload/';
     public function category(){
         return $this->belongsTo('App\Category');
     }
@@ -21,5 +22,17 @@ class Product extends Model
     public function images()
     {
         return $this->hasMany('App\Image');
+    }
+
+    public function getPhotosAttribute()
+    {
+        $images = $this->images->where('status', 1);
+        $photos = $images->map(function ($image){
+            if (str_contains($image->url, 'https://')){
+                return $image->url;
+            }
+            return self::$cloudinary_link . $image->url . '.jpg';
+        });
+        return $photos;
     }
 }

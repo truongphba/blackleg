@@ -1,6 +1,16 @@
 @extends('frontend.layouts.layout')
 
-
+@section('style')
+    <style>
+        .img-925{
+            background-size: 50% 100%;
+            background-attachment: fixed;
+        }
+        .seq-model{
+            background-color: rgba(187,187,187,0.2)
+        }
+    </style>
+@endsection
 @section('content')
     <!-- Start slider -->
     <section id="aa-slider">
@@ -8,19 +18,21 @@
             <div id="sequence" class="seq">
                 <div class="seq-screen">
                     <ul class="seq-canvas">
-                        @foreach($collections as $i => $obj)
+                        @foreach($products as $i => $obj)
+                            @if($obj->highlight == 1)
                             <li>
                                 <div class="seq-model">
                                     <div class="img-925" style="background-image: url('{{$obj->thumbnail}}')"></div>
                                     {{--                                <img data-seq src="{{$obj}}" alt="Wristwatch slide img"/>--}}
                                 </div>
                                 <div class="seq-title">
-                                    <span data-seq>Save Up to 40% Off</span>
+
                                     <h2 data-seq>{{$obj->name}}</h2>
                                     {{--                            <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>--}}
-                                    <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
+                                    <a data-seq href="/product/{{$obj->id}}" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
                                 </div>
                             </li>
+                            @endif
                         @endforeach
                     </ul>
                 </div>
@@ -426,7 +438,7 @@
                                               ][$i]}}"
                                                  alt="testimonial img">
                                             <span class="fa fa-quote-left aa-testimonial-quote"></span>
-                                            <p><b>Quest: </b>{!!$qa->quest !!}</p>
+                                            <p><b>Question: </b>{!!$qa->quest !!}</p>
                                             <p><b>Answer: </b>{!! $qa->answer !!}</p>
                                             {{--                                        <div class="aa-testimonial-info">--}}
                                             {{--                                            <p>Allison</p>--}}
