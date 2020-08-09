@@ -57,7 +57,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Price:</label>
-                                <input type="text" class="form-control" name="price" value="{{old('price')}}" >
+                                <input type="number" class="form-control" name="price" value="{{old('price')}}" >
                                 @error('price')
                                 <p style="color: red">{{ $message }}</p>
                                 @enderror
@@ -120,7 +120,7 @@
                         <div class="images"></div>
                     </div>
                     <div class="form-group">
-                        <button id="back" type="button" class="btn btn-primary text-uppercase">Back</button>
+                        <a href="{{route('backend.products.index')}}"><button id="back" type="button" class="btn btn-primary text-uppercase">Back</button></a>
                         <button class="btn btn-success text-uppercase">Submit</button>
                     </div>
                 </form>
@@ -131,6 +131,7 @@
 @section('script')
     <script>
         $(document).ready(function () {
+
             CKEDITOR.config.entities_latin = false
             CKEDITOR.replace('description');
             CKEDITOR.replace('detail');

@@ -18,6 +18,11 @@ Route::group(['prefix'=>'admin','as'=>'backend.'], function(){
     Route::resource('products','Backend\ProductController');
     Route::resource('categories','Backend\CategoryController');
     Route::post('/categories/delete-selected','Backend\CategoryController@deleteSelected')->name('categories.deleteSelected');
+    Route::post('/categories/active-selected','Backend\CategoryController@activeSelected')->name('categories.activeSelected');
+    Route::post('/products/delete-selected','Backend\ProductController@deleteSelected')->name('products.deleteSelected');
+    Route::post('/products/active-selected','Backend\ProductController@activeSelected')->name('products.activeSelected');
+    Route::post('/products/highlight-selected','Backend\ProductController@highlightSelected')->name('products.highlightSelected');
+    Route::post('/products/unhighlight-selected','Backend\ProductController@unhighlightSelected')->name('products.unhighlightSelected');
 });
 
 Route::get('/', 'Frontend\SiteController@index');
