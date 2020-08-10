@@ -48,4 +48,3 @@ Route::get('/all-product', 'Frontend\ProductController@allProduct')->name('all-p
 Route::get('/contact', 'Frontend\ContactController@index');
 Route::post('/contact', 'Frontend\ContactController@createContact');
 Route::get('/qa', 'Frontend\QAController@index');
-
