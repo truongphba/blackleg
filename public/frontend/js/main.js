@@ -10,14 +10,28 @@ $(document).ready(function () {
     //focus size -> chon size
     $(".sizeProduct").focus(function () {
         var t = $(this),
-            qua = $(".quantityProduct"),
+            qua = t.closest(".modal-body").find(".quantityProduct").length ? t.closest(".modal-body").find(".quantityProduct") : t.closest(".cartProduct").find(".quantityProduct"),
             q = t.attr("quantity");
-        console.log(range(1, q));
         qua.closest(".formQuantity").editClass("-dn").find(".sumQuantity").text(q);
-        qua.attr({ max: q });
-        console.log(qua.val())
+        qua.closest(".formQuantity").find(".quantityProduct").val(1).on("change", function () {
+            qua.closest(".cartProduct").find(".totalPrice").text(qua.closest(".formQuantity").find(".quantityProduct").val() * 1 * qua.closest(".cartProduct").find(".priceProduct").text().notComma())//priceProduct
+        });
+        qua.attr({ max: q }).trigger("change");
     })
-
+    //chọn size
+    $(".sizeProduct").on("click", function () {
+        var t = $(this),
+            qua = t.closest(".modal-body").find(".quantityProduct").length ? t.closest(".modal-body").find(".quantityProduct") : t.closest(".cartProduct").find(".quantityProduct"),
+            q = t.attr("quantity");
+        t.editClass("sizeActive").siblings().editClass("-sizeActive");
+        qua.closest(".formQuantity").editClass("-dn").find(".sumQuantity").text(q);
+        qua.closest(".formQuantity").find(".quantityProduct").val(1).on("change", function () {
+            qua.closest(".cartProduct").find(".totalPrice").text(comma(qua.closest(".formQuantity").find(".quantityProduct").val() * 1 * qua.closest(".cartProduct").find(".priceProduct").text().notComma()))
+            $("#total").trigger("total");
+        });
+        qua.attr({ max: q }).trigger("change");
+    });
+    $(".aa-prod-view-size").find(".sizeProduct:eq(0)").trigger("click");
     // html
     //     <h4>Size</h4>
     //     <div class="aa-prod-view-size mb15">
@@ -62,43 +76,49 @@ $(document).ready(function () {
 
     $("#checkout .container").editClass("pb50").each(function () {
         var t = $(this);
-        if (location.href.search("/checkout")) {
-            $.ajax({
-                method: "POST",
-                url: "/showCart",
-                success: function (v) {
-                    console.log("Du lieu tra ve", v);
-                    if (v && v.cart) {
-                        t.empty().append(
-                            $('<div>', { id: '', class: 'ttu fs2 tac mtb50 c1 fwb', text: 'Cart detail' }),
-                            v.cart.map(function (d, i) {
-                                var d = getObj(v.products, "id", d.productId);
-                                console.log(d);
-                                return $('<div>', { id: '', class: 'bw1 bss bcd bra5 pa15 mb15', text: '' }).append(
-                                    $('<div>', { id: '', class: 'df', text: '' }).append(
-                                        $('<div>', { id: '', class: 'w25', text: '' }).append(
+        // if (location.href.search("/checkout")) {
+        //     $.ajax({
+        //         method: "POST",
+        //         url: "/showCart",
+        //         success: function (v) {
+        //             console.log("Du lieu tra ve", v);
+        //             if (v && v.cart) {
+        //                 t.empty().append(
+        //                     $('<div>', {id: '', class: 'ttu fs2 tac mtb50 c1 fwb', text: 'Cart detail'}),
+        //                     v.cart.map(function (d, i) {
+        //                         var d = getObj(v.products, "id", d.productId);
+        //                         console.log(d);
+        //                         return d && $('<div>', {id: '', class: 'bw1 bss bcd bra5 pa15 mb15', text: ''}).append(
+        //                             $('<div>', {id: '', class: 'df', text: ''}).append(
+        //                                 $('<div>', {id: '', class: 'w25 pa15 bw1 bss bcd', text: ''}).append(
+        //                                     $("<div>", {
+        //                                         class: "img-11 bgpti",
+        //                                         style: "background-image: url('" + d.thumbnail + "')"
+        //                                     }),
+        //                                 ),
+        //                                 $('<div>', {id: '', class: 'w25', text: ''}).append(
+        //                                     // $('<div>',{id: '', class: '', text: ''}).iSelect(
 
-                                        ),
-                                        $('<div>', { id: '', class: 'w25', text: '' }),
-                                        $('<div>', { id: '', class: 'w25', text: '' }),
-                                        $('<div>', { id: '', class: 'w25', text: '' }),
-                                    )
-                                );
-                            })
+        //                                     // ),
+        //                                 ),
+        //                                 $('<div>', {id: '', class: 'w25', text: ''}),
+        //                                 $('<div>', {id: '', class: 'w25', text: ''}),
+        //                             )
+        //                         );
+        //                     })
+        //                 )
+        //             } else {
 
-                        )
-                    } else {
-
-                    }
+        //             }
 
 
-                },
-                error: function (data, textStatus, errorThrown) {
-                    console.log(data, textStatus, errorThrown);
-                },
-            })
+        //         },
+        //         error: function (data, textStatus, errorThrown) {
+        //             console.log(data, textStatus, errorThrown);
+        //         },
+        //     })
 
-        }
+        // }
     })
 
     //Hiển thị giỏ hàng
@@ -109,13 +129,20 @@ $(document).ready(function () {
             method: "POST",
             url: "/showCart",
             success: function (v) {
-                console.log("Du lieu tra ve", v);
-                if (v && v.cart) {
-                    console.log(v.cart)
-                    t.find(".aa-cart-notify").text((v && v.cart) ? v.cart.length : "");
+                // console.log("Du lieu tra ve", v);
+                if (v && typeof v == "object" && v.cart) {
+                    var arr = [];
+                    $.map(v.cart, function (d, i) {
+                        arr.push(d)
+                    })
+                    console.log(v.cart);
+                    $("body").data(v);
+                    t.find(".aa-cart-notify").text((v && v.cart) ? Object.size(v.cart) : "");
+                    !Object.size(v.cart) && $(".checkoutCart").append($('<div>', { id: '', class: 'ttu fwb c1 tac fs13', text: 'Cart empty' }));
                     t.find(".aa-cartbox-summary ul").empty().append(
+                        !Object.size(v.cart) && $('<div>', { id: '', class: 'ttu fwb c1 tac fs13', text: 'Cart empty' }),
                         v.cart && $.map(v.cart, function (d, i) {
-                            return d.productId ? $("<li>", { class: "" }).append(
+                            return d.productId ? $("<li>", { class: "oneProduct" }).append(
                                 $("<a>", { class: "aa-cartbox-img", href: "/product/" + d.productId }).append(
                                     $("<div>", {
                                         class: "img-11 bgpti",
@@ -124,22 +151,28 @@ $(document).ready(function () {
                                 ),
                                 $("<div>", { class: "aa-cartbox-info" }).append(
                                     $("<h4>", { class: "" }).append(
-                                        $("<a>", { text: getAttrInObj(v.products, "id", d.productId, "name"), href: "/product/" + d.productId })
+                                        $("<a>", {
+                                            text: getAttrInObj(v.products, "id", d.productId, "name"),
+                                            href: "/product/" + d.productId
+                                        })
                                     ),
                                     $("<p>", { text: (getAttrInObj(v.cart, "productId", d.productId, "quantity") || 1) + " x " + getAttrInObj(v.products, "id", d.productId, "price").comma() + " VNĐ" })
                                 ),
-                                $("<a>", { class: "aa-remove-product cp" }).append(
+                                $("<a>", { class: "aa-remove-product cp productRemove" + d.productId }).append(
                                     $("<span>", { class: "fa fa-times" })
                                 ).on("click", function () {
-                                    v.cart.splice(findWithAttr(v.cart, "productId", d.productId), 1)
+                                    // v.cart.splice(findWithAttr(v.cart, "productId", d.productId), 1);
+                                    var t1 = $(this);
                                     $.ajax({
                                         method: "POST",
                                         url: "/removeProductInCart",
-                                        data: { cart: Boolean(v.cart) ? v.cart : [] },
+                                        data: { cartIndex: d.productId },
+                                        // data: {cartIndex:v.cart.productId},
                                         success: function (v) {
+                                            console.log("Du lieu tra ve", v)
                                             if (v == 1) {
-                                                // $(".productCart").trigger("loadCart");
-                                                $(".productCart").trigger("loadCart");
+                                                $("#total").trigger("total");
+                                                t.trigger("loadCart");
                                                 notification({ text: "Sản phẩm đã xoá!!", type: "true" });
                                             }
 
@@ -167,6 +200,40 @@ $(document).ready(function () {
         //
     })
     $(".productCart").trigger("loadCart");
+    //remove product in checkout
+    $(document).on("click", "[idRemove]", function () {
+        var t = $(this),
+            id = t.attr("idRemove"),
+            r = ".productRemove" + id;
+        $(r).trigger("click");
+        t.closest(".cartProduct").remove();
+        $("#total").trigger("total");
+    });
+    $(".informationShip").append(
+        $('<div>', { id: '', class: 'tac ttu fs13 fwb', text: 'Đặt hàng' }),
+        $('<div>', { id: '', class: '', text: 'Name:' }),
+        $('<div>', { id: 'name', class: 'w1 bgcyl bra3 bw1 bss bce mb10', text: '', contenteditable: true }),
+        $('<div>', { id: '', class: '', text: 'Phone:' }),
+        $('<div>', { id: 'phone', class: 'w1 bgcyl bra3 bw1 bss bce mb10', text: '', contenteditable: true }),
+        $('<div>', { id: '', class: '', text: 'Addres:' }),
+        $('<div>', { id: 'adress', class: 'w1 bgcyl bra3 bw1 bss bce mb10', text: '', contenteditable: true }),
+        $('<div>', { id: '', class: 'dibc', text: '' }).append(
+            $('<div>', { id: '', class: 'mr10 mb10', text: 'Total: ' }),
+            $('<div>', { id: 'total', class: 'c1 fwb', text: comma('123123') }).on("total", function () {
+                var t = $(this), total = 0;
+                $(".cartProduct").each(function () {
+                    var m = $(this);
+                    total = total + m.find(".totalPrice").text().notComma() * 1;
+                });
+                t.text(total.comma());
+            }),
+            $('<div>', { id: '', class: 'c1 fwb ml15', text: ' VNĐ' }),
+        ),
+        $('<div>', { id: '', class: 'tar', text: '' }).append(
+            $('<div>', { id: '', class: 'btn bg1 bni cf', text: 'Đặt hàng' }),
+        ),
+    );
+    $("#total").trigger("total");
 })
 
 
@@ -326,6 +393,9 @@ $.fn.extend({
             return getObj(array, attr, value)[str];
         }
     }
+    notComma = function (t) {
+        return t.replace(/,/g, "");
+    };
     comma = function (n) {
         var b = [], str = "";
         if (n && typeof (n * 1) == "number") {
@@ -344,10 +414,23 @@ $.fn.extend({
             return 0;
         }
     }
+    String.prototype.notComma = function () {
+        return notComma(this);
+    }
+    // number.prototype.notComma = function () {
+    //     return notComma(this);
+    // }
     String.prototype.comma = function () {
         return comma(this);
     }
     Number.prototype.comma = function () {
         return comma(this);
     }
+    Object.size = function (obj) {
+        var size = 0, key;
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+    };
 }
