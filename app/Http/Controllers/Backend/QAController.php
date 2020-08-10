@@ -22,7 +22,7 @@ class QAController extends Controller
             ->where('quest', 'like', '%' . $keyword . '%')
             ->paginate(10)
             ->appends($request->only('keyword'));
-        return view('backend.qa.index')->with('list', $list);
+        return view('backend.QA.index')->with('list', $list);
     }
     public function store(Request $request)
     {
