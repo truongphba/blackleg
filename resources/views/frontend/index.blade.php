@@ -405,7 +405,7 @@
                     <div class="aa-client-brand-area">
                         <ul class="aa-client-brand-slider">
                             @foreach($collections as $i =>$collection )
-                                <li><a href="collection/{{$collection->id}}" class="fwb ttu">{{$collection->name}}</a>
+                                <li><a href="/all-product?collection={{$collection->id}}" class="fwb ttu">{{$collection->name}}</a>
                                 </li>
                             @endforeach
                         </ul>
