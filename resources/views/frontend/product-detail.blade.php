@@ -9,7 +9,7 @@
                 <h2>{{$product->name}}</h2>
                 <ul class="breadcrumb">
                     <li><a href="/">Home</a></li>
-                    <li><a href="/all-product?cate={{$product->category->id}}">{{$product->category->name}}</a></li>
+                    <li><a href="/all-product?category={{$product->category->id}}">{{$product->category->name}}</a></li>
                     <li class="active">{{$product->name}}</li>
                 </ul>
             </div>
@@ -80,27 +80,29 @@
                                     <div class="aa-prod-view-size mb15">
                                         @foreach($product->size as $size)
                                             <a quantity="{{$size->pivot->quantity}}"
-                                               class="sizeProduct size dib tac"
-                                               tabindex="0">{{$size->pivot->quantity?$size->name:""}}</a>
+                                               class="sizeProduct size dib tac cp"
+                                            >{{$size->pivot->quantity?$size->name:""}}</a>
                                         @endforeach
                                     </div>
 {{--                                    <div class="aa-prod-quantity">--}}
-                                        <form action="" class="formQuantity dn">
-                                            <div class="mb10">
-                                                <div class="dib">Kho:</div>
-                                                <div class="sumQuantity dib ml10">10</div>
-                                            </div>
-                                            <input type="number" class="quantityProduct"
-                                                   style="width: 50px" value="1" min="1"
-                                                   max="">
-                                        </form>
+{{--                                        <form action="" class="formQuantity dn">--}}
+{{--                                            <div class="mb10">--}}
+{{--                                                <div class="dib">Kho:</div>--}}
+{{--                                                <div class="sumQuantity dib ml5">10</div>--}}
+{{--                                            </div>--}}
+{{--                                            <input type="number" class="quantityProduct"--}}
+{{--                                                   style="width: 50px" value="1" min="1"--}}
+{{--                                                   max="">--}}
+{{--                                        </form>--}}
 {{--                                    </div>--}}
                                     <p class="aa-prod-category">
                                         Category: <a style="color: red"
-                                            href="/all-product?cate={{$product->category->id}}">{{$product->category->name}}</a>
+                                            href="/all-product?category={{$product->category->id}}">{{$product->category->name}}</a>
                                     </p>
                                     <div class="aa-prod-view-bottom">
-                                        <a class="aa-add-to-cart-btn" href="#">Add To Cart</a>
+                                        <a class="aa-add-to-cart-btn cp" productId="{{$product->id}}"><span
+                                                class="fa fa-shopping-cart"></span>Add To
+                                            Cart</a>
                                     </div>
                                 </div>
                             </div>
@@ -213,7 +215,7 @@
                                                 <div class="img-11 bgpti"
                                                      style="background-image: url('{{$item->thumbnail}}')"></div>
                                             </a>
-                                            <a class="aa-add-card-btn" href="#"><span
+                                            <a class="aa-add-card-btn cp" productId = "{{$item->id}}"><span
                                                     class="fa fa-shopping-cart"></span>Add To
                                                 Cart</a>
                                             <figcaption>
@@ -301,8 +303,8 @@
                                                         <div class="aa-prod-view-size mb15">
                                                             @foreach($product->size as $size)
                                                                 <a quantity="{{$size->pivot->quantity}}"
-                                                                   class="sizeProduct size dib wh25 tac"
-                                                                   tabindex="1">{{$size->pivot->quantity?$size->name:""}}</a>
+                                                                   class="sizeProduct size dib wh25 tac cp"
+                                                                   >{{$size->pivot->quantity?$size->name:""}}</a>
                                                             @endforeach
                                                         </div>
                                                         <div class="aa-prod-quantity">
@@ -318,10 +320,10 @@
                                                         </div>
                                                         <p class="aa-prod-category">
                                                             Category: <a
-                                                                href="/all-product?cate={{$product->category->id}}">{{$product->category->name}}</a>
+                                                                href="/all-product?category={{$product->category->id}}">{{$product->category->name}}</a>
                                                         </p>
                                                         <div class="aa-prod-view-bottom">
-                                                            <a href="#" class="aa-add-to-cart-btn"><span
+                                                            <a class="aa-add-to-cart-btn cp" productId="{{$product->id}}"><span
                                                                     class="fa fa-shopping-cart"></span>Add To
                                                                 Cart</a>
                                                             <a href="{{route('productDetail', $product->id)}}" class="aa-add-to-cart-btn">View Details</a>
