@@ -18,7 +18,7 @@
                                 <ul class="aa-head-top-nav-right">
                                     {{--                                <li><a href="account.html">My Account</a></li>--}}
                                     {{--                                <li class="hidden-xs"><a href="wishlist.html">Wishlist</a></li>--}}
-                                    <li class="hidden-xs"><a href="cart.html">My Cart</a></li>
+                                    <li class="hidden-xs"><a href="/checkout">My Cart</a></li>
                                     {{--                                <li class="hidden-xs"><a href="checkout.html">Checkout</a></li>--}}
 {{--                                    <li><a href="" data-toggle="modal" data-target="#login-modal">Login</a></li>--}}
                                 </ul>
@@ -39,7 +39,7 @@
                             <!-- logo  -->
                             <div class="aa-logo">
                                 <!-- Text based logo -->
-                                <a href="index.html">
+                                <a href="/">
                                     <span class="fa fa-shopping-cart"></span>
                                     <p>daily<strong>Shop</strong> <span>Your Shopping Partner</span></p>
                                 </a>
@@ -86,7 +86,7 @@
 {{--                      </span>--}}
 {{--                                        </li>--}}
                                     </ul>
-                                    <a class="aa-cartbox-checkout aa-primary-btn" href="checkout.html">Checkout</a>
+                                    <a class="aa-cartbox-checkout aa-primary-btn" href="/checkout">Checkout</a>
                                 </div>
                             </div>
                             <!-- / cart box -->
