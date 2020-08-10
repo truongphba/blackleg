@@ -32,7 +32,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Search by time:</label>
-                                <input type="text" name="dates" class="form-control" autocomplete="off" value="{{date('d/m/Y',strtotime($start)). ' - '  . date('d/m/Y',strtotime($end))}}">
+                                <input type="text" name="dates" class="form-control" autocomplete="off" value="{{isset($start) && isset($end) ? date('d/m/Y',strtotime($start)). ' - '  . date('d/m/Y',strtotime($end)) : ''}}">
                                 <input type="hidden" name="start" value="{{$start}}">
                                 <input type="hidden" name="end" value="{{$end}}">
                             </div>
@@ -125,6 +125,9 @@
 @section('script')
     <script>
         $(document).ready(function () {
+            $('#dataTable tbody tr').dblclick(function () {
+                window.location.href = 'products/' + $(this).children().first().next().text();
+            });
             $('input[name="dates"]').daterangepicker(
                 {
                     autoUpdateInput: false,
@@ -150,13 +153,17 @@
             });
             $('input[name="dates"]').on('cancle.daterangepicker', function (ev, picker) {
                 $(this).val('');
+                $('input[name="start"]').val('');
+                $('input[name="end"]').val('');
             });
             $('#filter-form').change(function () {
+                if($('input[name="dates"]').val() == ''){
+                    $('input[name="start"]').val('');
+                    $('input[name="end"]').val('');
+                }
                 $(this).submit();
             });
-            $('#dataTable tbody tr').dblclick(function () {
-                window.location.href = 'products/' + $(this).children().first().next.text();
-            });
+
             $('#check-all').click(function () {
                 $('.product-checkbox').prop('checked', $(this).prop('checked'));
             });
