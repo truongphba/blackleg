@@ -21,7 +21,7 @@
                             <div class="col-md-3 col-sm-6">
                                 <div class="aa-footer-widget">
                                     <div class="aa-footer-widget">
-                                        <h3>Chính sách chung</h3>
+                                        <h3>General policy</h3>
                                         <ul class="aa-footer-nav">
                                             <li><a href="#">FREE SHIPPING</a></li>
                                             <li><a href="#">30 DAYS MONEY BACK</a></li>

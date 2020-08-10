@@ -64,7 +64,7 @@
                             <!-- search box -->
                             <div class="aa-search-box">
                                 <form action="/all-product" method="get">
-                                    <input type="text" name="keyword" id="" placeholder="Nhập tên sản phẩm">
+                                    <input type="text" name="keyword" id="" placeholder="Enter product name">
                                     <button type="submit"><span class="fa fa-search"></span></button>
                                 </form>
                             </div>

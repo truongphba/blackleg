@@ -14,6 +14,15 @@
             font-size: large;
             color: #ff6666;
         }
+        .btn:hover, .btn:focus{
+            text-decoration: none;
+            color: #ff6666;
+        }
+        .card-body{
+            margin-left: 20px;
+            padding-bottom: 15px;
+            padding-top: 10px;
+        }
     </style>
 @endsection
 @section('content')

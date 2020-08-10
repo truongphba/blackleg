@@ -69,7 +69,7 @@ class QASeeder extends Seeder
             [
                 'id' => 7,
                 'quest' => 'Can I change my orders?',
-                'answer' => 'Để thay đổi sản phẩm sau khi đặt hàng, quý khách vui lòng huỷ toàn bộ đơn đã đặt trước đó và tiến hành đặt lại một đơn hàng mới với sản phẩm mà quý khách muốn chọn.',
+                'answer' => 'To change products after placing an order, please cancel all pre-ordered orders and proceed with a new order with the product you want to select.',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
                 'status' => 1,
