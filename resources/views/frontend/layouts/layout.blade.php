@@ -83,7 +83,7 @@
                     <ul class="nav navbar-nav">
                         @foreach([
                             (object)['name'=>'Home','link'=>'/','sub'=>''],
-                            (object)['name'=>'About','link'=>'/','sub'=>''],
+                            (object)['name'=>'About','link'=>'/about','sub'=>''],
                             (object)['name'=>'Product','link'=>'/all-product','sub'=>''],
                             (object)['name'=>'Category','link'=>'#','sub'=>$categories],
                             (object)['name'=>'Collection','link'=>'#','sub'=>$collections],

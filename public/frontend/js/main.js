@@ -72,57 +72,7 @@ $(document).ready(function () {
             },
         })
     })
-    //Trang checkout
-
-    $("#checkout .container").editClass("pb50").each(function () {
-        var t = $(this);
-        // if (location.href.search("/checkout")) {
-        //     $.ajax({
-        //         method: "POST",
-        //         url: "/showCart",
-        //         success: function (v) {
-        //             console.log("Du lieu tra ve", v);
-        //             if (v && v.cart) {
-        //                 t.empty().append(
-        //                     $('<div>', {id: '', class: 'ttu fs2 tac mtb50 c1 fwb', text: 'Cart detail'}),
-        //                     v.cart.map(function (d, i) {
-        //                         var d = getObj(v.products, "id", d.productId);
-        //                         console.log(d);
-        //                         return d && $('<div>', {id: '', class: 'bw1 bss bcd bra5 pa15 mb15', text: ''}).append(
-        //                             $('<div>', {id: '', class: 'df', text: ''}).append(
-        //                                 $('<div>', {id: '', class: 'w25 pa15 bw1 bss bcd', text: ''}).append(
-        //                                     $("<div>", {
-        //                                         class: "img-11 bgpti",
-        //                                         style: "background-image: url('" + d.thumbnail + "')"
-        //                                     }),
-        //                                 ),
-        //                                 $('<div>', {id: '', class: 'w25', text: ''}).append(
-        //                                     // $('<div>',{id: '', class: '', text: ''}).iSelect(
-
-        //                                     // ),
-        //                                 ),
-        //                                 $('<div>', {id: '', class: 'w25', text: ''}),
-        //                                 $('<div>', {id: '', class: 'w25', text: ''}),
-        //                             )
-        //                         );
-        //                     })
-        //                 )
-        //             } else {
-
-        //             }
-
-
-        //         },
-        //         error: function (data, textStatus, errorThrown) {
-        //             console.log(data, textStatus, errorThrown);
-        //         },
-        //     })
-
-        // }
-    })
-
     //Hiển thị giỏ hàng
-
     $(".productCart").on("loadCart", function () {
         var t = $(this);
         $.ajax({
@@ -212,14 +162,14 @@ $(document).ready(function () {
     $(".informationShip").append(
         $('<div>', { id: '', class: 'tac ttu fs13 fwb', text: 'Đặt hàng' }),
         $('<div>', { id: '', class: '', text: 'Name:' }),
-        $('<div>', { id: 'name', class: 'w1 bgcyl bra3 bw1 bss bce mb10', text: '', contenteditable: true }),
+        $('<div>', { id: 'name', class: 'w1 bgcyl bra3 bw1 bss bce mb10 ta5', text: '', contenteditable: true }),
         $('<div>', { id: '', class: '', text: 'Phone:' }),
-        $('<div>', { id: 'phone', class: 'w1 bgcyl bra3 bw1 bss bce mb10', text: '', contenteditable: true }),
+        $('<div>', { id: 'phone', class: 'w1 bgcyl bra3 bw1 bss bce mb10 ta5', text: '', contenteditable: true }),
         $('<div>', { id: '', class: '', text: 'Addres:' }),
-        $('<div>', { id: 'adress', class: 'w1 bgcyl bra3 bw1 bss bce mb10', text: '', contenteditable: true }),
+        $('<div>', { id: 'address', class: 'w1 bgcyl bra3 bw1 bss bce mb10 ta5', text: '', contenteditable: true }),
         $('<div>', { id: '', class: 'dibc', text: '' }).append(
             $('<div>', { id: '', class: 'mr10 mb10', text: 'Total: ' }),
-            $('<div>', { id: 'total', class: 'c1 fwb', text: comma('123123') }).on("total", function () {
+            $('<div>', { id: 'total', class: 'c1 fwb', text: comma('0') }).on("total", function () {
                 var t = $(this), total = 0;
                 $(".cartProduct").each(function () {
                     var m = $(this);
@@ -230,7 +180,43 @@ $(document).ready(function () {
             $('<div>', { id: '', class: 'c1 fwb ml15', text: ' VNĐ' }),
         ),
         $('<div>', { id: '', class: 'tar', text: '' }).append(
-            $('<div>', { id: '', class: 'btn bg1 bni cf', text: 'Đặt hàng' }),
+            $('<div>', { id: '', class: 'btn bg1 bni cf', text: 'Đặt hàng' }).on("click", function () {
+                var T = $(this).closest(".informationShip"), p = {}, allProduct = [];
+                p.name = T.find("#name").text();
+                p.phone = T.find("#name").text();
+                p.address = T.find("#address").text();
+                p.total = T.find("#total").text().notComma();
+                T.find("[contenteditable]").each(function () {
+                    !$(this).text() && $(this).editClass("bg1i");
+                })
+                setTimeout(function () {
+                    T.find("[contenteditable]").editClass("-bg1i");
+                }, 500)
+                if (T.find("[contenteditable]").hasClass("bg1i")) {
+                    notification({ text: "Yêu cầu nhập đầy đủ thông tin!!!", type: "note" })
+                    return false;
+                }
+                $(".cartProduct").each(function () {
+                    var T = $(this), o = {};
+                    o.productId = T.find("[idRemove]").attr("idRemove");
+                    o.sizeId = T.find(".sizeActive").attr("sizeId");
+                    o.quantityProduct = T.find(".quantityProduct").val();
+                    o.totalPrice = T.find(".totalPrice").text().notComma();
+                    allProduct.push(o);
+                })
+                console.log(allProduct, p);
+                $.ajax({
+                    method: "POST",
+                    url: "/saveOrder",
+                    data: { orderDetails: allProduct, order: p },
+                    success: function (v) {
+                        console.log("Du lieu tra ve", v);
+                    },
+                    error: function (data, textStatus, errorThrown) {
+                        notification({ text: "Lưu đơn hàng thất bại!!", type: "false" });
+                    }
+                });
+            }),
         ),
     );
     $("#total").trigger("total");

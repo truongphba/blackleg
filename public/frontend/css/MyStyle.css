@@ -6967,7 +6967,7 @@ input[type="submit"] , input[type="reset"]{
 .c1{
     color: #ff6666;
 }
-.bg1{
+.bg1, .bg1i{
     background: #ff6666;
 }
 /*img{*/

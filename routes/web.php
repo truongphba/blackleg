@@ -34,13 +34,16 @@ Route::group(['prefix'=>'admin','as'=>'backend.'], function(){
 
 Route::get('/', 'Frontend\SiteController@index');//removeProduvtInCart
 Route::get('/checkout', 'Frontend\SiteController@checkout');
+Route::get('/about', 'Frontend\SiteController@about');
 Route::post('/cart', 'Frontend\SiteController@cart');
 Route::post('/removeProductInCart', 'Frontend\SiteController@removeProductInCart');
 Route::post('/showCart', 'Frontend\SiteController@showCart');
 Route::get('/product/{id}', 'Frontend\ProductController@productDetail')->name('productDetail');
+Route::post('/saveOrder', 'Frontend\SiteController@saveOrder');
 
-//Route::get('/category/{id}', 'Frontend\CategoryController@category')->name('product');
-//Route::get('/collection/{id}', 'Frontend\CollectionController@collection')->name('collection');
+Route::get('/category/{id}', 'Frontend\CategoryController@category')->name('product');
+Route::get('/collection/{id}', 'Frontend\CollectionController@collection')->name('collection');
+//
 Route::get('/all-product', 'Frontend\ProductController@allProduct')->name('all-product');
 Route::get('/contact', 'Frontend\ContactController@index');
 Route::post('/contact', 'Frontend\ContactController@createContact');

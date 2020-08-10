@@ -32,7 +32,7 @@
                             <div class="aa-prod-view-size mb15">
                                 <div>Size:</div>
                                 @foreach($c->product->size as$i=>$size)
-                                    <a quantity="{{$size->pivot->quantity}}" class="sizeProduct size dib wh25 tac cp" tabindex="1">{{$size->pivot->quantity?$size->name:""}}</a>
+                                    <a quantity="{{$size->pivot->quantity}}" class="sizeProduct size dib wh25 tac cp" tabindex="1" sizeId="{{$size->pivot->size_id}}">{{$size->pivot->quantity?$size->name:""}}</a>
                                 @endforeach
                             </div>
                         </div>
