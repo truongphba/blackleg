@@ -89,6 +89,7 @@
                             (object)['name'=>'Collection','link'=>'#','sub'=>$collections],
                             (object)['name'=>'Q&A','link'=>'#','sub'=>''],
                             (object)['name'=>'Contact','link'=>'/contact','sub'=>''],
+
                         ] as $i=>$obj)
                             <li><a href="{{$obj->link}}">{{$obj->name}}<span class="{{$obj->sub?'caret':'dn'}}"></span></a>
                                 @if($obj->sub)

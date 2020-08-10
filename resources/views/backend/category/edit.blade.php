@@ -11,7 +11,7 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <div class="row">
-                    <h4 class="m-0 font-weight-bold text-primary">Create Category</h4>
+                    <h4 class="m-0 font-weight-bold text-primary">Edit Category</h4>
                 </div>
             </div>
             <div class="card-body">
@@ -33,10 +33,12 @@
                                 <label>Thumbnail:</label>
                                 <button type="button" id="upload_widget" class="btn btn-success">Upload files</button>
                                 <div class="thumbnail mt-3">
-                                    <li class="cloudinary-thumbnail active">
-                                        <img style="width: 200px;height: auto;overflow:hidden;" src="{{$category->photo}}" alt="">
-                                        <a href="javascript:void(0)" class="cloudinary-delete">x</a>
-                                    </li>
+                                  <ul class="cloudinary-thumbnails">
+                                      <li class="cloudinary-thumbnail active">
+                                          <img style="width: 200px;height: auto;overflow:hidden;" src="{{$category->photo}}" alt="">
+                                          <a href="javascript:void(0)" class="cloudinary-delete">x</a>
+                                      </li>
+                                  </ul>
                                 </div>
                             </div>
                         </div>

@@ -1,11 +1,11 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('backend.index')}}">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">Daily Shop</div>
     </a>
 
     <!-- Divider -->
@@ -38,17 +38,12 @@
             <span>Category</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{route('backend.collections.index')}}">
             <i class="fas fa-fw fa-table"></i>
             <span>Collection</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Size</span></a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{route('backend.q_a_s.index')}}">
             <i class="fas fa-fw fa-table"></i>
             <span>Q&A</span></a>
     </li>
@@ -58,7 +53,7 @@
             <span>Order</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{route('backend.contacts.index')}}">
             <i class="fas fa-fw fa-table"></i>
             <span>Contact</span></a>
     </li>
