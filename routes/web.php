@@ -30,6 +30,11 @@ Route::group(['prefix'=>'admin','as'=>'backend.'], function(){
     Route::post('/categories/active-selected','Backend\CategoryController@activeSelected')->name('categories.activeSelected');
     Route::post('/q_a_s/delete-selected','Backend\QAController@deleteSelected')->name('q_a_s.deleteSelected');
     Route::post('/q_a_s/active-selected','Backend\QAController@activeSelected')->name('q_a_s.activeSelected');
+    Route::get('/orders','Backend\OrderController@index')->name('orders.index');
+    Route::post('/orders/pending-selected','Backend\OrderController@pendingSelected')->name('orders.pendingSelected');
+    Route::post('/orders/shipping-selected','Backend\OrderController@shippingSelected')->name('orders.shippingSelected');
+    Route::post('/orders/done-selected','Backend\OrderController@doneSelected')->name('orders.doneSelected');
+    Route::post('/orders/canceled-selected','Backend\OrderController@canceledSelected')->name('orders.canceledSelected');
 });
 
 Route::get('/', 'Frontend\SiteController@index');//removeProduvtInCart

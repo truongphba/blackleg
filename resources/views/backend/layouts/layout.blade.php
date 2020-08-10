@@ -26,6 +26,9 @@
         background-color: rgba(255,0,0,0.2);
         cursor: pointer;
     }
+    a:hover{
+        text-decoration: none;
+    }
 </style>
 </head>
 

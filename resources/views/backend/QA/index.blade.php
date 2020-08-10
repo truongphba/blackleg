@@ -94,7 +94,7 @@
                     return $(this).val();
                 }).get();
                 if(ids.length == 0){
-                    alert('Please choose at least 1 category!');
+                    alert('Please choose at least 1 row!');
                     return;
                 }
                 $.ajax({
@@ -119,7 +119,7 @@
                     return $(this).val();
                 }).get();
                 if(ids.length == 0){
-                    alert('Please choose at least 1 category!');
+                    alert('Please choose at least 1 row!');
                     return;
                 }
                 $.ajax({

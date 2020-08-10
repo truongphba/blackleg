@@ -252,7 +252,7 @@ class ProductController extends Controller
                         'collection_id' => $collection,
                     ];
                 }
-                DB::table('product_collection')->truncate();
+                DB::table('product_collection')->where('product_id',$product->id)->delete();
                 DB::table('product_collection')->insert($row_collection);
             }
 
@@ -266,7 +266,7 @@ class ProductController extends Controller
                     'quantity' => $request->get('quantity_' . $size->id)
                 ];
             }
-            DB::table('product_size')->truncate();
+            DB::table('product_size')->where('product_id',$product->id)->delete();
             DB::table('product_size')->insert($row_size);
 
             $images = $request->get('images');
@@ -280,7 +280,7 @@ class ProductController extends Controller
                         'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                     ];
                 }
-                Image::truncate();
+                Image::where('product_id',$product->id)->delete();
                 Image::insert($row_image);
             }
             DB::commit();
