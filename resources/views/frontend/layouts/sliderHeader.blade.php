@@ -11,10 +11,10 @@
                                 {{--                                <img data-seq src="{{$obj}}" alt="Wristwatch slide img"/>--}}
                             </div>
                             <div class="seq-title">
-                                <span data-seq>Save Up to 40% Off</span>
+{{--                                <span data-seq>Save Up to 40% Off</span>--}}
                                 <h2 data-seq>{{$obj->name}}</h2>
                                 {{--                            <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>--}}
-{{--                                <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>--}}
+                                <a data-seq href="/product/{{$obj->id}}" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>
                             </div>
                         </li>
                         @endif

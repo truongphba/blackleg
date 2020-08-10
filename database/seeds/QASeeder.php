@@ -43,7 +43,9 @@ class QASeeder extends Seeder
             [
                 'id' => 4,
                 'quest' => 'How to cancel my orders? ',
-                'answer' => 'In order to cancel your orders, please call directory or email to our customer service  in 24 hours after ordering.  All you have to do is give us your order informations so that we cancel your order.',
+                'answer' => 'In order to cancel your orders, please call directory or email to our customer service in 24 hours after ordering.
+                             All you have to do is give us your order informations so that we cancel your order. <br>
+                             *After 24h ordering, your orders will might be in the delivery process, so we might not able to cancel your order.',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
                 'status' => 1,
@@ -59,7 +61,7 @@ class QASeeder extends Seeder
             [
                 'id' => 6,
                 'quest' => 'Do I have to pay fee if I cancel my order?',
-                'answer' => 'Yes, if you cancel your order in 24 hours after ordering, you will only have to pay  a small fee depends on the product you have ordered',
+                'answer' => 'Yes, if you cancel your order in 24 hours after ordering, you will only have to pay a small fee depends on the product you have ordered',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
                 'status' => 1,
@@ -67,7 +69,7 @@ class QASeeder extends Seeder
             [
                 'id' => 7,
                 'quest' => 'Can I change my orders?',
-                'answer' => 'In order to change your orders, please cancel your current order, and then order another product',
+                'answer' => 'Để thay đổi sản phẩm sau khi đặt hàng, quý khách vui lòng huỷ toàn bộ đơn đã đặt trước đó và tiến hành đặt lại một đơn hàng mới với sản phẩm mà quý khách muốn chọn.',
                 'created_at' => Carbon::now()->addDays(-3)->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->addDays(-2)->format('Y-m-d H:i:s'),
                 'status' => 1,

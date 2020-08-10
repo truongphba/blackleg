@@ -44,4 +44,5 @@ Route::get('/product/{id}', 'Frontend\ProductController@productDetail')->name('p
 Route::get('/all-product', 'Frontend\ProductController@allProduct')->name('all-product');
 Route::get('/contact', 'Frontend\ContactController@index');
 Route::post('/contact', 'Frontend\ContactController@createContact');
+Route::get('/qa', 'Frontend\QAController@index');
 

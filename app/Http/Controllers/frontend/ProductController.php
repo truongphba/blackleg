@@ -60,7 +60,8 @@ class ProductController extends Controller
             $products_list = $products_list->where('price','<=',$max_price);
         }
 
-        $data['list'] = $products_list->paginate(9)
+        $data['list'] = $products_list->where('status', '=', 1)
+            ->paginate(9)
             ->appends($request->only('cate'))
             ->appends($request->only('collection'))
             ->appends($request->only('min_price'))

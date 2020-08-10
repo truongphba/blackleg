@@ -3,36 +3,36 @@
     <body class="productPage">
     <!-- catg header banner section -->
     <!-- Start slider -->
-{{--    <section id="aa-slider">--}}
-{{--        <div class="aa-slider-area">--}}
-{{--            <div id="sequence" class="seq">--}}
-{{--                <div class="seq-screen">--}}
-{{--                    <ul class="seq-canvas">--}}
-{{--                        @foreach($collections as $i => $obj)--}}
-{{--                            <li>--}}
-{{--                                <div class="seq-model">--}}
-{{--                                    <div class="img-925" style="background-image: url('{{$obj->thumbnail}}')"></div>--}}
-{{--                                    --}}{{--                                <img data-seq src="{{$obj}}" alt="Wristwatch slide img"/>--}}
-{{--                                </div>--}}
-{{--                                <div class="seq-title">--}}
-{{--                                    <span data-seq>Save Up to 40% Off</span>--}}
-{{--                                    <h2 data-seq>{{$obj->name}}</h2>--}}
-{{--                                    --}}{{--                            <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>--}}
-{{--                                    <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>--}}
-{{--                                </div>--}}
-{{--                            </li>--}}
-{{--                        @endforeach--}}
-{{--                    </ul>--}}
-{{--                </div>--}}
+    {{--    <section id="aa-slider">--}}
+    {{--        <div class="aa-slider-area">--}}
+    {{--            <div id="sequence" class="seq">--}}
+    {{--                <div class="seq-screen">--}}
+    {{--                    <ul class="seq-canvas">--}}
+    {{--                        @foreach($collections as $i => $obj)--}}
+    {{--                            <li>--}}
+    {{--                                <div class="seq-model">--}}
+    {{--                                    <div class="img-925" style="background-image: url('{{$obj->thumbnail}}')"></div>--}}
+    {{--                                    --}}{{--                                <img data-seq src="{{$obj}}" alt="Wristwatch slide img"/>--}}
+    {{--                                </div>--}}
+    {{--                                <div class="seq-title">--}}
+    {{--                                    <span data-seq>Save Up to 40% Off</span>--}}
+    {{--                                    <h2 data-seq>{{$obj->name}}</h2>--}}
+    {{--                                    --}}{{--                            <p data-seq>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, illum.</p>--}}
+    {{--                                    <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a>--}}
+    {{--                                </div>--}}
+    {{--                            </li>--}}
+    {{--                        @endforeach--}}
+    {{--                    </ul>--}}
+    {{--                </div>--}}
 
-{{--                <!-- slider navigation btn -->--}}
-{{--                <fieldset class="seq-nav" aria-controls="sequence" aria-label="Slider buttons">--}}
-{{--                    <a type="button" class="seq-prev" aria-label="Previous"><span class="fa fa-angle-left"></span></a>--}}
-{{--                    <a type="button" class="seq-next" aria-label="Next"><span class="fa fa-angle-right"></span></a>--}}
-{{--                </fieldset>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </section>--}}
+    {{--                <!-- slider navigation btn -->--}}
+    {{--                <fieldset class="seq-nav" aria-controls="sequence" aria-label="Slider buttons">--}}
+    {{--                    <a type="button" class="seq-prev" aria-label="Previous"><span class="fa fa-angle-left"></span></a>--}}
+    {{--                    <a type="button" class="seq-next" aria-label="Next"><span class="fa fa-angle-right"></span></a>--}}
+    {{--                </fieldset>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--    </section>--}}
     <!-- / slider -->
     <!-- / catg header banner section -->
 
@@ -42,70 +42,72 @@
             <div class="row">
                 <div class="col-lg-9 col-md-9 col-sm-8 col-md-push-3">
                     <div class="aa-product-catg-content">
-{{--                        <div class="aa-product-catg-head">--}}
-{{--                            <div class="aa-product-catg-head-left">--}}
-{{--                                <form action="/all-product" method="get" id="product_form" class="aa-sort-form">--}}
-{{--                                    <label for="">Sort by</label>--}}
-{{--                                    <select name="sort" id="select">--}}
-{{--                                        <option value="0" selected="Default">All</option>--}}
-{{--                                        <option value="name-desc">Name Decrease</option>--}}
-{{--                                        <option value="name-asc">Name Ascending</option>--}}
-{{--                                        <option value="price-desc">Price Decrease</option>--}}
-{{--                                        <option value="price-asc">Price Ascending</option>--}}
-{{--                                        <option value="date">Date</option>--}}
-{{--                                    </select>--}}
-{{--                                </form>--}}
-{{--                                <form action="" class="aa-show-form">--}}
-{{--                                    <label for="">Show</label>--}}
-{{--                                    <select name="">--}}
-{{--                                        <option value="1" selected="12">12</option>--}}
-{{--                                        <option value="2">24</option>--}}
-{{--                                        <option value="3">36</option>--}}
-{{--                                    </select>--}}
-{{--                                </form>--}}
-{{--                            </div>--}}
-{{--                            <div class="aa-product-catg-head-right">--}}
-{{--                                <a id="grid-catg" href="#"><span class="fa fa-th"></span></a>--}}
-{{--                                <a id="list-catg" href="#"><span class="fa fa-list"></span></a>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+                        {{--                        <div class="aa-product-catg-head">--}}
+                        {{--                            <div class="aa-product-catg-head-left">--}}
+                        {{--                                <form action="/all-product" method="get" id="product_form" class="aa-sort-form">--}}
+                        {{--                                    <label for="">Sort by</label>--}}
+                        {{--                                    <select name="sort" id="select">--}}
+                        {{--                                        <option value="0" selected="Default">All</option>--}}
+                        {{--                                        <option value="name-desc">Name Decrease</option>--}}
+                        {{--                                        <option value="name-asc">Name Ascending</option>--}}
+                        {{--                                        <option value="price-desc">Price Decrease</option>--}}
+                        {{--                                        <option value="price-asc">Price Ascending</option>--}}
+                        {{--                                        <option value="date">Date</option>--}}
+                        {{--                                    </select>--}}
+                        {{--                                </form>--}}
+                        {{--                                <form action="" class="aa-show-form">--}}
+                        {{--                                    <label for="">Show</label>--}}
+                        {{--                                    <select name="">--}}
+                        {{--                                        <option value="1" selected="12">12</option>--}}
+                        {{--                                        <option value="2">24</option>--}}
+                        {{--                                        <option value="3">36</option>--}}
+                        {{--                                    </select>--}}
+                        {{--                                </form>--}}
+                        {{--                            </div>--}}
+                        {{--                            <div class="aa-product-catg-head-right">--}}
+                        {{--                                <a id="grid-catg" href="#"><span class="fa fa-th"></span></a>--}}
+                        {{--                                <a id="list-catg" href="#"><span class="fa fa-list"></span></a>--}}
+                        {{--                            </div>--}}
+                        {{--                        </div>--}}
                         <div class="aa-product-catg-body">
-{{--                            @if(sizeof($list)>0)--}}
-                            <ul class="aa-product-catg">
-                            @foreach($list as $item)
-                                <!-- start single product item -->
-                                    <li class="">
-                                        <figure>
-                                            <a class="aa-product-img" href="/product/{{$item->id}}">
-                                                <div class="img-11 bgpti"
-                                                     style="background-image: url('{{$item->photos[0]}}')"></div>
-                                            </a>
+                            @if(sizeof($list)>0)
+                                <ul class="aa-product-catg">
+                                @foreach($list as $item)
+                                    <!-- start single product item -->
+                                        <li class="">
+                                            <figure>
+                                                <a class="aa-product-img" href="/product/{{$item->id}}">
+                                                    <div class="img-11 bgpti"
+                                                         style="background-image: url('{{$item->photos[0]}}')"></div>
+                                                </a>
 
-                                            <a class="aa-add-card-btn" href="#"><span
-                                                    class="fa fa-shopping-cart"></span>Add To
-                                                Cart</a>
-                                            <figcaption>
-                                                <h4 class="aa-product-title ttu"><a
-                                                        href="#">{{$item->name}}</a>
-                                                </h4>
-                                                <span
-                                                    class="aa-product-price">{{number_format($item->price)}} VND</span>
-                                            </figcaption>
-                                        </figure>
-                                        <div class="aa-product-hvr-content">
-                                            <a href="#" data-toggle2="tooltip" data-placement="top"
-                                               title="Quick View" data-toggle="modal"
-                                               data-target="#quick-view-modal{{$item->id}}"><span
-                                                    class="fa fa-search"></span></a>
-                                        </div>
-                                        <!-- product badge -->
-                                        @if($item->highlight == 1)
-                                            <span class="aa-badge aa-hot" href="#">HOT!</span>
-                                        @endif
-                                    </li>
+                                                <a class="aa-add-card-btn" href="#"><span
+                                                        class="fa fa-shopping-cart"></span>Add To
+                                                    Cart</a>
+                                                <figcaption>
+                                                    <h4 class="aa-product-title ttu"><a
+                                                            href="#">{{$item->name}}</a>
+                                                    </h4>
+                                                    <span
+                                                        class="aa-product-price">{{number_format($item->price)}} VND</span>
+                                                </figcaption>
+                                            </figure>
+                                            <div class="aa-product-hvr-content">
+                                                <a href="#" data-toggle2="tooltip" data-placement="top"
+                                                   title="Quick View" data-toggle="modal"
+                                                   data-target="#quick-view-modal{{$item->id}}"><span
+                                                        class="fa fa-search"></span></a>
+                                            </div>
+                                            <!-- product badge -->
+                                            @if($item->highlight == 1)
+                                                <span class="aa-badge aa-hot" href="#">HOT!</span>
+                                            @endif
+                                        </li>
                                     @endforeach
-                            </ul>
-{{--                            @endif--}}
+                                </ul>
+                            @else
+                                <div>Have no products</div>
+                            @endif
                             <div class="aa-product-catg-pagination pagination">
                                 {{$list->links()}}
                             </div>
@@ -143,12 +145,12 @@
                                                                 <div class="simpleLens-thumbnails-container  df fww ">
                                                                     @foreach($product->photos as $i => $photo)
                                                                         @if($i > 0)
-                                                                        <div url="{{$photo}}"
-                                                                             class="simpleLens-thumbnail-wrapper cp w25 pa3">
-                                                                            <div
-                                                                                class="img-56 bgpti simpleLens-big-image bw2 bss bcf bcdh"
-                                                                                style="background-image: url('{{$photo}}')"></div>
-                                                                        </div>
+                                                                            <div url="{{$photo}}"
+                                                                                 class="simpleLens-thumbnail-wrapper cp w25 pa3">
+                                                                                <div
+                                                                                    class="img-56 bgpti simpleLens-big-image bw2 bss bcf bcdh"
+                                                                                    style="background-image: url('{{$photo}}')"></div>
+                                                                            </div>
                                                                         @endif
                                                                     @endforeach
                                                                 </div>
@@ -186,7 +188,7 @@
                                                             </div>
                                                             <p class="aa-prod-category">
                                                                 Category: <a
-                                                                    href="category/{{$product->category->id}}">{{$product->category->name}}</a>
+                                                                    href="/all-product?cate={{$product->category->id}}">{{$product->category->name}}</a>
                                                             </p>
                                                             <div class="aa-prod-view-bottom">
                                                                 <a href="#" class="aa-add-to-cart-btn"><span
@@ -212,43 +214,47 @@
                     <aside class="aa-sidebar">
                         <!-- single sidebar -->
                         <form action="/all-product" method="get" id="product_form">
-                        <div class="aa-sidebar-widget">
-                            <h3>Category</h3>
-                            <select name="cate" class="form-control" id="categorySelect">
-                                <option value="0">All</option>
-                                @foreach($categories as $category)
-                                    <option value="{{$category->id}}" {{$category->id == $category_id ? 'selected':''}}>{{$category->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
+                            <div class="aa-sidebar-widget">
+                                <h3>Category</h3>
+                                <select name="cate" class="form-control" id="categorySelect">
+                                    <option value="0">All</option>
+                                    @foreach($categories as $category)
+                                        <option
+                                            value="{{$category->id}}" {{$category->id == $category_id ? 'selected':''}}>{{$category->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
 
-                        <!-- single sidebar -->
+                            <!-- single sidebar -->
 
-                        <div class="aa-sidebar-widget">
-                            <h3>Collection</h3>
-                            <select name="collection" class="form-control" id="collectionSelect">
-                                <option value="0">All</option>
-                                @foreach($collections as $collection)
-                                    <option value="{{$collection->id}}" {{$collection_id == $collection->id ? 'selected':''}}>{{$collection->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
+                            <div class="aa-sidebar-widget">
+                                <h3>Collection</h3>
+                                <select name="collection" class="form-control" id="collectionSelect">
+                                    <option value="0">All</option>
+                                    @foreach($collections as $collection)
+                                        <option
+                                            value="{{$collection->id}}" {{$collection_id == $collection->id ? 'selected':''}}>{{$collection->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
 
-                        <!-- single sidebar -->
-                        <div class="aa-sidebar-widget">
-                            <h3>Shop By Price</h3>
-                            <!-- price range -->
-                            <div class="aa-sidebar-price-range">
+                            <!-- single sidebar -->
+                            <div class="aa-sidebar-widget">
+                                <h3>Shop By Price</h3>
+                                <!-- price range -->
+                                <div class="aa-sidebar-price-range">
                                     <div id="skipstep"
                                          class="noUi-target noUi-ltr noUi-horizontal noUi-background"></div>
                                     <span id="skip-value-lower" class="example-val"></span>
                                     <span id="skip-value-upper" class="example-val"></span>
-                                    <input type="hidden" id="min_price" name="min_price" value="{{isset($min_price)?$min_price:0}}">
-                                    <input type="hidden" id="max_price" name="max_price" value="{{isset($max_price)?$max_price:2000000}}">
+                                    <input type="hidden" id="min_price" name="min_price"
+                                           value="{{isset($min_price)?$min_price:0}}">
+                                    <input type="hidden" id="max_price" name="max_price"
+                                           value="{{isset($max_price)?$max_price:2000000}}">
                                     <button class="aa-filter-btn" type="submit">Filter</button>
 
+                                </div>
                             </div>
-                        </div>
                         </form>
                         <!-- single sidebar -->
                         <div class="aa-sidebar-widget">
