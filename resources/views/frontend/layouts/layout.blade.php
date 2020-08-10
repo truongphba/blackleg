@@ -83,12 +83,12 @@
                     <ul class="nav navbar-nav">
                         @foreach([
                             (object)['name'=>'Home','link'=>'/','sub'=>''],
-                            (object)['name'=>'About','link'=>'/about','sub'=>''],
                             (object)['name'=>'Product','link'=>'/all-product','sub'=>''],
                             (object)['name'=>'Category','link'=>'#','sub'=>$categories],
                             (object)['name'=>'Collection','link'=>'#','sub'=>$collections],
-                            (object)['name'=>'Q&A','link'=>'/qa','sub'=>''],
                             (object)['name'=>'Contact','link'=>'/contact','sub'=>''],
+                            (object)['name'=>'About','link'=>'/about','sub'=>''],
+                            (object)['name'=>'Q&A','link'=>'/qa','sub'=>''],
 
                         ] as $i=>$obj)
                             <li><a href="{{$obj->link}}">{{$obj->name}}<span class="{{$obj->sub?'caret':'dn'}}"></span></a>
@@ -96,7 +96,7 @@
                                     <ul class="dropdown-menu">
                                         @foreach($obj->sub as $i=>$subMenu)
                                             <li>
-                                                <a href="/{{strtolower($obj->name).'/'.$subMenu->id}}">{{$subMenu->name}}</a>
+                                                <a href="/all-product?{{strtolower($obj->name).'='.$subMenu->id}}">{{$subMenu->name}}</a>
                                             </li>
                                         @endforeach
                                     </ul>

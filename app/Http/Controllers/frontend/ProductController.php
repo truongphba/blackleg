@@ -38,8 +38,8 @@ class ProductController extends Controller
         $data['category_id'] = 0;
         $data['collection_id'] = 0;
 
-        if ($request->has('cate') && $request->get('cate') != 0) {
-            $data['category_id'] = $request->get('cate');
+        if ($request->has('category') && $request->get('category') != 0) {
+            $data['category_id'] = $request->get('category');
             $products_list = $products_list->where('category_id', '=', $data['category_id']);
         }
         if ($request->has('collection') && $request->get('collection') != 0){
@@ -62,7 +62,7 @@ class ProductController extends Controller
 
         $data['list'] = $products_list->where('status', '=', 1)
             ->paginate(9)
-            ->appends($request->only('cate'))
+            ->appends($request->only('category'))
             ->appends($request->only('collection'))
             ->appends($request->only('min_price'))
             ->appends($request->only('max_price'))
