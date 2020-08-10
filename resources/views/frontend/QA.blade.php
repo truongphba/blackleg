@@ -10,6 +10,9 @@
         }
         .btn{
             border: none;
+            font-weight: bold;
+            font-size: large;
+            color: #ff6666;
         }
     </style>
 @endsection
