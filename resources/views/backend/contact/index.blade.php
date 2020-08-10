@@ -37,6 +37,7 @@
                             <tr>
                                 <th class="text-center">Id</th>
                                 <th>Name</th>
+                                <th>Email</th>
                                 <th>Phone</th>
                                 <th>Title</th>
                                 <th>Message</th>
@@ -50,6 +51,7 @@
                                 <tr class="tr-click">
                                     <td class="text-center">{{$item->id}}</td>
                                     <td>{{$item->name}}</td>
+                                    <td>{{$item->email}}</td>
                                     <td>{{$item->phone}}</td>
                                     <td>{{$item->email}}</td>
                                     <td>{{$item->title}}</td>
