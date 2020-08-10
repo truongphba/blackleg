@@ -87,7 +87,7 @@
                             (object)['name'=>'Product','link'=>'/all-product','sub'=>''],
                             (object)['name'=>'Category','link'=>'#','sub'=>$categories],
                             (object)['name'=>'Collection','link'=>'#','sub'=>$collections],
-                            (object)['name'=>'Q&A','link'=>'#','sub'=>''],
+                            (object)['name'=>'Q&A','link'=>'/qa','sub'=>''],
                             (object)['name'=>'Contact','link'=>'/contact','sub'=>''],
 
                         ] as $i=>$obj)

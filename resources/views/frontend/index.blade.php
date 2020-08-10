@@ -31,8 +31,8 @@
                                         <div class="img-11 bgpti"
                                              style="background-image: url({{$categories[0]->product[random_int(0,count($categories[0]->product)-1)]->thumbnail}})"></div>
                                         <div class="aa-prom-content">
-                                            <div class="dib bgcf7 pa5" style="color: #ff6666">75% Off</div>
-                                            <h4><a href="category/{{$categories[0]->id}}">{{$categories[0]->name}}</a>
+{{--                                            <div class="dib bgcf7 pa5" style="color: #ff6666">75% Off</div>--}}
+                                            <h4><a href="/all-product?cate={{$categories[0]->id}}">{{$categories[0]->name}}</a>
                                             </h4>
                                         </div>
                                     </div>
@@ -49,7 +49,7 @@
                                                          style="background-image: url('{{$category->product[random_int(0,count($category->product)-1)]->thumbnail}}')"></div>
                                                     <div class="aa-prom-content">
                                                         {{--                                                <div class="dib bgcf7 pa5" style="color: #ff6666">{{$obj->sale}}</div>--}}
-                                                        <h4><a href="category/{{$category->id}}">{{$category->name}}</a>
+                                                        <h4><a href="/all-product?cate={{$category->id}}">{{$category->name}}</a>
                                                         </h4>
                                                     </div>
                                                 </div>
@@ -124,7 +124,7 @@
                                                     @endif
                                                 @endforeach
                                             </ul>
-                                            <div class="tac"><a class="aa-browse-btn" href="category/{{$category->id}}">Browse
+                                            <div class="tac"><a class="aa-browse-btn" href="/all-product?cate={{$category->id}}">Browse
                                                     all Product <span
                                                         class="fa fa-long-arrow-right"></span></a></div>
                                         </div>
@@ -210,7 +210,7 @@
                                                                 </div>
                                                                 <p class="aa-prod-category">
                                                                     Category: <a
-                                                                        href="category/{{$product->category->id}}">{{$product->category->name}}</a>
+                                                                        href="/all-product?cate={{$product->category->id}}">{{$product->category->name}}</a>
                                                                 </p>
                                                                 <div class="aa-prod-view-bottom">
                                                                     <a class="aa-add-to-cart-btn " productId="{{$product->id}}"><span
@@ -299,7 +299,7 @@
                                             @endif
                                         @endforeach
                                     </ul>
-                                    <a class="aa-browse-btn" href="#">Browse all Product <span
+                                    <a class="aa-browse-btn" href="/all-product">Browse all Product <span
                                             class="fa fa-long-arrow-right"></span></a>
                                 </div>
                             </div>

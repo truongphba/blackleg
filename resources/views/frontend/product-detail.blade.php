@@ -97,11 +97,10 @@
 {{--                                    </div>--}}
                                     <p class="aa-prod-category">
                                         Category: <a style="color: red"
-                                            href="category/{{$product->category->id}}">{{$product->category->name}}</a>
+                                            href="/all-product?cate={{$product->category->id}}">{{$product->category->name}}</a>
                                     </p>
                                     <div class="aa-prod-view-bottom">
                                         <a class="aa-add-to-cart-btn" href="#">Add To Cart</a>
-                                        <a class="aa-add-to-cart-btn" href="#">Wishlist</a>
                                     </div>
                                 </div>
                             </div>
@@ -225,9 +224,9 @@
                                             </figcaption>
                                         </figure>
                                         <div class="aa-product-hvr-content">
-                                            <a href="#" data-toggle="tooltip" data-placement="top"
-                                               title="Add to Wishlist"><span
-                                                    class="fa fa-heart-o"></span></a>
+{{--                                            <a href="#" data-toggle="tooltip" data-placement="top"--}}
+{{--                                               title="Add to Wishlist"><span--}}
+{{--                                                    class="fa fa-heart-o"></span></a>--}}
                                             <a href="#" data-toggle2="tooltip" data-placement="top"
                                                title="Quick View" data-toggle="modal"
                                                data-target="#quick-view-modal{{$item->id}}"><span
@@ -319,7 +318,7 @@
                                                         </div>
                                                         <p class="aa-prod-category">
                                                             Category: <a
-                                                                href="category/{{$product->category->id}}">{{$product->category->name}}</a>
+                                                                href="/all-product?cate={{$product->category->id}}">{{$product->category->name}}</a>
                                                         </p>
                                                         <div class="aa-prod-view-bottom">
                                                             <a href="#" class="aa-add-to-cart-btn"><span

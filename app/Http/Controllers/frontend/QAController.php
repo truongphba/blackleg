@@ -15,7 +15,7 @@ class QAController extends Controller
         $categories = Category::all()->where('status','=',1);
         $collections = Collection::all()->where('status','=',1);
         $products = Product::all()->where('status','=',1);
-        $qa = QA::all();
+        $qa = QA::all()->where('status', '=', 1);
         return view('/frontend.QA')
             ->with('categories', $categories)
             ->with('products', $products)
